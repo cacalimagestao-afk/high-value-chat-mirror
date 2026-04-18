@@ -82,7 +82,7 @@ const temas = [
   { tag: "Episódio #4 · Alaíse Battaglia", title: "Recomeçar Sempre", url: "https://youtu.be/oAyKCl6XGZg?si=GwbJpFjOPy88TIy9" },
   { tag: "Episódio #5 · Cáren Proença", title: "Entre Eventos, Poder e Posicionamento Feminino", url: "https://youtu.be/lo8W6ij0TR4?si=x1lEq3HgWgN2ZUxU" },
   { tag: "Episódio #6 · Sidnei Gusmão Agra", title: "Entre a Técnica e a Fé: o Propósito de Servir", url: "https://youtu.be/KO5ss0ogeTA?si=xZRExg250WcIeA4R" },
-  { tag: "Episódio #7 · Andreia Vitória Reis", title: "Da Limitação à Visão: Quando a Imagem Vira Propósito", url: "https://youtu.be/o038HNE1NPU?si=O8GI_EZO05goWcp9" },
+  { tag: "Episódio #7 · Andreia Vitória Reis", title: "Ninguém dá o que não tem", url: "https://youtu.be/o038HNE1NPU?si=O8GI_EZO05goWcp9" },
   { tag: "Episódio #8 · Christopher Lança e Bruno Boris", title: "Inovação, Inteligência e Resiliência", url: "https://youtu.be/cth9BY92HLI?si=BQjRpqjSxnrafOxb" },
 ];
 
