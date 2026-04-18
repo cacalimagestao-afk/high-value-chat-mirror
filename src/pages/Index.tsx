@@ -354,17 +354,28 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {temas.map((t, i) => (
-              <Card key={t.title} className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative">
-                <CardContent className="p-6">
-                  <div className="font-display text-5xl text-gold/20 absolute top-4 right-4">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <Badge variant="outline" className="border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
-                    {t.tag}
-                  </Badge>
-                  <h3 className="font-display text-xl leading-snug">{t.title}</h3>
-                </CardContent>
-              </Card>
+              <a
+                key={t.title}
+                href={t.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
+                  <CardContent className="p-6">
+                    <div className="font-display text-5xl text-gold/20 absolute top-4 right-4">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <Badge variant="outline" className="border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
+                      {t.tag}
+                    </Badge>
+                    <h3 className="font-display text-xl leading-snug">{t.title}</h3>
+                    <p className="mt-4 text-xs uppercase tracking-wider text-gold/80 group-hover:text-gold transition-smooth">
+                      Assistir no YouTube →
+                    </p>
+                  </CardContent>
+                </Card>
+              </a>
             ))}
           </div>
         </div>
