@@ -79,11 +79,11 @@ const estrutura = [
 ];
 
 const temas = [
-  { tag: "Educação", title: "O poder da educação financeira na vida real" },
-  { tag: "Energia Solar", title: "Transformando o Brasil através da sustentabilidade" },
-  { tag: "Tecnologia", title: "Como a IA está revolucionando pequenos negócios" },
-  { tag: "Mobilidade", title: "O futuro dos veículos elétricos e inteligentes" },
-  { tag: "Saúde Corporativa", title: "Performance humana no ambiente de trabalho" },
+  { tag: "Episódio #5 · Alaíse Battaglia", title: "Recomeçar Sempre" },
+  { tag: "Episódio #6 · Sidnei Gusmão Agra", title: "Entre a Técnica e a Fé: o Propósito de Servir" },
+  { tag: "Episódio #7 · Cáren Proença", title: "Entre Eventos, Poder e Posicionamento Feminino" },
+  { tag: "Episódio #8 · Christopher Lança e Bruno Boris", title: "Inovação, Inteligência e Resiliência" },
+  { tag: "Episódio #9 · Adriane", title: "Da Limitação à Visão: Quando a Imagem Vira Propósito" },
 ];
 
 const setores = [
