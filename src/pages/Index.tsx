@@ -143,7 +143,7 @@ const cotas = [
   {
     nivel: "Branded Content",
     title: "Episódio Exclusivo",
-    price: "R$ 3.980",
+    price: "R$ 1.980",
     badge: "Máximo retorno sobre investimento",
     desc: "Episódio completo dedicado à sua marca. Diferenciação competitiva absoluta.",
     items: [
