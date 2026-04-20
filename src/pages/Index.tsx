@@ -25,6 +25,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 
 import b1 from "@/assets/bastidores/bastidores-1.jpg";
 import b2 from "@/assets/bastidores/bastidores-2.jpg";
