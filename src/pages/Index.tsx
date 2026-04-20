@@ -219,10 +219,21 @@ const Index = () => {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative pt-40 pb-32 overflow-hidden gradient-hero">
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
-             style={{ backgroundImage: "radial-gradient(circle at 20% 20%, hsl(42 65% 55%) 0, transparent 40%), radial-gradient(circle at 80% 80%, hsl(42 65% 55%) 0, transparent 40%)" }} />
-        <div className="container mx-auto relative">
+      <section id="top" className="relative pt-24 pb-32 overflow-hidden gradient-hero">
+        {/* Vinheta de fundo */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="/vinheta.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        </div>
+        <div className="container mx-auto relative z-10 pt-16">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="outline" className="border-gold/40 text-gold mb-8 uppercase tracking-[0.2em] text-xs px-4 py-1.5">
               Programa Semanal · Apresentado por Cacá Lima
