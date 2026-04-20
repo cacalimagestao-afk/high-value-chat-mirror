@@ -25,6 +25,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 
 import b1 from "@/assets/bastidores/bastidores-1.jpg";
 import b2 from "@/assets/bastidores/bastidores-2.jpg";
@@ -391,6 +392,40 @@ const Index = () => {
             </h2>
             <p className="text-muted-foreground text-lg">
               Investimento mensal · Produção profissional inclusa · Distribuição multiplataforma.
+            </p>
+          </div>
+
+          {/* Tabela de Investimentos */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="overflow-x-auto rounded-lg border border-border/60">
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-border/60 bg-navy/60">
+                    <TableHead className="text-foreground font-semibold">Formato</TableHead>
+                    <TableHead className="text-foreground font-semibold text-center">Por Episódio</TableHead>
+                    <TableHead className="text-foreground font-semibold text-center">Investimento Mensal</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {[
+                    { formato: "Cota Master — Minuto Educação", episodio: "R$ 750", mensal: "R$ 2.400" },
+                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 1.200", mensal: "R$ 3.980" },
+                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 1.980", mensal: "—" },
+                    { formato: "Produto do Programa", episodio: "R$ 580", mensal: "R$ 2.090" },
+                    { formato: "Vinheta de até 50s", episodio: "R$ 480", mensal: "R$ 1.890" },
+                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 800" },
+                  ].map((row) => (
+                    <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
+                      <TableCell className="font-medium text-foreground">{row.formato}</TableCell>
+                      <TableCell className="text-center text-gold font-semibold">{row.episodio}</TableCell>
+                      <TableCell className="text-center text-gold font-semibold">{row.mensal}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+            <p className="text-xs text-muted-foreground mt-3 text-center">
+              * Valores mensais baseados em 4 episódios por mês
             </p>
           </div>
 
