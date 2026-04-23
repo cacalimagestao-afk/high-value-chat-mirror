@@ -683,11 +683,11 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoOralsin, name: "Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
-              { logo: logoConfix, name: "Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
-              { logo: logoArena, name: "Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
-              { logo: logoPurpose, name: "Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
-              { logo: logoDermogral, name: "Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
+              { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
+              { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
+              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
+              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
+              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
             ].map((p) => (
               <a
                 key={p.name}
