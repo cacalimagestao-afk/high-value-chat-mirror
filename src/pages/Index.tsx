@@ -660,6 +660,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PARCEIROS & PATROCINADORES */}
+      <section className="py-20 md:py-28 border-t border-border/40">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Quem acredita conosco</p>
+            <h2 className="font-display text-3xl md:text-4xl">
+              Parceiros & <span className="italic text-gold">Patrocinadores</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="group aspect-[3/2] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-6"
+              >
+                <div className="text-muted-foreground/40 group-hover:text-gold/60 transition-smooth text-center">
+                  <Briefcase className="h-8 w-8 mx-auto mb-2 opacity-40 group-hover:opacity-70 transition-smooth" />
+                  <span className="text-[10px] uppercase tracking-widest">Logo</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground mt-10">
+            Quer ver sua marca aqui?{" "}
+            <a href="#contato" className="text-gold hover:text-gold-light underline underline-offset-4 transition-smooth">
+              Fale conosco
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="py-10 border-t border-border/40">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
