@@ -686,7 +686,7 @@ const Index = () => {
               { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==", scale: "" },
               { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==", scale: "" },
               { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
-              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia", scale: "scale-[1.6]" },
+              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia", scale: "scale-[2]" },
               { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==", scale: "scale-[1.6]" },
             ].map((p) => (
               <a
