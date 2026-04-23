@@ -676,7 +676,7 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 max-w-5xl mx-auto items-center">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
               { logo: logoOralsin, name: "Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
               { logo: logoConfix, name: "Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
@@ -689,10 +689,10 @@ const Index = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group aspect-[3/2] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-4 sm:p-5 h-24 sm:h-28"
                 title={p.name}
               >
-                <img src={p.logo} alt={p.name} className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
+                <img src={p.logo} alt={p.name} className="max-h-12 sm:max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
               </a>
             ))}
           </div>
