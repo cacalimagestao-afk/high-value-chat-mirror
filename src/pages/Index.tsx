@@ -208,7 +208,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
         <div className="container mx-auto flex items-center justify-between py-4">
-          <a href="#top" className="font-display text-lg md:text-xl tracking-wide">
+          <a href="#top" className="font-display text-lg md:text-xl tracking-wide" aria-label="Conversas de Alto Valor — Voltar ao topo">
             Conversas <span className="text-gold italic">de Alto Valor</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -233,6 +233,7 @@ const Index = () => {
             muted
             loop
             playsInline
+            aria-hidden="true"
             className="w-full h-full object-cover opacity-30"
           >
             <source src="/vinheta.mp4" type="video/mp4" />
@@ -378,6 +379,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
+                title={`Assistir ${t.tag} — ${t.title} no YouTube`}
               >
                 <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
                   <CardContent className="p-6">
@@ -596,7 +598,7 @@ const Index = () => {
                     i === bastIdx ? "border-gold" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
-                  <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
+                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -619,7 +621,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="https://taggo.one/cacalima" target="_blank" rel="noopener noreferrer">
+                <a href="https://taggo.one/cacalima" target="_blank" rel="noopener noreferrer" title="Conectar com Cacá Lima via Taggo">
                   Conectar com Cacá Lima <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -636,6 +638,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Canal do YouTube — Conversas de Alto Valor"
               >
                 <Youtube className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">YouTube</div>
@@ -646,6 +649,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Assista na RS Play TV"
               >
                 <Tv className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">TV</div>
@@ -656,6 +660,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Instagram de Cacá Lima via Taggo"
               >
                 <Instagram className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">Conecte-se</div>
