@@ -208,7 +208,7 @@ const Index = () => {
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
         <div className="container mx-auto flex items-center justify-between py-4">
-          <a href="#top" className="font-display text-lg md:text-xl tracking-wide">
+          <a href="#top" className="font-display text-lg md:text-xl tracking-wide" aria-label="Conversas de Alto Valor — Voltar ao topo">
             Conversas <span className="text-gold italic">de Alto Valor</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -233,6 +233,7 @@ const Index = () => {
             muted
             loop
             playsInline
+            aria-hidden="true"
             className="w-full h-full object-cover opacity-30"
           >
             <source src="/vinheta.mp4" type="video/mp4" />
@@ -378,6 +379,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
+                title={`Assistir ${t.tag} — ${t.title} no YouTube`}
               >
                 <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
                   <CardContent className="p-6">
@@ -596,7 +598,7 @@ const Index = () => {
                     i === bastIdx ? "border-gold" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
-                  <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
+                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -619,7 +621,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="https://taggo.one/cacalima" target="_blank" rel="noopener noreferrer">
+                <a href="https://taggo.one/cacalima" target="_blank" rel="noopener noreferrer" title="Conectar com Cacá Lima via Taggo">
                   Conectar com Cacá Lima <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -636,6 +638,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Canal do YouTube — Conversas de Alto Valor"
               >
                 <Youtube className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">YouTube</div>
@@ -646,6 +649,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Assista na RS Play TV"
               >
                 <Tv className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">TV</div>
@@ -656,6 +660,7 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
+                title="Instagram de Cacá Lima via Taggo"
               >
                 <Instagram className="h-5 w-5 text-gold mb-2 mx-auto" />
                 <div className="text-muted-foreground">Conecte-se</div>
@@ -678,11 +683,11 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoOralsin, name: "Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
-              { logo: logoConfix, name: "Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
-              { logo: logoArena, name: "Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
-              { logo: logoPurpose, name: "Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
-              { logo: logoDermogral, name: "Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
+              { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
+              { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
+              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
+              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
+              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
             ].map((p) => (
               <a
                 key={p.name}
@@ -690,9 +695,9 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-4 sm:p-5 h-24 sm:h-28"
-                title={p.name}
+                title={p.title}
               >
-                <img src={p.logo} alt={p.name} className="max-h-12 sm:max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className="max-h-12 sm:max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
               </a>
             ))}
           </div>
