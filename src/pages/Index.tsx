@@ -35,6 +35,12 @@ import b5 from "@/assets/bastidores/bastidores-5.jpg";
 import b6 from "@/assets/bastidores/bastidores-6.jpg";
 import b7 from "@/assets/bastidores/bastidores-7.jpg";
 
+import logoOralsin from "@/assets/parceiros/oralsin.jpg";
+import logoConfix from "@/assets/parceiros/confix.jpg";
+import logoArena from "@/assets/parceiros/arena.png";
+import logoPurpose from "@/assets/parceiros/purpose.png";
+import logoDermogral from "@/assets/parceiros/dermogral.png";
+
 const bastidores = [b1, b2, b3, b4, b5, b6, b7];
 
 const dnaPilares = [
