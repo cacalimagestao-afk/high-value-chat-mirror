@@ -35,6 +35,12 @@ import b5 from "@/assets/bastidores/bastidores-5.jpg";
 import b6 from "@/assets/bastidores/bastidores-6.jpg";
 import b7 from "@/assets/bastidores/bastidores-7.jpg";
 
+import logoOralsin from "@/assets/parceiros/oralsin.jpg";
+import logoConfix from "@/assets/parceiros/confix.jpg";
+import logoArena from "@/assets/parceiros/arena.png";
+import logoPurpose from "@/assets/parceiros/purpose.png";
+import logoDermogral from "@/assets/parceiros/dermogral.png";
+
 const bastidores = [b1, b2, b3, b4, b5, b6, b7];
 
 const dnaPilares = [
@@ -670,17 +676,24 @@ const Index = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="group aspect-[3/2] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-6"
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 max-w-5xl mx-auto items-center">
+            {[
+              { logo: logoOralsin, name: "Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
+              { logo: logoConfix, name: "Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
+              { logo: logoArena, name: "Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
+              { logo: logoPurpose, name: "Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
+              { logo: logoDermogral, name: "Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
+            ].map((p) => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group aspect-[3/2] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5"
+                title={p.name}
               >
-                <div className="text-muted-foreground/40 group-hover:text-gold/60 transition-smooth text-center">
-                  <Briefcase className="h-8 w-8 mx-auto mb-2 opacity-40 group-hover:opacity-70 transition-smooth" />
-                  <span className="text-[10px] uppercase tracking-widest">Logo</span>
-                </div>
-              </div>
+                <img src={p.logo} alt={p.name} className="max-h-16 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
+              </a>
             ))}
           </div>
 
