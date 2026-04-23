@@ -694,10 +694,10 @@ const Index = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-4 sm:p-5 h-28 sm:h-32"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5 sm:p-6 h-28 sm:h-32 overflow-hidden"
                 title={p.title}
               >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className="max-h-16 sm:max-h-20 max-w-full object-contain opacity-80 group-hover:opacity-100 transition-smooth" />
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" />
               </a>
             ))}
           </div>
