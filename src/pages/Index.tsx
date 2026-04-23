@@ -683,11 +683,11 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
-              { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==" },
-              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
-              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia" },
-              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
+              { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==", scale: "" },
+              { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==", scale: "" },
+              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
+              { logo: logoPurpose, name: "Purpose Mídia", title: "Visite o Instagram da Purpose Mídia", url: "https://www.instagram.com/purposemidia", scale: "scale-[1.6]" },
+              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==", scale: "scale-[1.6]" },
             ].map((p) => (
               <a
                 key={p.name}
@@ -697,7 +697,7 @@ const Index = () => {
                 className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5 sm:p-6 h-28 sm:h-32 overflow-hidden"
                 title={p.title}
               >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" />
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} />
               </a>
             ))}
           </div>
