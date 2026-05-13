@@ -106,9 +106,9 @@ const cotas = [
     priceLabel: "/ por mês",
     priceSub: "R$ 650 por episódio",
     badge: "Investimento acessível",
-    desc: "Vinheta de até 50 segundos com presença discreta mas efetiva em todos os episódios.",
+    desc: "Vinheta de até 15 segundos com presença discreta mas efetiva em todos os episódios.",
     items: [
-      "Vinheta institucional de até 50 segundos",
+      "Vinheta institucional de até 15 segundos no final de cada episódio",
       "Exibição no início ou final do programa",
       "Presença em todos os episódios",
       "Visibilidade de marca consistente",
