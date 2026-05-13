@@ -102,7 +102,9 @@ const cotas = [
   {
     nivel: "Vinheta",
     title: "Vinheta Institucional",
-    price: "R$ 650",
+    price: "R$ 1.890",
+    priceLabel: "/ por mês",
+    priceSub: "R$ 650 por episódio",
     badge: "Investimento acessível",
     desc: "Vinheta de até 50 segundos com presença discreta mas efetiva em todos os episódios.",
     items: [
@@ -117,7 +119,9 @@ const cotas = [
   {
     nivel: "Cota Education",
     title: "Minuto Educação",
-    price: "R$ 650",
+    price: "R$ 1.890",
+    priceLabel: "/ por mês",
+    priceSub: "R$ 650 por episódio",
     badge: "Cota Education disponível",
     desc: "Bloco de 8 minutos com VT profissional executado por Head Trainer especializado.",
     items: [
@@ -129,12 +133,13 @@ const cotas = [
       "Autoridade reconhecida no segmento",
     ],
     ideal: "Empresas B2B e B2C que buscam educar o mercado sobre seus produtos/serviços, demonstrar expertise técnica e construir autoridade em seus segmentos.",
-    destaque: true,
   },
   {
     nivel: "Cota Premium",
     title: "Construindo Novos Saberes",
-    price: "R$ 990",
+    price: "R$ 3.180",
+    priceLabel: "/ por mês",
+    priceSub: "R$ 990 por episódio",
     badge: "Cota Premium disponível",
     desc: "Tema desenvolvido exclusivamente, roteiro co-criado com sua equipe, formato monetizável.",
     items: [
@@ -146,11 +151,14 @@ const cotas = [
       "Material de apoio e infográficos",
     ],
     ideal: "Marcas que desejam se posicionar como líderes de pensamento e transformação empreendedora.",
+    destaque: true,
   },
   {
     nivel: "Branded Content",
     title: "Episódio Exclusivo",
     price: "R$ 2.380",
+    priceLabel: "/ por episódio",
+    priceSub: "",
     badge: "Máximo retorno sobre investimento",
     desc: "Episódio completo dedicado à sua marca. Diferenciação competitiva absoluta.",
     items: [
@@ -466,7 +474,10 @@ const Index = () => {
                   <CardTitle className="font-display text-2xl">{c.title}</CardTitle>
                   <div className="mt-4">
                     <div className="font-display text-4xl text-gold">{c.price}</div>
-                    <div className="text-xs text-muted-foreground mt-1">/ por episódio</div>
+                    <div className="text-xs text-muted-foreground mt-1">{c.priceLabel}</div>
+                    {c.priceSub && (
+                      <div className="text-[11px] text-muted-foreground/80 mt-1">{c.priceSub}</div>
+                    )}
                   </div>
                   <CardDescription className="pt-3 text-sm">{c.desc}</CardDescription>
                 </CardHeader>
