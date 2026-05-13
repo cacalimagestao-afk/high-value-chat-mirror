@@ -102,7 +102,7 @@ const cotas = [
   {
     nivel: "Vinheta",
     title: "Vinheta Institucional",
-    price: "R$ 480",
+    price: "R$ 650",
     badge: "Investimento acessível",
     desc: "Vinheta de até 50 segundos com presença discreta mas efetiva em todos os episódios.",
     items: [
@@ -115,10 +115,10 @@ const cotas = [
     ideal: "Empresas que buscam presença de marca regular com investimento controlado. Ideal para construção de awareness de longo prazo.",
   },
   {
-    nivel: "Cota Master",
+    nivel: "Cota Education",
     title: "Minuto Educação",
-    price: "R$ 1.890",
-    badge: "Cota Master disponível",
+    price: "R$ 650",
+    badge: "Cota Education disponível",
     desc: "Bloco de 8 minutos com VT profissional executado por Head Trainer especializado.",
     items: [
       "VT de alta produção executado por Head Trainer",
@@ -134,7 +134,7 @@ const cotas = [
   {
     nivel: "Cota Premium",
     title: "Construindo Novos Saberes",
-    price: "R$ 2.900",
+    price: "R$ 990",
     badge: "Cota Premium disponível",
     desc: "Tema desenvolvido exclusivamente, roteiro co-criado com sua equipe, formato monetizável.",
     items: [
@@ -150,7 +150,7 @@ const cotas = [
   {
     nivel: "Branded Content",
     title: "Episódio Exclusivo",
-    price: "R$ 1.980",
+    price: "R$ 2.380",
     badge: "Máximo retorno sobre investimento",
     desc: "Episódio completo dedicado à sua marca. Diferenciação competitiva absoluta.",
     items: [
@@ -168,7 +168,7 @@ const cotas = [
 const cotasComplementares = [
   {
     title: "Vestir Cacá Lima",
-    price: "R$ 800",
+    price: "R$ 950",
     desc: "Look completo fornecido pela marca parceira para Cacá Lima durante a gravação.",
     items: [
       "1 look exclusivo por programa gravado",
@@ -181,7 +181,7 @@ const cotasComplementares = [
   },
   {
     title: "Produto do Programa",
-    price: "R$ 1.200",
+    price: "R$ 650",
     desc: "Produto visível no cenário durante a gravação com menção natural por Cacá Lima.",
     items: [
       "Produto visível no cenário durante gravação",
@@ -427,12 +427,12 @@ const Index = () => {
                 </TableHeader>
                 <TableBody>
                   {[
-                    { formato: "Cota Master — Minuto Educação", episodio: "R$ 750", mensal: "R$ 2.400" },
-                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 1.200", mensal: "R$ 3.980" },
-                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 1.980", mensal: "—" },
-                    { formato: "Produto do Programa", episodio: "R$ 580", mensal: "R$ 2.090" },
-                    { formato: "Vinheta de até 50s", episodio: "R$ 480", mensal: "R$ 1.890" },
-                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 800" },
+                    { formato: "Cota Education — Minuto Educação", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 990", mensal: "R$ 3.180" },
+                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 2.380", mensal: "—" },
+                    { formato: "Produto do Programa", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Vinheta de até 50s", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 950" },
                   ].map((row) => (
                     <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
                       <TableCell className="font-medium text-foreground">{row.formato}</TableCell>
