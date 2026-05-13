@@ -438,7 +438,7 @@ const Index = () => {
                 <TableBody>
                   {[
                     { formato: "Cota Education — Minuto Educação", episodio: "R$ 650", mensal: "R$ 1.890" },
-                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 990", mensal: "R$ 3.180" },
+                    { formato: "Cota Premium — Construindo Saberes | Você Sabia", episodio: "R$ 990", mensal: "R$ 3.180" },
                     { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 2.380", mensal: "—" },
                     { formato: "Produto do Programa", episodio: "R$ 650", mensal: "R$ 1.890" },
                     { formato: "Vinheta de até 15s", episodio: "R$ 650", mensal: "R$ 1.890" },
