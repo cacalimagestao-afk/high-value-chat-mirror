@@ -123,10 +123,10 @@ const cotas = [
     priceLabel: "/ por mês",
     priceSub: "R$ 650 por episódio",
     badge: "Cota Education disponível",
-    desc: "Bloco de 8 minutos com VT profissional executado por Head Trainer especializado.",
+    desc: "Bloco de 60 segundos com VT profissional executado por Head Trainer especializado.",
     items: [
       "VT de alta produção executado por Head Trainer",
-      "Exibição em bloco nobre de 8 minutos",
+      "Exibição em bloco nobre de 1 minuto com vinheta própria",
       "Associação ao pilar de educação empreendedora",
       "Conteúdo educativo aplicado à prática real",
       "Posicionamento técnico e científico sólido",
