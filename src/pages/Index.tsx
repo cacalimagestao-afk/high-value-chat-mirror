@@ -427,12 +427,12 @@ const Index = () => {
                 </TableHeader>
                 <TableBody>
                   {[
-                    { formato: "Cota Master — Minuto Educação", episodio: "R$ 750", mensal: "R$ 2.400" },
-                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 1.200", mensal: "R$ 3.980" },
-                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 1.980", mensal: "—" },
-                    { formato: "Produto do Programa", episodio: "R$ 580", mensal: "R$ 2.090" },
-                    { formato: "Vinheta de até 50s", episodio: "R$ 480", mensal: "R$ 1.890" },
-                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 800" },
+                    { formato: "Cota Education — Minuto Educação", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 990", mensal: "R$ 3.180" },
+                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 2.380", mensal: "—" },
+                    { formato: "Produto do Programa", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Vinheta de até 50s", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 950" },
                   ].map((row) => (
                     <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
                       <TableCell className="font-medium text-foreground">{row.formato}</TableCell>
