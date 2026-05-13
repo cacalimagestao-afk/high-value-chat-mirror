@@ -106,9 +106,9 @@ const cotas = [
     priceLabel: "/ por mês",
     priceSub: "R$ 650 por episódio",
     badge: "Investimento acessível",
-    desc: "Vinheta de até 50 segundos com presença discreta mas efetiva em todos os episódios.",
+    desc: "Vinheta de até 15 segundos com presença discreta mas efetiva em todos os episódios.",
     items: [
-      "Vinheta institucional de até 50 segundos",
+      "Vinheta institucional de até 15 segundos no final de cada episódio",
       "Exibição no início ou final do programa",
       "Presença em todos os episódios",
       "Visibilidade de marca consistente",
@@ -439,7 +439,7 @@ const Index = () => {
                     { formato: "Cota Premium — Construindo Novos Saberes", episodio: "R$ 990", mensal: "R$ 3.180" },
                     { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 2.380", mensal: "—" },
                     { formato: "Produto do Programa", episodio: "R$ 650", mensal: "R$ 1.890" },
-                    { formato: "Vinheta de até 50s", episodio: "R$ 650", mensal: "R$ 1.890" },
+                    { formato: "Vinheta de até 15s", episodio: "R$ 650", mensal: "R$ 1.890" },
                     { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 950" },
                   ].map((row) => (
                     <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
