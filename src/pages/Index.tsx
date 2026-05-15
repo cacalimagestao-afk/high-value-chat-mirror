@@ -202,7 +202,7 @@ const cotasComplementares = [
       "Associação sutil e sofisticada com o programa",
       "Integração orgânica ao ambiente e à narrativa",
       "Reforço estético e emocional da marca",
-      "Ideal para produtos premium, bebidas, alimentos gourmet, decoração e lifestyle",
+      
       "Presença em episódios, bastidores e conteúdos derivados",
     ],
     ideal: "Produtos premium, bebidas, alimentos gourmet, artigos de decoração e lifestyle.",
