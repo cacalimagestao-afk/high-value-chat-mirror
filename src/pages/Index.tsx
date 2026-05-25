@@ -249,7 +249,10 @@ const Index = () => {
             muted
             loop
             playsInline
+            preload="auto"
             aria-hidden="true"
+            width="1920"
+            height="1080"
             className="w-full h-full object-cover opacity-30"
           >
             <source src="/vinheta.mp4" type="video/mp4" />
