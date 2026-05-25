@@ -262,8 +262,8 @@ const Index = () => {
               Programa Semanal · Apresentado por Cacá Lima
             </Badge>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-8">
-              Profundidade, propósito e{" "}
-              <span className="text-gradient-gold italic">narrativa humana</span>.
+              Conversas de Alto Valor —{" "}
+              <span className="text-gradient-gold italic">Profundidade, propósito e narrativa humana</span>.
             </h1>
             <div className="gold-divider w-32 mx-auto mb-8" />
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
