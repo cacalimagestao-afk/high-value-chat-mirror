@@ -87,7 +87,7 @@ const estrutura = [
 
 const temas = [
   { tag: "Episódio #13 · GRAMADO SUMMIT", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY" },
-  { tag: "Episódio #12 · Michelle Teixeira", title: "Título em breve", url: "https://youtu.be/WeCFInc6SC8" },
+  { tag: "Episódio #12 · Michelle Teixeira", title: "A fé consegue restaurar uma vida?", url: "https://youtu.be/WeCFInc6SC8" },
   { tag: "Episódio #11 · Em breve", title: "Título em breve", url: "https://youtu.be/7EVEG-gS-h4" },
   { tag: "Episódio #10 · Em breve", title: "Título em breve", url: "https://youtu.be/pMncW4HFIrw" },
   { tag: "Episódio #8 · Christopher Lança e Bruno Boris", title: "Inovação, Inteligência e Resiliência", url: "https://youtu.be/cth9BY92HLI" },
