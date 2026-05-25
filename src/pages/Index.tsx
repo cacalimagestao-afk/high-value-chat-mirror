@@ -504,7 +504,7 @@ const Index = () => {
                     <div className="font-display text-4xl text-gold">{c.price}</div>
                     <div className="text-xs text-muted-foreground mt-1">{c.priceLabel}</div>
                     {c.priceSub && (
-                      <div className="text-[11px] text-muted-foreground/80 mt-1">{c.priceSub}</div>
+                      <div className="text-[11px] text-muted-foreground mt-1">{c.priceSub}</div>
                     )}
                   </div>
                   <CardDescription className="pt-3 text-sm">{c.desc}</CardDescription>
