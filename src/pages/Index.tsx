@@ -92,7 +92,6 @@ const temas = [
   { tag: "Episódio #10 · Carolina Teixeira", title: "Ela encontrou sentido nos vinhos", url: "https://youtu.be/pMncW4HFIrw" },
   { tag: "Episódio #9 · Adriane Ribeiro Martins", title: "Ela não enxerga como você", url: "https://youtu.be/GIk6Ss59j6Q" },
   { tag: "Episódio #8 · Christopher Lança e Bruno Boris", title: "Inovação, Inteligência e Resiliência", url: "https://youtu.be/cth9BY92HLI" },
-  { tag: "Episódio #7 · Andreia Vitória Reis", title: "Ninguém dá o que não tem", url: "https://youtu.be/o038HNE1NPU" },
 ];
 
 const setores = [
