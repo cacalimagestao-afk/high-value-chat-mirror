@@ -15,6 +15,7 @@ import {
   Quote,
   ChevronLeft,
   ChevronRight,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -235,7 +236,7 @@ const Index = () => {
             <a href="#contato" className="hover:text-gold transition-smooth">Contato</a>
           </nav>
           <Button asChild size="sm" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-            <a href="#contato">Solicitar Proposta</a>
+            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta</a>
           </Button>
         </div>
       </header>
@@ -275,7 +276,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="#contato">Solicitar Proposta <ArrowRight className="ml-2 h-4 w-4" /></a>
+                <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta <ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-gold/40 text-foreground hover:bg-gold/10 hover:text-gold">
                 <a href="#programa">Conheça o Programa</a>
@@ -485,7 +486,7 @@ const Index = () => {
                     <p className="text-[11px] uppercase tracking-wider text-gold/80 mb-2">Ideal Para</p>
                     <p className="text-xs text-muted-foreground leading-relaxed mb-5">{c.ideal}</p>
                     <Button asChild className="w-full bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-                      <a href="#contato">Solicitar Proposta</a>
+                      <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta</a>
                     </Button>
                   </div>
                 </CardContent>
@@ -657,15 +658,15 @@ const Index = () => {
                 <div className="font-semibold group-hover:text-gold transition-smooth">RS Play TV →</div>
               </a>
               <a
-                href="https://taggo.one/cacalima"
+                href="https://wa.me/5551992149336"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
-                title="Instagram de Cacá Lima via Taggo"
+                title="Fale com a Produção via WhatsApp"
               >
-                <Instagram className="h-5 w-5 text-gold mb-2 mx-auto" />
-                <div className="text-muted-foreground">Conecte-se</div>
-                <div className="font-semibold group-hover:text-gold transition-smooth">taggo.one/cacalima</div>
+                <Phone className="h-5 w-5 text-gold mb-2 mx-auto" />
+                <div className="text-muted-foreground">Produção</div>
+                <div className="font-semibold group-hover:text-gold transition-smooth">51 99214-9336</div>
               </a>
             </div>
           </div>
@@ -705,7 +706,7 @@ const Index = () => {
 
           <p className="text-center text-sm text-muted-foreground mt-10">
             Quer ver sua marca aqui?{" "}
-            <a href="#contato" className="text-gold hover:text-gold-light underline underline-offset-4 transition-smooth">
+            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-light underline underline-offset-4 transition-smooth">
               Fale conosco
             </a>
           </p>
