@@ -465,14 +465,14 @@ const Index = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {[
-                    { formato: "Cota Education — Minuto Educação", episodio: "R$ 650", mensal: "R$ 1.890" },
-                    { formato: "Cota Premium — Construindo Saberes | Você Sabia", episodio: "R$ 990", mensal: "R$ 3.180" },
-                    { formato: "Branded Content — Episódio Exclusivo", episodio: "R$ 2.380", mensal: "—" },
-                    { formato: "Produto do Programa", episodio: "R$ 650", mensal: "R$ 1.890" },
-                    { formato: "Vinheta de até 15s", episodio: "R$ 650", mensal: "R$ 1.890" },
-                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "R$ 950" },
-                  ].map((row) => (
+                    {[
+                      { formato: "Cota Education — Minuto Educação", episodio: "Sob consulta", mensal: "Sob consulta" },
+                      { formato: "Cota Premium — Construindo Saberes | Você Sabia", episodio: "Sob consulta", mensal: "Sob consulta" },
+                      { formato: "Branded Content — Episódio Exclusivo", episodio: "Sob consulta", mensal: "Sob consulta" },
+                      { formato: "Produto do Programa", episodio: "Sob consulta", mensal: "Sob consulta" },
+                      { formato: "Vinheta de até 15s", episodio: "Sob consulta", mensal: "Sob consulta" },
+                      { formato: "Vestir Cacá Lima", episodio: "—", mensal: "Sob consulta" },
+                    ].map((row) => (
                     <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
                       <TableCell className="font-medium text-foreground">{row.formato}</TableCell>
                       <TableCell className="text-center text-gold font-semibold">{row.episodio}</TableCell>
@@ -503,13 +503,6 @@ const Index = () => {
                 <CardHeader>
                   <p className="text-xs uppercase tracking-[0.2em] text-gold mb-2">{c.nivel}</p>
                   <CardTitle className="font-display text-2xl">{c.title}</CardTitle>
-                  <div className="mt-4">
-                    <div className="font-display text-4xl text-gold">{c.price}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{c.priceLabel}</div>
-                    {c.priceSub && (
-                      <div className="text-[11px] text-muted-foreground mt-1">{c.priceSub}</div>
-                    )}
-                  </div>
                   <CardDescription className="pt-3 text-sm">{c.desc}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
@@ -547,7 +540,6 @@ const Index = () => {
                         <CardTitle className="font-display text-xl mb-1">{c.title}</CardTitle>
                         <CardDescription>{c.desc}</CardDescription>
                       </div>
-                      <div className="font-display text-2xl text-gold whitespace-nowrap">{c.price}</div>
                     </div>
                   </CardHeader>
                   <CardContent>
