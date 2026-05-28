@@ -453,39 +453,6 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Tabela de Investimentos */}
-          <div className="max-w-4xl mx-auto mb-20">
-            <div className="overflow-x-auto rounded-lg border border-border/60">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-border/60 bg-navy/60">
-                    <TableHead className="text-foreground font-semibold">Formato</TableHead>
-                    <TableHead className="text-foreground font-semibold text-center">Por Episódio</TableHead>
-                    <TableHead className="text-foreground font-semibold text-center">Investimento Mensal</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[
-                    { formato: "Cota Education — Minuto Educação", episodio: "Sob consulta", mensal: "Sob consulta" },
-                    { formato: "Cota Premium — Construindo Saberes | Você Sabia", episodio: "Sob consulta", mensal: "Sob consulta" },
-                    { formato: "Branded Content — Episódio Exclusivo", episodio: "Sob consulta", mensal: "Sob consulta" },
-                    { formato: "Produto do Programa", episodio: "Sob consulta", mensal: "Sob consulta" },
-                    { formato: "Vinheta de até 15s", episodio: "Sob consulta", mensal: "Sob consulta" },
-                    { formato: "Vestir Cacá Lima", episodio: "—", mensal: "Sob consulta" },
-                  ].map((row) => (
-                    <TableRow key={row.formato} className="border-border/40 hover:bg-navy/30">
-                      <TableCell className="font-medium text-foreground">{row.formato}</TableCell>
-                      <TableCell className="text-center text-gold font-semibold">{row.episodio}</TableCell>
-                      <TableCell className="text-center text-gold font-semibold">{row.mensal}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3 text-center">
-              * Valores mensais baseados em 4 episódios por mês
-            </p>
-          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {cotas.map((c) => (
