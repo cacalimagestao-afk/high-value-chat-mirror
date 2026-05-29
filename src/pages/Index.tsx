@@ -596,6 +596,7 @@ const Index = () => {
                 <button
                   key={src}
                   onClick={() => setBastIdx(i)}
+                  aria-label={`Ver foto ${i + 1} dos bastidores`}
                   className={`aspect-square rounded-md overflow-hidden border-2 transition-smooth ${
                     i === bastIdx ? "border-gold" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
@@ -698,6 +699,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5 sm:p-6 h-28 sm:h-32 overflow-hidden"
                 title={p.title}
+                aria-label={p.title}
               >
                 <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} />
               </a>
