@@ -623,8 +623,8 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="https://taggo.one/cacalima" target="_blank" rel="noopener noreferrer" title="Conectar com Cacá Lima via Taggo">
-                  Conectar com Cacá Lima <ArrowRight className="ml-2 h-4 w-4" />
+                <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" title="Fale com a Produção via WhatsApp">
+                  Produção 51 99214-9336 <Phone className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-gold/40 hover:bg-gold/10 hover:text-gold">
@@ -658,15 +658,15 @@ const Index = () => {
                 <div className="font-semibold group-hover:text-gold transition-smooth">RS Play TV →</div>
               </a>
               <a
-                href="https://wa.me/5551992149336"
+                href="https://www.instagram.com/conversasdealtovalor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
-                title="Fale com a Produção via WhatsApp"
+                title="Siga no Instagram — Conversas de Alto Valor"
               >
-                <Phone className="h-5 w-5 text-gold mb-2 mx-auto" />
-                <div className="text-muted-foreground">Produção</div>
-                <div className="font-semibold group-hover:text-gold transition-smooth">51 99214-9336</div>
+                <Instagram className="h-5 w-5 text-gold mb-2 mx-auto" />
+                <div className="text-muted-foreground">Instagram</div>
+                <div className="font-semibold group-hover:text-gold transition-smooth">@conversasdealtovalor</div>
               </a>
             </div>
           </div>
