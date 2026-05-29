@@ -624,7 +624,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
                 <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" title="Fale com a Produção via WhatsApp">
-                  Produção 51 99214-9336 <Phone className="ml-2 h-4 w-4" />
+                  Fale com a Produção <Phone className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-gold/40 hover:bg-gold/10 hover:text-gold">
