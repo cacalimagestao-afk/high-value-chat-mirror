@@ -436,17 +436,17 @@ const Index = () => {
       <section id="cotas" className="py-24 md:py-32 bg-navy/40 border-y border-border/40">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Tabela de Cotas</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Cotas de Patrocínio</p>
             <h2 className="font-display text-4xl md:text-5xl mb-6">
               Escolha a melhor forma de <span className="italic text-gold">conectar sua marca</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Investimento mensal · Produção profissional inclusa · Distribuição multiplataforma.
+              Mais do que espaço publicitário, oferecemos posicionamento, autoridade e relacionamento através de conteúdo relevante e produção profissional. Todos os conteúdos são gravados em estúdio, exibidos na TVRS Play (Canal 524 Claro), publicados no YouTube e divulgados nas redes sociais do programa e da apresentadora Cacá Lima.
             </p>
           </div>
 
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {cotas.map((c) => (
               <Card
                 key={c.title}
