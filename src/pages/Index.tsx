@@ -516,6 +516,23 @@ const Index = () => {
             </div>
           </div>
 
+          {/* Todos os patrocínios incluem */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="rounded-2xl border border-gold/30 bg-card/50 p-8 md:p-12">
+              <h3 className="font-display text-2xl md:text-3xl text-center mb-8">
+                Todos os patrocínios <span className="italic text-gold">incluem</span>
+              </h3>
+              <ul className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                {todosIncluem.map((it) => (
+                  <li key={it} className="flex gap-2">
+                    <Check className="h-4 w-4 text-gold mt-0.5 shrink-0" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           {/* Setores */}
           <div className="mt-20 max-w-4xl mx-auto text-center">
             <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Setores Indicados</p>
