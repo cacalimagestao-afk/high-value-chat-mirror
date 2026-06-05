@@ -102,113 +102,104 @@ const setores = [
 
 const cotas = [
   {
-    nivel: "Vinheta",
-    title: "Vinheta Institucional",
-    price: "R$ 1.890",
-    priceLabel: "/ por mês",
-    priceSub: "R$ 650 por episódio",
-    badge: "Investimento acessível",
-    desc: "Vinheta de até 15 segundos com presença discreta mas efetiva em todos os episódios.",
+    nivel: "Cota Master",
+    title: "Patrocinador Master",
+    desc: "A principal cota de posicionamento do Conversas de Alto Valor. Sua marca torna-se parceira oficial do programa, associando-se a uma plataforma de conteúdo voltada para empresários, especialistas e profissionais que valorizam credibilidade, relacionamento e autoridade. Além da presença institucional, sua empresa participa ativamente da geração de conteúdo através do quadro Construindo Saberes.",
     items: [
-      "Vinheta institucional de até 15 segundos no final de cada episódio",
-      "Exibição no início ou final do programa",
-      "Presença em todos os episódios",
-      "Visibilidade de marca consistente",
-      "Lembrança de marca (recall)",
+      "Vinheta institucional de até 15s na abertura de todos os episódios",
+      "Vinheta institucional de até 15s no encerramento de todos os episódios",
+      "Destaque como Patrocinador Master",
+      "Logo em materiais institucionais e comerciais do programa",
+      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Publicação oficial no YouTube",
+      "Divulgação nas redes sociais do Conversas de Alto Valor",
+      "Divulgação nas redes sociais da apresentadora Cacá Lima",
+      "Participação mensal no quadro Construindo Saberes com gravação em estúdio",
+      "Participação presencial da empresa nas gravações",
+      "Vídeo institucional de até 15s ao final do quadro",
+      "Entrega dos materiais editados",
+      "Licença para utilização institucional dos conteúdos produzidos",
     ],
-    ideal: "Empresas que buscam presença de marca regular com investimento controlado. Ideal para construção de awareness de longo prazo.",
-  },
-  {
-    nivel: "Cota Education",
-    title: "Minuto Educação",
-    price: "R$ 1.890",
-    priceLabel: "/ por mês",
-    priceSub: "R$ 650 por episódio",
-    badge: "Cota Education disponível",
-    desc: "Bloco de 60 segundos com VT profissional executado por Head Trainer especializado.",
-    items: [
-      "VT de alta produção executado por Head Trainer",
-      "Exibição em bloco nobre de 1 minuto com vinheta própria",
-      "Associação ao pilar de educação empreendedora",
-      "Conteúdo educativo aplicado à prática real",
-      "Posicionamento técnico e científico sólido",
-      "Autoridade reconhecida no segmento",
-    ],
-    ideal: "Empresas B2B e B2C que buscam educar o mercado sobre seus produtos/serviços, demonstrar expertise técnica e construir autoridade em seus segmentos.",
+    ideal: "Diferenciais: exclusividade por segmento de atuação, associação direta à identidade institucional do programa, prioridade na renovação da parceria e presença recorrente durante toda a temporada.",
+    destaque: true,
   },
   {
     nivel: "Cota Premium",
     title: "Construindo Saberes | Você Sabia",
-    price: "R$ 3.180",
-    priceLabel: "/ por mês",
-    priceSub: "R$ 990 por episódio",
-    badge: "Cota Premium disponível",
-    desc: "Bloco exclusivo de até 3 minutos por edição com VT desenvolvido pela própria empresa patrocinadora, transformando conhecimento em posicionamento de marca.",
+    desc: "Transforme conhecimento em autoridade. Sua empresa participa de um dos quadros mais relevantes do programa através de conteúdo educativo, estratégico e alinhado ao seu mercado de atuação, fortalecendo posicionamento, credibilidade e relacionamento com o público.",
     items: [
-      "Bloco exclusivo de até 3 minutos por edição",
-      "VT desenvolvido e apresentado pela própria empresa patrocinadora",
-      "Conteúdo baseado em curiosidades, informação e educação de mercado",
-      "Inserção estratégica dentro do quadro Construindo Saberes",
-      "Produção gravada em estúdio com edição premium e trilha dedicada",
-      "Roteiro alinhado junto à equipe do programa",
-      "Fortalecimento de autoridade e posicionamento institucional",
-      "Conteúdo evergreen para reutilização em redes sociais, campanhas e materiais comerciais",
+      "Participação no quadro Construindo Saberes",
+      "Gravação profissional em estúdio",
+      "Participação presencial da empresa nas gravações",
+      "Produção de conteúdo estratégico",
+      "Vídeo institucional de até 15s ao final do quadro",
+      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Publicação no YouTube",
+      "Divulgação nas redes sociais do programa",
+      "Divulgação nas redes sociais da apresentadora Cacá Lima",
+      "Entrega dos vídeos editados",
+      "Licença para utilização institucional dos conteúdos produzidos",
     ],
-    ideal: "Marcas que desejam transformar conhecimento em autoridade, fortalecendo posicionamento institucional através de conteúdo inteligente e relevante.",
-    destaque: true,
+    ideal: "Marcas que desejam transformar conhecimento em autoridade através de conteúdo educativo, estratégico e alinhado ao seu mercado de atuação.",
   },
   {
     nivel: "Branded Content",
-    title: "Episódio Exclusivo",
-    price: "R$ 2.380",
-    priceLabel: "/ por episódio",
-    priceSub: "",
-    badge: "Máximo retorno sobre investimento",
-    desc: "Um episódio completo pensado para posicionar sua marca de forma estratégica, humanizada e memorável. Mais do que publicidade, sua empresa se torna protagonista de uma narrativa construída com propósito, autoridade e conexão real com o público.",
+    title: "Entrevista Especial",
+    desc: "Uma oportunidade para apresentar sua trajetória, seus valores, sua empresa e seus diferenciais dentro do Conversas de Alto Valor. A entrevista é construída para revelar a essência da marca e a história por trás do negócio, gerando conexão e credibilidade junto ao público.",
     items: [
-      "Episódio completo dedicado à sua marca",
-      "Representante da empresa como convidado principal",
-      "Storytelling estratégico e humanizado",
-      "Direcionamento editorial alinhado ao posicionamento da marca",
-      "Versão estendida para cortes e campanhas digitais",
-      "Destaque institucional e crédito oficial no encerramento",
-      "Conteúdo evergreen para uso contínuo da marca",
+      "Participação como entrevistado principal do episódio",
+      "Entrevista conduzida por Cacá Lima",
+      "Gravação profissional em estúdio",
+      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Publicação no YouTube",
+      "Divulgação nas redes sociais do programa",
+      "Divulgação nas redes sociais da apresentadora Cacá Lima",
+      "Entrega integral dos materiais editados",
+      "Licença para utilização institucional dos conteúdos produzidos",
     ],
-    ideal: "Marcas que desejam o máximo de exposição com narrativa profunda, posicionamento estratégico e formato imersivo.",
+    ideal: "A entrevista acontece dentro da estrutura oficial do programa, mantendo os quadros, patrocinadores e identidade editorial do Conversas de Alto Valor.",
   },
 ];
 
 const cotasComplementares = [
   {
-    title: "Vestir Cacá Lima",
-    price: "R$ 950",
-    desc: "Sua marca presente na imagem da apresentadora durante as gravações do Conversas de Alto Valor, conectando estilo, posicionamento e percepção de valor de forma elegante e natural.",
+    title: "Presença de Marca no Estúdio",
+    desc: "Sua marca integrada de forma elegante e natural ao cenário do programa. Uma oportunidade de fortalecer reconhecimento, gerar lembrança de marca e associar seu produto a um ambiente de credibilidade, relacionamento e posicionamento.",
     items: [
-      "Look completo fornecido pela marca parceira",
-      "1 look exclusivo por programa gravado",
-      "Exposição nas redes sociais da apresentadora",
-      "Associação direta à imagem da Cacá Lima",
-      "Valorização do lifestyle e posicionamento da marca",
-      "Possibilidade de peças cedidas ou doadas",
-      "Presença visual durante gravações e bastidores",
+      "Exposição do produto ou marca durante a gravação",
+      "Presença visual no cenário do programa",
+      "Participação em fotos, vídeos, cortes e materiais derivados",
+      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Publicação no YouTube",
+      "Divulgação nas redes sociais do programa",
+      "Associação à identidade visual do Conversas de Alto Valor",
     ],
-    ideal: "Marcas de moda feminina, joalherias, acessórios premium e lifestyle.",
+    ideal: "Ideal para vinhos e espumantes, cafés especiais, chocolaterias, decoração e paisagismo, tecnologia, livros e editoras, presentes corporativos e produtos premium.",
   },
   {
-    title: "Product Placement | Produto no Programa",
-    price: "R$ 650",
-    desc: "Sua marca integrada de forma elegante e orgânica ao universo do Conversas de Alto Valor, através da presença visual estratégica de produtos durante as gravações do programa.",
+    title: "Parceiro de Imagem",
+    desc: "Sua marca associada diretamente à imagem da apresentadora Cacá Lima durante as gravações do programa, conectando-se à elegância, credibilidade e presença de uma profissional reconhecida no mercado de eventos, comunicação e relacionamento.",
     items: [
-      "Produto visível no cenário durante a gravação",
-      "Menção natural realizada por Cacá Lima",
-      "Associação sutil e sofisticada com o programa",
-      "Integração orgânica ao ambiente e à narrativa",
-      "Reforço estético e emocional da marca",
-      
-      "Presença em episódios, bastidores e conteúdos derivados",
+      "Utilização de roupas durante as gravações",
+      "Utilização de calçados durante as gravações",
+      "Utilização de óculos durante as gravações",
+      "Utilização de acessórios previamente acordados",
+      "Presença nos bastidores e gravações",
+      "Marcação da marca nas publicações quando aplicável",
+      "Associação à imagem da apresentadora e exposição recorrente na temporada",
     ],
-    ideal: "Produtos premium, bebidas, alimentos gourmet, artigos de decoração e lifestyle.",
+    ideal: "Ideal para óticas, marcas de moda feminina, calçados, bolsas e acessórios, joalherias e lifestyle premium.",
   },
+];
+
+const todosIncluem = [
+  "Produção audiovisual profissional",
+  "Exibição na TVRS Play (Canal 524 Claro)",
+  "Publicação no YouTube",
+  "Divulgação nas redes sociais do programa",
+  "Divulgação nas redes sociais da apresentadora Cacá Lima",
+  "Entrega dos materiais editados para utilização da marca",
+  "Associação ao posicionamento institucional do Conversas de Alto Valor",
 ];
 
 const Index = () => {
@@ -445,17 +436,17 @@ const Index = () => {
       <section id="cotas" className="py-24 md:py-32 bg-navy/40 border-y border-border/40">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Tabela de Cotas</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Cotas de Patrocínio</p>
             <h2 className="font-display text-4xl md:text-5xl mb-6">
               Escolha a melhor forma de <span className="italic text-gold">conectar sua marca</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Investimento mensal · Produção profissional inclusa · Distribuição multiplataforma.
+              Mais do que espaço publicitário, oferecemos posicionamento, autoridade e relacionamento através de conteúdo relevante e produção profissional. Todos os conteúdos são gravados em estúdio, exibidos na TVRS Play (Canal 524 Claro), publicados no YouTube e divulgados nas redes sociais do programa e da apresentadora Cacá Lima.
             </p>
           </div>
 
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {cotas.map((c) => (
               <Card
                 key={c.title}
@@ -522,6 +513,23 @@ const Index = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+
+          {/* Todos os patrocínios incluem */}
+          <div className="mt-20 max-w-4xl mx-auto">
+            <div className="rounded-2xl border border-gold/30 bg-card/50 p-8 md:p-12">
+              <h3 className="font-display text-2xl md:text-3xl text-center mb-8">
+                Todos os patrocínios <span className="italic text-gold">incluem</span>
+              </h3>
+              <ul className="grid sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                {todosIncluem.map((it) => (
+                  <li key={it} className="flex gap-2">
+                    <Check className="h-4 w-4 text-gold mt-0.5 shrink-0" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
