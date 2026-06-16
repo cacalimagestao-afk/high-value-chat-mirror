@@ -114,7 +114,7 @@ const cotas = [
       "Publicação oficial no YouTube",
       "Divulgação nas redes sociais do Conversas de Alto Valor",
       "Divulgação nas redes sociais da apresentadora Cacá Lima",
-      "Participação mensal no quadro Construindo Saberes com gravação em estúdio",
+      "Participação mensal no quadro Você Sabia com gravação em estúdio",
       "Participação presencial da empresa nas gravações",
       "Vídeo institucional de até 15s ao final do quadro",
       "Entrega dos materiais editados",
@@ -125,10 +125,10 @@ const cotas = [
   },
   {
     nivel: "Cota Premium",
-    title: "Construindo Saberes | Você Sabia",
+    title: "Você Sabia",
     desc: "Transforme conhecimento em autoridade. Sua empresa participa de um dos quadros mais relevantes do programa através de conteúdo educativo, estratégico e alinhado ao seu mercado de atuação, fortalecendo posicionamento, credibilidade e relacionamento com o público.",
     items: [
-      "Participação no quadro Construindo Saberes",
+      "Participação no quadro Você Sabia",
       "Gravação profissional em estúdio",
       "Participação presencial da empresa nas gravações",
       "Produção de conteúdo estratégico",
