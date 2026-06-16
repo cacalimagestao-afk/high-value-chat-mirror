@@ -104,7 +104,7 @@ const cotas = [
   {
     nivel: "Cota Master",
     title: "Patrocinador Master",
-    desc: "A principal cota de posicionamento do Conversas de Alto Valor. Sua marca torna-se parceira oficial do programa, associando-se a uma plataforma de conteúdo voltada para empresários, especialistas e profissionais que valorizam credibilidade, relacionamento e autoridade. Além da presença institucional, sua empresa participa ativamente da geração de conteúdo através do quadro Construindo Saberes.",
+    desc: "A principal cota de posicionamento do Conversas de Alto Valor. Sua marca torna-se parceira oficial do programa, associando-se a uma plataforma de conteúdo voltada para empresários, especialistas e profissionais que valorizam credibilidade, relacionamento e autoridade. Além da presença institucional, sua empresa participa ativamente da geração de conteúdo através do quadro Você Sabia.",
     items: [
       "Vinheta institucional de até 15s na abertura de todos os episódios",
       "Vinheta institucional de até 15s no encerramento de todos os episódios",
