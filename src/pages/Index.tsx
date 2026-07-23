@@ -16,6 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Phone,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
