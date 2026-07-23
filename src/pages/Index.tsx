@@ -16,6 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Phone,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -36,10 +37,8 @@ import b5 from "@/assets/bastidores/bastidores-5.jpg";
 import b6 from "@/assets/bastidores/bastidores-6.jpg";
 import b7 from "@/assets/bastidores/bastidores-7.jpg";
 
-import logoOralsin from "@/assets/parceiros/oralsin.png";
-import logoConfix from "@/assets/parceiros/confix.jpg";
+import logoRsplay from "@/assets/parceiros/rsplay.png";
 import logoArena from "@/assets/parceiros/arena.png";
-
 import logoDermogral from "@/assets/parceiros/dermogral.png";
 
 const bastidores = [b1, b2, b3, b4, b5, b6, b7];
@@ -277,6 +276,49 @@ const Index = () => {
               <div className="flex items-center gap-2"><Tv className="h-4 w-4 text-gold" /> TV Aberta · Canal 524</div>
               <div className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> Semanal</div>
               <div className="flex items-center gap-2"><Video className="h-4 w-4 text-gold" /> Até 30 min</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EVENTO — UMA NOITE */}
+      <section className="py-16 md:py-20 bg-navy/40 border-y border-border/40">
+        <div className="container mx-auto">
+          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border border-gold/30 bg-card/50 p-8 md:p-12">
+            <div className="absolute top-0 left-0 w-full h-1 gradient-gold" />
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+              <div className="flex-1">
+                <Badge variant="outline" className="border-gold/40 text-gold mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1">
+                  Evento Exclusivo
+                </Badge>
+                <h2 className="font-display text-3xl md:text-4xl mb-4">
+                  Uma Noite de <span className="italic text-gold">Conversas de Alto Valor</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio TVRS Play. Uma experiência única de conexão, conteúdo e autoridade.
+                </p>
+                <div className="flex flex-wrap gap-6 text-sm mb-8">
+                  <div className="flex items-center gap-2 text-gold">
+                    <Calendar className="h-4 w-4" /> 26 de agosto de 2026
+                  </div>
+                  <div className="flex items-center gap-2 text-gold">
+                    <MapPin className="h-4 w-4" /> Estúdio TVRS Play
+                  </div>
+                  <div className="flex items-center gap-2 text-gold">
+                    <Users className="h-4 w-4" /> Networking + Gravação
+                  </div>
+                </div>
+                <Button asChild className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
+                  <a href="https://high-value-chat-mirror.lovable.app/patrocinio-evento" target="_blank" rel="noopener noreferrer">
+                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+              <div className="md:w-1/3 flex justify-center">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center shadow-gold">
+                  <Sparkles className="h-12 w-12 md:h-16 md:w-16 text-gold" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -694,8 +736,7 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoOralsin, name: "Oral Sin Implantes Cachoeirinha", title: "Visite o Instagram da Oral Sin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==", scale: "" },
-              { logo: logoConfix, name: "Confix Gestão Empresarial", title: "Visite o Instagram da Confix Gestão Empresarial", url: "https://www.instagram.com/confix.gestaoempresarial?igsh=MTQ5ZGR1YXdhYmlxcg==", scale: "" },
+              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://tvsplay.com.br/", scale: "" },
               { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
               { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==", scale: "scale-[1.6]" },
             ].map((p) => (
