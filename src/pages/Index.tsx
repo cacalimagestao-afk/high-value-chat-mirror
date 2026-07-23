@@ -698,7 +698,7 @@ const Index = () => {
                 <div className="font-semibold group-hover:text-gold transition-smooth">@conversasdealtovalor</div>
               </a>
               <a
-                href="https://tvsplay.com.br/"
+                href="https://rsplay.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-border hover:border-gold rounded-lg p-5 transition-smooth group"
@@ -736,7 +736,7 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://tvsplay.com.br/", scale: "" },
+              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", scale: "" },
               { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
               { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==", scale: "scale-[1.6]" },
             ].map((p) => (
