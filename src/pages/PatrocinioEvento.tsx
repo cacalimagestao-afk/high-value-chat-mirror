@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Calendar, MapPin, Video, Check, Star, Users, Award, Sparkles, ArrowLeft, Mail } from "lucide-react";
+import { Calendar, MapPin, Video, Check, Star, Users, Award, Sparkles, ArrowLeft, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
+const WHATSAPP_GILBERTO = "https://wa.me/5551992149336";
 
 const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%20Uma%20Noite%20de%20Conversas%20de%20Alto%20Valor";
 
@@ -223,12 +225,23 @@ const PatrocinioEvento = () => {
           <p className="text-lg opacity-80 mb-10">
             Envie uma mensagem e nossa equipe retorna com os próximos passos.
           </p>
-          <Button asChild size="lg" className="px-10 py-6 text-base" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
-            <a href={MAILTO}>
-              <Mail className="w-4 h-4 mr-2" />
-              caca@cacalimaoficial.com.br
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="px-10 py-6 text-base" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
+              <a href={MAILTO}>
+                <Mail className="w-4 h-4 mr-2" />
+                caca@cacalimaoficial.com.br
+              </a>
+            </Button>
+            <Button asChild size="lg" className="px-10 py-6 text-base" style={{ backgroundColor: "transparent", color: "#B99657", border: "1px solid #B99657" }}>
+              <a href={WHATSAPP_GILBERTO} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Falar com o Diretor Comercial no WhatsApp
+              </a>
+            </Button>
+          </div>
+          <p className="text-sm opacity-60 mt-6">
+            Gilberto Macieira, Diretor Comercial do programa
+          </p>
         </div>
       </section>
 

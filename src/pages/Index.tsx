@@ -310,7 +310,7 @@ const Index = () => {
                   </div>
                 </div>
                 <Button asChild className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-                  <a href="https://high-value-chat-mirror.lovable.app/patrocinio-evento" target="_blank" rel="noopener noreferrer">
+                  <a href="https://high-value-chat-mirror.lovable.app/evento-2608" target="_blank" rel="noopener noreferrer">
                     Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
