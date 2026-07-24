@@ -280,22 +280,22 @@ const Index = () => {
       </section>
 
       {/* EVENTO — UMA NOITE */}
-      <section className="py-16 md:py-20 bg-[#F5EFE1] border-y border-gold/30">
+      <section className="py-16 md:py-20 bg-[#E8DCC8] border-y border-gold/40">
         <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border-2 border-gold/50 bg-white/90 p-8 md:p-12 shadow-xl">
+          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border-2 border-gold/60 bg-[#F2EBDD] p-8 md:p-12 shadow-xl">
             <div className="absolute top-0 left-0 w-full h-1 gradient-gold" />
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
               <div className="flex-1">
-                <Badge variant="outline" className="border-navy-dark/40 text-navy-dark mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1 bg-white/70">
+                <Badge variant="outline" className="border-navy-dark/40 text-navy-dark mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1 bg-[#F8F3EA]/80">
                   Evento Exclusivo
                 </Badge>
                 <h2 className="font-display text-3xl md:text-4xl mb-4 text-navy-dark">
                   Uma Noite de <span className="italic text-gold">Conversas de Alto Valor</span>
                 </h2>
-                <p className="text-navy-dark/80 leading-relaxed mb-6">
+                <p className="text-navy-dark/85 leading-relaxed mb-6">
                   Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio TVRS Play. Uma experiência única de conexão, conteúdo e autoridade.
                 </p>
-                <div className="flex flex-wrap gap-6 text-base md:text-lg mb-8">
+                <div className="flex flex-wrap gap-6 text-lg md:text-xl mb-8">
                   <div className="flex items-center gap-2 text-navy-dark font-semibold">
                     <Calendar className="h-5 w-5 text-gold" /> 26 de agosto de 2026 · 18h30
                   </div>
