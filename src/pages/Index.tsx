@@ -53,7 +53,7 @@ const dnaPilares = [
 ];
 
 const formato = [
-  { label: "Periodicidade", value: "Semanal" },
+  { label: "Periodicidade", value: "Estreias nas sextas-feiras, 20h30" },
   { label: "Duração", value: "Até 30 minutos" },
   { label: "Formato", value: "Sala de Entrevistas" },
   { label: "Distribuição", value: "TV + redes sociais + YouTube" },
@@ -266,16 +266,13 @@ const Index = () => {
               que une educação empreendedora e narrativa transformadora.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta <ArrowRight className="ml-2 h-4 w-4" /></a>
-              </Button>
               <Button asChild size="lg" variant="outline" className="border-gold/40 text-foreground hover:bg-gold/10 hover:text-gold">
                 <a href="#programa">Conheça o Programa</a>
               </Button>
             </div>
             <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2"><Tv className="h-4 w-4 text-gold" /> TV Aberta · Canal 524</div>
-              <div className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> Semanal</div>
+              <div className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> Estreias nas sextas-feiras, 20h30</div>
               <div className="flex items-center gap-2"><Video className="h-4 w-4 text-gold" /> Até 30 min</div>
             </div>
           </div>
