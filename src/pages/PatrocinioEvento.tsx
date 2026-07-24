@@ -102,9 +102,9 @@ const PatrocinioEvento = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { icon: Calendar, label: "Data", value: "26 · Ago · 2026" },
+              { icon: Calendar, label: "Data", value: "26 · Ago · 2026 · 18h30" },
               { icon: MapPin, label: "Local", value: "Estúdio TVRS Play" },
-              { icon: Video, label: "Formato", value: "Networking + Gravação" },
+              { icon: Video, label: "Formato", value: "Networking + Gravação em formato auditório" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="text-center">
                 <Icon className="w-6 h-6 mx-auto mb-3" style={{ color: "#B99657" }} />

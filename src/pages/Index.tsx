@@ -280,40 +280,40 @@ const Index = () => {
       </section>
 
       {/* EVENTO — UMA NOITE */}
-      <section className="py-16 md:py-20 bg-navy/40 border-y border-border/40">
+      <section className="py-16 md:py-20 bg-[#F5EFE1] border-y border-gold/30">
         <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border border-gold/30 bg-card/50 p-8 md:p-12">
+          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border-2 border-gold/50 bg-white/90 p-8 md:p-12 shadow-xl">
             <div className="absolute top-0 left-0 w-full h-1 gradient-gold" />
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
               <div className="flex-1">
-                <Badge variant="outline" className="border-gold/40 text-gold mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1">
+                <Badge variant="outline" className="border-navy-dark/40 text-navy-dark mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1 bg-white/70">
                   Evento Exclusivo
                 </Badge>
-                <h2 className="font-display text-3xl md:text-4xl mb-4">
+                <h2 className="font-display text-3xl md:text-4xl mb-4 text-navy-dark">
                   Uma Noite de <span className="italic text-gold">Conversas de Alto Valor</span>
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-navy-dark/80 leading-relaxed mb-6">
                   Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio TVRS Play. Uma experiência única de conexão, conteúdo e autoridade.
                 </p>
-                <div className="flex flex-wrap gap-6 text-sm mb-8">
-                  <div className="flex items-center gap-2 text-gold">
-                    <Calendar className="h-4 w-4" /> 26 de agosto de 2026
+                <div className="flex flex-wrap gap-6 text-base md:text-lg mb-8">
+                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
+                    <Calendar className="h-5 w-5 text-gold" /> 26 de agosto de 2026 · 18h30
                   </div>
-                  <div className="flex items-center gap-2 text-gold">
-                    <MapPin className="h-4 w-4" /> Estúdio TVRS Play
+                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
+                    <MapPin className="h-5 w-5 text-gold" /> Estúdio TVRS Play
                   </div>
-                  <div className="flex items-center gap-2 text-gold">
-                    <Users className="h-4 w-4" /> Networking + Gravação
+                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
+                    <Users className="h-5 w-5 text-gold" /> Networking + Gravação em formato auditório
                   </div>
                 </div>
-                <Button asChild className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-                  <a href="https://high-value-chat-mirror.lovable.app/evento-2608" target="_blank" rel="noopener noreferrer">
+                <Button asChild className="bg-navy-dark text-[#F5EFE1] hover:bg-navy-dark/90 font-semibold">
+                  <a href="https://conversasdealtovalor.com.br/evento26-08" target="_blank" rel="noopener noreferrer">
                     Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </div>
               <div className="md:w-1/3 flex justify-center">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border border-gold/30 bg-gold/10 flex items-center justify-center shadow-gold">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold/50 bg-gold/10 flex items-center justify-center shadow-gold">
                   <Sparkles className="h-12 w-12 md:h-16 md:w-16 text-gold" />
                 </div>
               </div>
