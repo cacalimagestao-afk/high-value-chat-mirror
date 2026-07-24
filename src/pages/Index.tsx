@@ -37,7 +37,7 @@ import b5 from "@/assets/bastidores/bastidores-5.jpg";
 import b6 from "@/assets/bastidores/bastidores-6.jpg";
 import b7 from "@/assets/bastidores/bastidores-7.jpg";
 
-import logoRsplay from "@/assets/parceiros/rsplay.png";
+import logoRsplay from "@/assets/parceiros/rsplay.jpg.asset.json";
 import logoOralsin from "@/assets/parceiros/oralsin.png";
 import logoArena from "@/assets/parceiros/arena.png";
 import logoDermogral from "@/assets/parceiros/dermogral.png";
