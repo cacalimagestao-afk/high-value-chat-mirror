@@ -20,14 +20,14 @@ const relance = [
   { title: "Data", value: "26 de agosto", legenda: "Quarta-feira, 2 horas" },
   { title: "Horário", value: "18h30 às 20h30", legenda: "Chegada sugerida às 18h" },
   { title: "Local", value: "Estúdio C", legenda: "TV RSPlay" },
-  { title: "Entrevistado", value: "Otélio Drebes", legenda: "Fundador da Lebes" },
+  { title: "Entrevistado", value: "Empresário de destaque no RS", legenda: "Nome anunciado em breve" },
   { title: "Público", value: "30 empresários", legenda: "Curadoria — não plateia" },
   { title: "Diferencial", value: "Pitch induzido", legenda: "Negócios provocados ao vivo" },
 ];
 
 const roteiro = [
   { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas de Cacá Lima e a regra do jogo do networking" },
-  { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Entrevista com Otélio Drebes: origem e travessia da Lebes" },
+  { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Entrevista com o convidado: origem e travessia de uma trajetória de décadas" },
   { hora: "19h05", titulo: "Pitch induzido — rodada 1", desc: "4 empresários, 90 segundos cada, provocados pelo host" },
   { hora: "19h20", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
   { hora: "19h50", titulo: "Pitch induzido — rodada 2", desc: "Nova rodada de negócios ao vivo" },
@@ -58,7 +58,7 @@ const tabelaCotas = [
 const PatrocinioEvento = () => {
   useEffect(() => {
     document.title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
-    const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com Otélio Drebes, fundador da Lebes, diante de 30 empresários selecionados. 26 de agosto, Estúdio C — TV RSPlay.";
+    const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de 30 empresários selecionados. 26 de agosto, Estúdio C — TV RSPlay.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -93,7 +93,7 @@ const PatrocinioEvento = () => {
             </em>
           </h1>
           <p className="text-lg md:text-xl leading-relaxed opacity-85 mb-12 max-w-3xl mx-auto">
-            Gravação ao vivo do Conversas de Alto Valor com Otélio Drebes, fundador da Lebes, diante de 30 empresários selecionados — com rodadas de pitch de negócios provocadas ao vivo.
+            Gravação ao vivo do Conversas de Alto Valor com um empresário de destaque no Rio Grande do Sul, diante de 30 empresários selecionados — com rodadas de pitch de negócios provocadas ao vivo.
           </p>
 
           <div className="h-px w-24 mx-auto mb-12" style={{ background: "linear-gradient(90deg, transparent, #B99657, transparent)" }} />
@@ -123,7 +123,7 @@ const PatrocinioEvento = () => {
           </h2>
           <div className="space-y-6 text-lg leading-relaxed opacity-90 max-w-3xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
-            <p>Ao longo de duas horas, a conversa com Otélio Drebes é gravada ao vivo — origem, travessia e gestão — e intercalada com rodadas de pitch de negócios induzido: empresários com 90 segundos para se apresentar à sala e ao entrevistado.</p>
+            <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e intercalada com rodadas de pitch de negócios induzido: empresários com 90 segundos para se apresentar à sala e ao entrevistado.</p>
             <p>O resultado é um episódio completo, uma biblioteca de cortes para as redes e uma noite de conexões reais. O que se conta uma vez vira lembrança. O que se registra vira referência.</p>
           </div>
         </div>
