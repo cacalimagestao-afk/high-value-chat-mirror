@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Sparkles,
   Calendar,
@@ -307,9 +308,9 @@ const Index = () => {
                   </div>
                 </div>
                 <Button asChild className="bg-navy-dark text-[#F5EFE1] hover:bg-navy-dark/90 font-semibold">
-                  <a href="https://conversasdealtovalor.com.br/evento26-08" target="_blank" rel="noopener noreferrer">
+                  <Link to="/evento26-08">
                     Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </Button>
               </div>
               <div className="md:w-1/3 flex justify-center">
