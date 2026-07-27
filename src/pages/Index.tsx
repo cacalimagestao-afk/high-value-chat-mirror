@@ -610,7 +610,7 @@ const Index = () => {
                   src={src}
                   alt={`Bastidores do programa - foto ${i + 1}`}
                   loading="lazy"
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                  className={`absolute inset-0 w-full h-full object-cover object-[center_25%] transition-opacity duration-1000 ${
                     i === bastIdx ? "opacity-100" : "opacity-0"
                   }`}
                 />
