@@ -18,6 +18,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/evento26-08" element={<PatrocinioEvento />} />
+          {/* Legacy route aliases → /evento26-08 */}
+          <Route path="/patrocinio-evento" element={<Navigate to="/evento26-08" replace />} />
+          <Route path="/evento-2608" element={<Navigate to="/evento26-08" replace />} />
+          <Route path="/evento-26-08" element={<Navigate to="/evento26-08" replace />} />
+          <Route path="/evento" element={<Navigate to="/evento26-08" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
