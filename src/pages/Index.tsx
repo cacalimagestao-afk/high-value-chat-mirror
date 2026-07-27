@@ -650,7 +650,7 @@ const Index = () => {
                     i === bastIdx ? "border-gold" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
-                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover" />
+                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover object-[center_25%]" />
                 </button>
               ))}
             </div>
