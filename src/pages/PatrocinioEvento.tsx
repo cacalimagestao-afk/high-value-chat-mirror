@@ -10,9 +10,11 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
-// Substituir pelos links reais quando disponíveis
-const LINK_PAGAMENTO = "#";
-const LINK_GRUPO_WHATSAPP = "#";
+// Links de pagamento e acesso
+const LINK_PAGAMENTO = "https://pay.infinitepay.io/cacalimaoficial/VC1D-MpPeFhZoUK-60,00";
+const LINK_PAGAMENTO_NOITE25 = "https://pay.infinitepay.io/cacalimaoficial/Ri0x-RmNnV0vdPJ-45,00";
+const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
+const LINK_GRUPO_WHATSAPP = "https://chat.whatsapp.com/F9tnzIHdbn4HI3pwwoFtuF?s=cl&p=a&ilr=1";
 
 const WHATSAPP_GILBERTO = "https://wa.me/5551992149336";
 
@@ -29,7 +31,7 @@ const relance = [
   { title: "Horário", value: "18h30 às 20h30", legenda: "Chegada sugerida às 18h" },
   { title: "Local", value: "Estúdio C", legenda: "TV RSPlay" },
   { title: "Entrevistado", value: "Empresário de destaque no RS", legenda: "Nome anunciado em breve" },
-  { title: "Público", value: "30 empresários", legenda: "Curadoria — não plateia" },
+  { title: "Público", value: "Grupo seleto", legenda: "Curadoria — não plateia" },
   { title: "Diferencial", value: "Pitch induzido", legenda: "Negócios provocados ao vivo" },
 ];
 
@@ -115,7 +117,7 @@ type Inscricao = {
 const PatrocinioEvento = () => {
   useEffect(() => {
     document.title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
-    const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de 30 empresários selecionados. 26 de agosto, Estúdio C — TV RSPlay.";
+    const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — TV RSPlay.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -136,9 +138,44 @@ const PatrocinioEvento = () => {
   const [submitting, setSubmitting] = useState(false);
   const [inscricao, setInscricao] = useState<Inscricao | null>(null);
 
+  // Código promocional
+  const [promocode, setPromocode] = useState("");
+  const [promoAplicado, setPromoAplicado] = useState<"NOITE25" | "NOITEFREE" | null>(null);
+  const [promoErro, setPromoErro] = useState("");
+  const [aplicandoPromo, setAplicandoPromo] = useState(false);
+
   const setField = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = k === "cpf" ? maskCPF(e.target.value) : e.target.value;
     setForm((f) => ({ ...f, [k]: v }));
+  };
+
+  const handleAplicarPromocode = async () => {
+    const codigo = promocode.trim().toUpperCase();
+    setPromoErro("");
+
+    if (codigo !== "NOITE25" && codigo !== "NOITEFREE") {
+      setPromoErro("Código inválido");
+      return;
+    }
+
+    if (codigo === "NOITEFREE" && inscricao) {
+      setAplicandoPromo(true);
+      const { error } = await supabase
+        .from("inscricoes_evento")
+        .update({ pagamento_confirmado: true })
+        .eq("id", inscricao.id);
+      setAplicandoPromo(false);
+      if (error) {
+        setPromoErro("Não foi possível aplicar o código. Tente novamente.");
+        return;
+      }
+      setInscricao({ ...inscricao, pagamento_confirmado: true });
+      toast({ title: "Código aplicado: acesso gratuito" });
+    } else {
+      toast({ title: "Código aplicado: 25% de desconto — valor R$ 45,00 em 1x" });
+    }
+
+    setPromoAplicado(codigo);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -172,6 +209,15 @@ const PatrocinioEvento = () => {
     toast({ title: "Inscrição recebida!", description: "Prossiga com o pagamento para confirmar sua vaga." });
   };
 
+  const handleCopiarPix = async () => {
+    try {
+      await navigator.clipboard.writeText(LINK_CHAVE_PIX);
+      toast({ title: "Chave Pix copiada!" });
+    } catch {
+      toast({ title: "Não foi possível copiar", description: "Copie manualmente a chave Pix.", variant: "destructive" });
+    }
+  };
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#0A131E", color: "#F5EFE1" }}>
       {/* Nav */}
@@ -197,7 +243,7 @@ const PatrocinioEvento = () => {
             </em>
           </h1>
           <p className="text-lg md:text-xl leading-relaxed opacity-85 mb-12 max-w-3xl mx-auto">
-            Gravação ao vivo do Conversas de Alto Valor com um empresário de destaque no Rio Grande do Sul, diante de 30 empresários selecionados — com rodadas de pitch de negócios provocadas ao vivo.
+            Gravação ao vivo do Conversas de Alto Valor com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários — com rodadas de pitch de negócios provocadas ao vivo.
           </p>
 
           <div className="h-px w-24 mx-auto mb-12" style={{ background: "linear-gradient(90deg, transparent, #B99657, transparent)" }} />
@@ -207,7 +253,7 @@ const PatrocinioEvento = () => {
               <div key={label} className="text-center">
                 <Icon className="w-6 h-6 mx-auto mb-3" style={{ color: "#B99657" }} />
                 <div className="text-[0.7rem] tracking-[0.25em] uppercase opacity-60 mb-2">{label}</div>
-                <div className="font-display text-lg">{value}</div>
+                <div className="font-sans font-bold text-lg md:text-xl" style={{ color: "#F5EFE1" }}>{value}</div>
               </div>
             ))}
           </div>
@@ -225,7 +271,7 @@ const PatrocinioEvento = () => {
           <h2 className="font-display text-3xl md:text-5xl mb-10">
             Não é audiência de volume. É audiência de contexto.
           </h2>
-          <div className="space-y-6 text-lg leading-relaxed opacity-90 max-w-3xl mx-auto">
+          <div className="space-y-5 text-[0.95rem] md:text-lg leading-7 md:leading-relaxed opacity-90 max-w-3xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
             <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e intercalada com rodadas de pitch de negócios induzido: empresários com 90 segundos para se apresentar à sala e ao entrevistado.</p>
             <p>O resultado é um episódio completo, uma biblioteca de cortes para as redes e uma noite de conexões reais. O que se conta uma vez vira lembrança. O que se registra vira referência.</p>
@@ -253,7 +299,7 @@ const PatrocinioEvento = () => {
                   <div className="text-[0.7rem] tracking-[0.25em] uppercase mb-3" style={{ color: "#B99657" }}>
                     {title}
                   </div>
-                  <div className="font-display text-xl mb-2">{value}</div>
+                  <div className="font-sans font-bold text-xl md:text-2xl mb-2" style={{ color: "#F5EFE1" }}>{value}</div>
                   <div className="text-sm opacity-70">{legenda}</div>
                 </CardContent>
               </Card>
@@ -281,7 +327,7 @@ const PatrocinioEvento = () => {
                     style={{ backgroundColor: "#B99657" }}
                   />
                   <div className="flex flex-col md:flex-row gap-2 md:gap-6">
-                    <div className="font-display text-lg md:w-20" style={{ color: "#B99657" }}>
+                    <div className="font-sans font-bold text-xl md:w-20" style={{ color: "#B99657" }}>
                       {hora}
                     </div>
                     <div>
@@ -341,7 +387,7 @@ const PatrocinioEvento = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mb-10">
             {numeros.map(({ valor, legenda }) => (
               <div key={legenda} className="text-center">
-                <div className="font-display text-4xl md:text-5xl mb-2" style={{ color: "#B99657" }}>
+                <div className="font-sans font-extrabold text-5xl md:text-6xl mb-2" style={{ color: "#B99657" }}>
                   {valor}
                 </div>
                 <div className="text-sm opacity-70 leading-snug">{legenda}</div>
@@ -362,8 +408,11 @@ const PatrocinioEvento = () => {
               Adesão ao evento
             </div>
             <h2 className="font-display text-3xl md:text-5xl mb-4">Garanta sua cadeira na sala.</h2>
-            <p className="opacity-80 max-w-2xl mx-auto">
-              São apenas 30 empresários selecionados. Preencha seus dados para reservar sua participação — a vaga é confirmada após o pagamento.
+            <p className="opacity-90 max-w-2xl mx-auto leading-relaxed">
+              Esta não é uma noite para todos — é para quem está pronto para fazer a diferença. Um encontro único e exclusivo, com vagas limitadas a um grupo seleto de empresários.
+            </p>
+            <p className="opacity-70 max-w-2xl mx-auto mt-3 text-sm leading-relaxed">
+              Conexões reais, num ambiente curado a dedo. Preencha seus dados para reservar sua participação — a vaga é confirmada após o pagamento.
             </p>
           </div>
 
@@ -468,15 +517,91 @@ const PatrocinioEvento = () => {
                     Inscrição recebida, {inscricao.nome.split(" ")[0]}.
                   </h3>
                   <p className="opacity-80 max-w-xl mx-auto">
-                    Para confirmar sua vaga, prossiga com o pagamento. O acesso ao grupo oficial do evento é liberado após a confirmação.
+                    {inscricao.pagamento_confirmado
+                      ? "Sua participação está confirmada."
+                      : "Para confirmar sua vaga, prossiga com o pagamento. O acesso ao grupo oficial do evento é liberado após a confirmação."}
                   </p>
                 </div>
 
-                <a href={LINK_PAGAMENTO} target="_blank" rel="noopener noreferrer" className="inline-block">
-                  <Button size="lg" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
-                    Fazer pagamento
-                  </Button>
-                </a>
+                {!inscricao.pagamento_confirmado && (
+                  <>
+                    <div className="space-y-2">
+                      <a
+                        href={promoAplicado === "NOITE25" ? LINK_PAGAMENTO_NOITE25 : LINK_PAGAMENTO}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                      >
+                        <Button size="lg" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
+                          Fazer pagamento
+                        </Button>
+                      </a>
+                      <div className="text-xs opacity-60">
+                        {promoAplicado === "NOITE25" ? (
+                          <span>
+                            <span className="line-through opacity-60 mr-2">R$ 60,00</span>
+                            R$ 45,00 em 1x
+                          </span>
+                        ) : (
+                          "no cartão de crédito, em até 2x de R$ 30,00"
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="pt-2">
+                      <div className="text-sm opacity-70 mb-3">ou pague com Pix</div>
+                      <div
+                        className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto rounded-md border p-3"
+                        style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
+                      >
+                        <code className="text-xs sm:text-sm opacity-90 flex-1 truncate w-full sm:w-auto" style={{ color: "#F5EFE1" }}>
+                          {LINK_CHAVE_PIX}
+                        </code>
+                        <Button
+                          type="button"
+                          size="sm"
+                          onClick={handleCopiarPix}
+                          variant="outline"
+                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                        >
+                          Copiar chave Pix
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 max-w-sm mx-auto">
+                      {promoAplicado ? (
+                        <div className="text-sm" style={{ color: "#B99657" }}>
+                          Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <Input
+                            value={promocode}
+                            onChange={(e) => setPromocode(e.target.value)}
+                            placeholder="Código promocional"
+                            className="bg-transparent border text-[#F5EFE1]"
+                            style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                          />
+                          <Button
+                            type="button"
+                            onClick={handleAplicarPromocode}
+                            disabled={!promocode.trim() || aplicandoPromo}
+                            variant="outline"
+                            style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                          >
+                            Aplicar
+                          </Button>
+                        </div>
+                      )}
+                      {promoErro && (
+                        <div className="text-xs mt-2" style={{ color: "#ff8a8a" }}>
+                          {promoErro}
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
 
                 {inscricao.pagamento_confirmado ? (
                   <div
@@ -584,7 +709,7 @@ const PatrocinioEvento = () => {
 
                   <div className="text-center mb-6">
                     <div
-                      className={`font-display text-3xl ${isEsgotada ? "line-through opacity-50" : ""}`}
+                      className={`font-sans font-extrabold text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
                       style={{ color: "#B99657" }}
                     >
                       {cota.investimento}
