@@ -63,37 +63,56 @@ const formato = [
 const estrutura = [
   {
     bloco: "01",
-    title: "Boas-vindas + Tema + Histórias",
-    desc: "Saudação calorosa da apresentadora. Cacá Lima dá o tom e cria conexão humana.",
-    items: ["Apresentação do tema do episódio", "Estabelecimento do contexto da conversa", "Primeira impressão do episódio"],
+    title: "Abertura + Vinheta do Apoiador Principal",
+    desc: "Saudação calorosa da apresentadora, que já situa o tema da conversa, seguida da vinheta comercial do apoiador principal do episódio.",
+    items: ["Boas-vindas e contextualização do tema do dia", "Vinheta comercial do apoiador principal", "Chamada para o convidado"],
   },
   {
     bloco: "02",
-    title: "Vozes que Transformam + Desafio Revelador",
-    desc: "A história real do convidado, sua essência, propósito profissional e a pergunta que revela tudo.",
-    items: ["Introdução do convidado com mini-bio", "Narrativa profunda sobre essência e propósito profissional", "Momento de vulnerabilidade e autenticidade"],
+    title: "Apresentação do Convidado + Pergunta de Essência",
+    desc: "Mini-bio do convidado e a primeira pergunta, sempre voltada a quem essa pessoa é além do cargo — seus valores e sua essência.",
+    items: ["Introdução do convidado com trajetória resumida", "Pergunta de abertura sobre essência e valores", "Primeiro momento de vulnerabilidade e autenticidade"],
   },
   {
     bloco: "03",
-    title: "Construindo Novos Saberes",
-    desc: "Aprofundamento técnico e educacional.",
-    items: ["Conteúdo técnico acessível ao público", "Cases reais e práticos", "Lições aprendidas na prática do dia a dia"],
+    title: "Trajetória, Conquistas e Valores",
+    desc: "O núcleo da entrevista: perguntas variadas sobre o caminho percorrido pelo convidado, suas conquistas e o que carrega como valor.",
+    items: ["Perguntas sobre a trajetória profissional e pessoal", "Momentos de virada e superação", "Conquistas que marcaram o percurso"],
   },
   {
     bloco: "04",
-    title: "Pergunta final poderosa e provocativa",
-    desc: "Encerramento memorável e impactante.",
-    items: ["Posicionamento estratégico no encerramento", "Quebrar crenças limitantes do público", "Provocar insights imediatos"],
+    title: "Quadro Você Sabia",
+    desc: "Curiosidades rápidas de utilidade prática para o público, apresentadas pelos parceiros do programa.",
+    items: ["Curiosidades de utilidade prática para o público", "Conteúdo assinado pelos parceiros do episódio", "Transição para o momento mais íntimo da conversa"],
+  },
+  {
+    bloco: "05",
+    title: "O Objeto que Conta uma História",
+    desc: "Chamada para um objeto pessoal que o convidado traz consigo, usado como ponte para uma conversa mais íntima.",
+    items: ["Apresentação do objeto escolhido pelo convidado", "O significado por trás da escolha", "Conexão do objeto com a essência já revelada"],
+  },
+  {
+    bloco: "06",
+    title: "Quadro Construindo Saberes",
+    desc: "Aprofundamento educacional, logo antes da pergunta final.",
+    items: ["Conteúdo de aprofundamento assinado pelos parceiros", "Aprendizado aplicável ao dia a dia do público", "Transição para o fechamento da conversa"],
+  },
+  {
+    bloco: "07",
+    title: "Pergunta Final + Encerramento",
+    desc: "A pergunta que revela propósito, projetos futuros e conexões do convidado, seguida do encerramento caloroso da apresentadora.",
+    items: ["Pergunta sobre propósito e projetos futuros", "Conexões e legado do convidado", "Encerramento e convite para os próximos episódios"],
   },
 ];
 
 const temas = [
-  { tag: "Episódio #13 · Gramado summit", title: "Ideias de movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY" },
-  { tag: "Episódio #12 · Michelle Teixeira", title: "A fé consegue restaurar uma vida?", url: "https://youtu.be/WeCFInc6SC8" },
-  { tag: "Episódio #11 · Cacá Lima", title: "Existe uma parte minha que voce nao vê", url: "https://youtu.be/7EVEG-gS-h4" },
-  { tag: "Episódio #10 · Carolina Teixeira", title: "Ela encontrou sentido nos vinhos", url: "https://youtu.be/pMncW4HFIrw" },
-  { tag: "Episódio #9 · Adriane Ribeiro Martins", title: "Ela não enxerga como você", url: "https://youtu.be/GIk6Ss59j6Q" },
-  { tag: "Episódio #8 · cristopher lança e bruno boris", title: "Inovaçao, inteligencia e resiliencia", url: "https://youtu.be/cth9BY92HLI" },
+  { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", featured: true },
+  { tag: "Episódio #1 · Temp. 2 · Alexandre Silva", title: "A comunicação consegue transformar pessoas?", url: "https://youtu.be/-HC3acXHu6U" },
+  { tag: "Episódio #3 · Temp. 2 · Josciana Bezerra", title: "Humor, maternidade e verdades que ninguém conta", url: "https://youtu.be/f8SyLIfaTUc" },
+  { tag: "Episódio #4 · Temp. 2 · Ivan de Paiva", title: "Fé, recomeços e o que nenhuma IA substitui", url: "https://youtu.be/SDT4O5UQ_qE" },
+  { tag: "Episódio #5 · Temp. 2 · Lucas Vital", title: "Entre quilômetros e propósitos", url: "https://youtu.be/J9nUd7p_FvE" },
+  { tag: "Episódio #8 · Temp. 2 · Guilherme e Sueli Cardeal", title: "45 anos de empresa em família", url: "https://youtu.be/sBibh5W7B1M" },
+  { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY" },
 ];
 
 const setores = [
@@ -423,8 +442,10 @@ const Index = () => {
               Conversas que <span className="italic text-gold">transformam perspectivas</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-            {temas.map((t, i) => {
+
+          <div className="max-w-6xl mx-auto space-y-10">
+            {/* Episódio em destaque — card hero */}
+            {temas.filter((t) => t.featured).map((t) => {
               const match = t.url.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
               const videoId = match?.[1];
               return (
@@ -436,39 +457,90 @@ const Index = () => {
                   className="block"
                   title={`Assistir ${t.tag} — ${t.title} no YouTube`}
                 >
-                  <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
-                    {videoId && (
-                      <div className="relative aspect-video overflow-hidden bg-navy-dark">
-                        <img
-                          src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
-                          alt={`Thumbnail do episódio ${t.title}`}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/10 to-transparent" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-12 h-12 rounded-full bg-gold/90 flex items-center justify-center shadow-gold group-hover:scale-110 transition-smooth">
-                            <Youtube className="h-5 w-5 text-navy-dark" />
+                  <Card className="group bg-card/60 border-gold shadow-gold overflow-hidden relative transition-smooth hover:shadow-lg">
+                    <div className="grid md:grid-cols-2">
+                      {videoId && (
+                        <div className="relative aspect-video md:aspect-auto overflow-hidden bg-navy-dark">
+                          <img
+                            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                            alt={`Thumbnail do episódio ${t.title}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-card/60 via-transparent to-transparent md:bg-gradient-to-r" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-14 h-14 rounded-full bg-gold/90 flex items-center justify-center shadow-gold group-hover:scale-110 transition-smooth">
+                              <Youtube className="h-6 w-6 text-navy-dark" />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    <CardContent className="p-6">
-                      <div className="font-display text-5xl text-gold/20 absolute top-4 right-4">
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <Badge variant="outline" className="border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
-                        {t.tag}
-                      </Badge>
-                      <h3 className="font-display text-xl leading-snug">{t.title}</h3>
-                      <p className="mt-4 text-xs uppercase tracking-wider text-gold/80 group-hover:text-gold transition-smooth">
-                        Assistir no YouTube →
-                      </p>
-                    </CardContent>
+                      )}
+                      <CardContent className="p-8 md:p-10 flex flex-col justify-center">
+                        <Badge className="w-fit mb-4 bg-gold text-navy-dark border-none text-[10px] uppercase tracking-wider">
+                          Destaque
+                        </Badge>
+                        <Badge variant="outline" className="w-fit border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
+                          {t.tag}
+                        </Badge>
+                        <h3 className="font-display text-2xl md:text-3xl leading-snug mb-2">{t.title}</h3>
+                        <p className="text-xs uppercase tracking-wider text-gold/80 group-hover:text-gold transition-smooth">
+                          Assistir no YouTube →
+                        </p>
+                      </CardContent>
+                    </div>
                   </Card>
                 </a>
               );
             })}
+
+            {/* Demais episódios — grade */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {temas.filter((t) => !t.featured).map((t, i) => {
+                const match = t.url.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
+                const videoId = match?.[1];
+                return (
+                  <a
+                    key={t.title}
+                    href={t.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                    title={`Assistir ${t.tag} — ${t.title} no YouTube`}
+                  >
+                    <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
+                      {videoId && (
+                        <div className="relative aspect-video overflow-hidden bg-navy-dark">
+                          <img
+                            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                            alt={`Thumbnail do episódio ${t.title}`}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/10 to-transparent" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-gold/90 flex items-center justify-center shadow-gold group-hover:scale-110 transition-smooth">
+                              <Youtube className="h-5 w-5 text-navy-dark" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      <CardContent className="p-6">
+                        <div className="font-display text-5xl text-gold/20 absolute top-4 right-4">
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+                        <Badge variant="outline" className="border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
+                          {t.tag}
+                        </Badge>
+                        <h3 className="font-display text-xl leading-snug">{t.title}</h3>
+                        <p className="mt-4 text-xs uppercase tracking-wider text-gold/80 group-hover:text-gold transition-smooth">
+                          Assistir no YouTube →
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
