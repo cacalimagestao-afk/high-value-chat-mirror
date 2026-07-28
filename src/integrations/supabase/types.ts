@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      inscricoes_evento: {
+        Row: {
+          cidade_atuacao: string
+          cpf: string
+          created_at: string
+          empresa: string
+          id: string
+          nome: string
+          pagamento_confirmado: boolean
+          ramo_atuacao: string
+        }
+        Insert: {
+          cidade_atuacao: string
+          cpf: string
+          created_at?: string
+          empresa: string
+          id?: string
+          nome: string
+          pagamento_confirmado?: boolean
+          ramo_atuacao: string
+        }
+        Update: {
+          cidade_atuacao?: string
+          cpf?: string
+          created_at?: string
+          empresa?: string
+          id?: string
+          nome?: string
+          pagamento_confirmado?: boolean
+          ramo_atuacao?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
