@@ -621,80 +621,97 @@ const PatrocinioEvento = () => {
 
                 {!inscricao.pagamento_confirmado && (
                   <>
-                    <div className="space-y-2">
-                      <a
-                        href={promoAplicado === "NOITE25" ? LINK_PAGAMENTO_NOITE25 : LINK_PAGAMENTO}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block"
-                      >
-                        <Button size="lg" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
-                          Fazer pagamento
-                        </Button>
-                      </a>
-                      <div className="text-xs opacity-60">
-                        {promoAplicado === "NOITE25" ? (
-                          <span>
-                            <span className="line-through opacity-60 mr-2">R$ 60,00</span>
-                            R$ 45,00 em 1x
-                          </span>
-                        ) : (
-                          "no cartão de crédito, em até 2x de R$ 30,00"
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <div className="text-sm opacity-70 mb-3">ou pague com Pix</div>
-                      <div
-                        className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto rounded-md border p-3"
-                        style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
-                      >
-                        <code className="text-xs sm:text-sm opacity-90 flex-1 truncate w-full sm:w-auto" style={{ color: "#F5EFE1" }}>
-                          {LINK_CHAVE_PIX}
-                        </code>
-                        <Button
-                          type="button"
-                          size="sm"
-                          onClick={handleCopiarPix}
-                          variant="outline"
-                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
-                        >
-                          Copiar chave Pix
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className="pt-2 max-w-sm mx-auto">
+                    {/* 1. Código promocional — primeira pergunta */}
+                    <div className="max-w-sm mx-auto">
                       {promoAplicado ? (
                         <div className="text-sm" style={{ color: "#B99657" }}>
                           Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
                         </div>
                       ) : (
-                        <div className="flex items-center gap-2">
-                          <Input
-                            value={promocode}
-                            onChange={(e) => setPromocode(e.target.value)}
-                            placeholder="Código promocional"
-                            className="bg-transparent border text-[#F5EFE1]"
-                            style={{ borderColor: "rgba(185,150,87,0.3)" }}
-                          />
-                          <Button
-                            type="button"
-                            onClick={handleAplicarPromocode}
-                            disabled={!promocode.trim() || aplicandoPromo}
-                            variant="outline"
-                            style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
-                          >
-                            Aplicar
-                          </Button>
-                        </div>
+                        <>
+                          <div className="text-xs uppercase tracking-wider opacity-60 mb-2">Tem um código promocional?</div>
+                          <div className="flex items-center gap-2">
+                            <Input
+                              value={promocode}
+                              onChange={(e) => setPromocode(e.target.value)}
+                              placeholder="Código promocional"
+                              className="bg-transparent border text-[#F5EFE1]"
+                              style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                            />
+                            <Button
+                              type="button"
+                              onClick={handleAplicarPromocode}
+                              disabled={!promocode.trim() || aplicandoPromo}
+                              variant="outline"
+                              style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                            >
+                              Aplicar
+                            </Button>
+                          </div>
+                        </>
                       )}
                       {promoErro && (
                         <div className="text-xs mt-2" style={{ color: "#ff8a8a" }}>
                           {promoErro}
                         </div>
                       )}
+                    </div>
+
+                    {/* 2. Valor — bem visível */}
+                    <div>
+                      {promoAplicado === "NOITE25" ? (
+                        <div className="flex items-baseline justify-center gap-3">
+                          <span className="font-display text-2xl line-through opacity-40">R$ 60,00</span>
+                          <span className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>R$ 45,00</span>
+                        </div>
+                      ) : (
+                        <div className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>R$ 60,00</div>
+                      )}
+                      <div className="text-xs uppercase tracking-wider opacity-60 mt-2">
+                        {promoAplicado === "NOITE25" ? "à vista, em 1x" : "à vista ou em até 2x de R$ 30,00"}
+                      </div>
+                    </div>
+
+                    {/* 3. Cartão e Pix — mesma proporção, lado a lado */}
+                    <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-4 items-center max-w-2xl mx-auto">
+                      <a
+                        href={promoAplicado === "NOITE25" ? LINK_PAGAMENTO_NOITE25 : LINK_PAGAMENTO}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block h-full"
+                      >
+                        <div
+                          className="h-full flex flex-col items-center justify-center gap-3 rounded-lg border p-6"
+                          style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
+                        >
+                          <div className="text-xs uppercase tracking-wider opacity-60">Cartão de crédito</div>
+                          <Button size="lg" className="w-full" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
+                            Fazer pagamento
+                          </Button>
+                        </div>
+                      </a>
+
+                      <div className="text-xs uppercase tracking-wider opacity-50 text-center py-1 sm:py-0">ou</div>
+
+                      <div
+                        className="h-full flex flex-col items-center justify-center gap-3 rounded-lg border p-6"
+                        style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
+                      >
+                        <div className="text-xs uppercase tracking-wider opacity-60">Pix</div>
+                        <Button
+                          type="button"
+                          size="lg"
+                          onClick={handleCopiarPix}
+                          className="w-full"
+                          variant="outline"
+                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                        >
+                          Copiar chave Pix
+                        </Button>
+                        <code className="text-[0.65rem] opacity-50 truncate w-full text-center" style={{ color: "#F5EFE1" }}>
+                          {LINK_CHAVE_PIX}
+                        </code>
+                      </div>
                     </div>
                   </>
                 )}
