@@ -77,7 +77,7 @@ const relance = [
 const roteiro = [
   { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas de Cacá Lima e a regra do jogo do networking" },
   { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
-  { hora: "19h05", titulo: "Pitch induzido", desc: "Patrocinadores terão 90 segundos e convidados 30, para apresentar seus negócios com a mediação da apresentadora" },
+  { hora: "19h05", titulo: "Pitch induzido", desc: "Convidados terão 30 segundos, Apoio 45, Parceira 60 e Master 90, para apresentar seus negócios com a mediação da apresentadora" },
   { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
   { hora: "20h05", titulo: "Networking & coffee", desc: "Foto oficial, conexões e captação de imagens" },
   { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
@@ -98,6 +98,7 @@ const tabelaCotas = [
   ["Logo nos cortes / episódio", "Abertura + selo em todos os cortes", "Rodapé dos cortes", "Card de agradecimento"],
   ["Menção verbal do host", "Abertura + fechamento", "Única", "Coletiva"],
   ["Presença na sala", "2 cadeiras + pitch institucional", "1 cadeira", "1 cadeira"],
+  ["Tempo de pitch ao vivo", "90 segundos", "60 segundos", "45 segundos"],
   ["Ativação física no estúdio", "Banner + foto oficial", "1 story de bastidores", "—"],
   ["Redes @conversasdealtovalor", "3 posts marcados", "1 story", "Card coletivo"],
   ["Relatório pós-evento", "Completo, com métricas", "Resumido", "—"],
@@ -393,7 +394,7 @@ const PatrocinioEvento = () => {
           </h2>
           <div className="space-y-3 text-[0.9rem] md:text-base leading-6 opacity-90 max-w-2xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
-            <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e dá lugar a um bloco de pitch de negócios induzido: 90 segundos para cada patrocinador e 30 para cada convidado se apresentar à sala e ao entrevistado.</p>
+            <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e dá lugar a um bloco de pitch de negócios induzido: 30 segundos para convidados, 45 para a cota Apoio, 60 para a Parceira e 90 para a Master se apresentarem à sala e ao entrevistado.</p>
             <p>O resultado é um episódio completo, uma biblioteca de cortes para as redes e uma noite de conexões reais. O que se conta uma vez vira lembrança. O que se registra vira referência.</p>
           </div>
         </div>
@@ -485,7 +486,7 @@ const PatrocinioEvento = () => {
               <CardContent className="p-8">
                 <h3 className="font-display text-2xl mb-4">Um bloco de pitch</h3>
                 <p className="opacity-80 leading-6 text-sm">
-                  Patrocinadores terão 90 segundos e convidados 30, provocados pela apresentadora para apresentarem e fecharem negócios em frente às câmeras.
+                  Convidados terão 30 segundos, Apoio 45, Parceira 60 e Master 90 — provocados pela apresentadora para apresentarem e fecharem negócios em frente às câmeras.
                 </p>
               </CardContent>
             </Card>
