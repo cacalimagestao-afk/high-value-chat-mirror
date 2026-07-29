@@ -272,7 +272,7 @@ const PatrocinioEvento = () => {
               se encontram
             </em>
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed opacity-85 mb-12 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg leading-6 opacity-85 mb-10 max-w-2xl mx-auto">
             Gravação ao vivo do Conversas de Alto Valor com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários — com rodadas de pitch de negócios provocadas ao vivo.
           </p>
 
@@ -301,7 +301,7 @@ const PatrocinioEvento = () => {
           <h2 className="font-display text-3xl md:text-4xl mb-10">
             Não é audiência de volume. É audiência de contexto.
           </h2>
-          <div className="space-y-5 text-[0.95rem] md:text-lg leading-7 md:leading-relaxed opacity-90 max-w-3xl mx-auto">
+          <div className="space-y-3 text-[0.9rem] md:text-base leading-6 opacity-90 max-w-2xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
             <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e intercalada com rodadas de pitch de negócios induzido: empresários com 90 segundos para se apresentar à sala e ao entrevistado.</p>
             <p>O resultado é um episódio completo, uma biblioteca de cortes para as redes e uma noite de conexões reais. O que se conta uma vez vira lembrança. O que se registra vira referência.</p>
@@ -382,7 +382,7 @@ const PatrocinioEvento = () => {
             >
               <CardContent className="p-8">
                 <h3 className="font-display text-2xl mb-4">Dois blocos de entrevista</h3>
-                <p className="opacity-80 leading-relaxed">
+                <p className="opacity-80 leading-6 text-sm">
                   Origem e travessia no primeiro; gestão, longevidade e legado no segundo. Conteúdo que vira episódio e biblioteca de cortes.
                 </p>
               </CardContent>
@@ -393,7 +393,7 @@ const PatrocinioEvento = () => {
             >
               <CardContent className="p-8">
                 <h3 className="font-display text-2xl mb-4">Duas rodadas de pitch</h3>
-                <p className="opacity-80 leading-relaxed">
+                <p className="opacity-80 leading-6 text-sm">
                   Oito vagas ao todo, 90 segundos cada, provocadas pela apresentadora. Negócio acontecendo na frente da câmera.
                 </p>
               </CardContent>
@@ -410,7 +410,7 @@ const PatrocinioEvento = () => {
               Onde a conversa chega
             </div>
             <h2 className="font-display text-3xl md:text-4xl mb-8">Uma noite de gravação. Meses de circulação.</h2>
-            <p className="text-lg leading-relaxed opacity-90">
+            <p className="text-sm md:text-base leading-6 opacity-90">
               O episódio é exibido pela rede RSPlay — ecossistema multiplataforma com público predominante das classes A e B: decisores, empresários e investidores.
             </p>
           </div>
@@ -423,7 +423,7 @@ const PatrocinioEvento = () => {
                     <span className="text-4xl md:text-5xl">{num}</span>
                     {suf && <span className="text-xl md:text-2xl opacity-80">{suf}</span>}
                   </div>
-                  <div className="text-[0.7rem] uppercase tracking-[0.15em] opacity-60 leading-relaxed">{legenda}</div>
+                  <div className="text-[0.7rem] uppercase tracking-[0.15em] opacity-60 leading-snug">{legenda}</div>
                 </div>
               );
             })}
@@ -441,11 +441,11 @@ const PatrocinioEvento = () => {
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
               Adesão ao evento
             </div>
-            <h2 className="font-display text-3xl md:text-4xl mb-4">Garanta sua cadeira na sala.</h2>
-            <p className="opacity-90 max-w-2xl mx-auto leading-relaxed">
+            <h2 className="font-display text-2xl md:text-3xl mb-4">Garanta sua cadeira na sala.</h2>
+            <p className="opacity-90 max-w-xl mx-auto text-sm md:text-base leading-6">
               Esta não é uma noite para todos — é para quem está pronto para fazer a diferença. Um encontro único e exclusivo, com vagas limitadas a um grupo seleto de empresários.
             </p>
-            <p className="opacity-70 max-w-2xl mx-auto mt-3 text-sm leading-relaxed">
+            <p className="opacity-70 max-w-xl mx-auto mt-2 text-xs md:text-sm leading-6">
               Conexões reais, num ambiente curado a dedo. Preencha seus dados para reservar sua participação — a vaga é confirmada após o pagamento.
             </p>
           </div>
@@ -587,7 +587,7 @@ const PatrocinioEvento = () => {
                     onChange={(e) => setAceiteTermos(e.target.checked)}
                     className="mt-1 h-4 w-4 shrink-0 accent-[#B99657]"
                   />
-                  <label htmlFor="aceite-termos" className="text-xs leading-relaxed opacity-80 cursor-pointer">
+                  <label htmlFor="aceite-termos" className="text-xs leading-5 opacity-80 cursor-pointer">
                     Ao me inscrever, declaro estar ciente de que este evento envolve gravação e uso comercial de imagem, e autorizo o uso da minha imagem e voz captadas durante "Uma Noite de Conversas de Alto Valor", de forma gratuita e por prazo indeterminado, em quaisquer materiais e canais do Conversas de Alto Valor, comprometendo-me a firmar o Termo de Cessão de Uso de Imagem e Voz em relação a eventuais representantes que eu indicar para a sala ou para o pitch. Declaro ainda estar ciente de que meus dados pessoais serão utilizados exclusivamente para a organização e execução deste evento, conforme a Lei nº 13.709/2018 (LGPD), com adoção de medidas adequadas de segurança e confidencialidade.
                   </label>
                 </div>
@@ -621,34 +621,37 @@ const PatrocinioEvento = () => {
 
                 {!inscricao.pagamento_confirmado && (
                   <>
-                    {/* 1. Código promocional — primeira pergunta */}
+                    {/* 1. Código promocional — primeira pergunta, sempre editável */}
                     <div className="max-w-sm mx-auto">
-                      {promoAplicado ? (
-                        <div className="text-sm" style={{ color: "#B99657" }}>
+                      <div className="text-xs uppercase tracking-wider opacity-60 mb-2">Tem um código promocional?</div>
+                      <div className="flex items-center gap-2">
+                        <Input
+                          value={promocode}
+                          onChange={(e) => {
+                            setPromocode(e.target.value);
+                            if (promoAplicado) {
+                              setPromoAplicado(null);
+                              setPromoErro("");
+                            }
+                          }}
+                          placeholder="Código promocional"
+                          className="bg-transparent border text-[#F5EFE1]"
+                          style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                        />
+                        <Button
+                          type="button"
+                          onClick={handleAplicarPromocode}
+                          disabled={!promocode.trim() || aplicandoPromo}
+                          variant="outline"
+                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                        >
+                          {promoAplicado ? "Trocar" : "Aplicar"}
+                        </Button>
+                      </div>
+                      {promoAplicado && (
+                        <div className="text-sm mt-2" style={{ color: "#B99657" }}>
                           Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
                         </div>
-                      ) : (
-                        <>
-                          <div className="text-xs uppercase tracking-wider opacity-60 mb-2">Tem um código promocional?</div>
-                          <div className="flex items-center gap-2">
-                            <Input
-                              value={promocode}
-                              onChange={(e) => setPromocode(e.target.value)}
-                              placeholder="Código promocional"
-                              className="bg-transparent border text-[#F5EFE1]"
-                              style={{ borderColor: "rgba(185,150,87,0.3)" }}
-                            />
-                            <Button
-                              type="button"
-                              onClick={handleAplicarPromocode}
-                              disabled={!promocode.trim() || aplicandoPromo}
-                              variant="outline"
-                              style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
-                            >
-                              Aplicar
-                            </Button>
-                          </div>
-                        </>
                       )}
                       {promoErro && (
                         <div className="text-xs mt-2" style={{ color: "#ff8a8a" }}>
