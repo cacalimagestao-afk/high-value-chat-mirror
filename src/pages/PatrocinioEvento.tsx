@@ -115,6 +115,11 @@ type Inscricao = {
 };
 
 const PatrocinioEvento = () => {
+  const formatMetrica = (valor: string) => {
+    const match = valor.match(/^([\d.,]+)\s*(.*)$/);
+    if (!match) return { num: valor, suf: "" };
+    return { num: match[1], suf: match[2] };
+  };
   useEffect(() => {
     document.title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
     const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — TV RSPlay.";
@@ -134,7 +139,11 @@ const PatrocinioEvento = () => {
     empresa: "",
     ramo_atuacao: "",
     cidade_atuacao: "",
+    email: "",
+    telefone: "",
+    instagram: "",
   });
+  const [aceiteTermos, setAceiteTermos] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [inscricao, setInscricao] = useState<Inscricao | null>(null);
 
@@ -180,12 +189,28 @@ const PatrocinioEvento = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.nome.trim() || !form.empresa.trim() || !form.ramo_atuacao.trim() || !form.cidade_atuacao.trim()) {
+    if (
+      !form.nome.trim() ||
+      !form.empresa.trim() ||
+      !form.ramo_atuacao.trim() ||
+      !form.cidade_atuacao.trim() ||
+      !form.email.trim() ||
+      !form.telefone.trim() ||
+      !form.instagram.trim()
+    ) {
       toast({ title: "Preencha todos os campos", variant: "destructive" });
       return;
     }
     if (!isValidCPFFormat(form.cpf)) {
       toast({ title: "CPF inválido", description: "Use o formato 000.000.000-00", variant: "destructive" });
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
+      toast({ title: "E-mail inválido", variant: "destructive" });
+      return;
+    }
+    if (!aceiteTermos) {
+      toast({ title: "Aceite necessário", description: "É preciso aceitar o Termo de Cessão de Uso de Imagem e Voz e a política de dados para prosseguir.", variant: "destructive" });
       return;
     }
     setSubmitting(true);
@@ -197,6 +222,11 @@ const PatrocinioEvento = () => {
         empresa: form.empresa.trim(),
         ramo_atuacao: form.ramo_atuacao.trim(),
         cidade_atuacao: form.cidade_atuacao.trim(),
+        email: form.email.trim(),
+        telefone: form.telefone.trim(),
+        instagram: form.instagram.trim(),
+        aceite_termos: true,
+        aceite_termos_em: new Date().toISOString(),
       })
       .select("id, nome, pagamento_confirmado")
       .single();
@@ -236,7 +266,7 @@ const PatrocinioEvento = () => {
           >
             Edição Especial · 26 de Agosto
           </Badge>
-          <h1 className="font-display text-4xl md:text-6xl leading-tight mb-8">
+          <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
             A mesa onde história, estratégia e negócio{" "}
             <em className="italic" style={{ color: "#B99657" }}>
               se encontram
@@ -268,7 +298,7 @@ const PatrocinioEvento = () => {
           <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
             O Evento
           </div>
-          <h2 className="font-display text-3xl md:text-5xl mb-10">
+          <h2 className="font-display text-3xl md:text-4xl mb-10">
             Não é audiência de volume. É audiência de contexto.
           </h2>
           <div className="space-y-5 text-[0.95rem] md:text-lg leading-7 md:leading-relaxed opacity-90 max-w-3xl mx-auto">
@@ -286,7 +316,7 @@ const PatrocinioEvento = () => {
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
               A Noite em um Relance
             </div>
-            <h2 className="font-display text-3xl md:text-5xl">Duas horas, desenhadas para render conversa.</h2>
+            <h2 className="font-display text-3xl md:text-4xl">Duas horas, desenhadas para render conversa.</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {relance.map(({ title, value, legenda }) => (
@@ -315,7 +345,7 @@ const PatrocinioEvento = () => {
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
               Como as duas horas se desenham
             </div>
-            <h2 className="font-display text-3xl md:text-5xl">Roteiro da noite.</h2>
+            <h2 className="font-display text-3xl md:text-4xl">Roteiro da noite.</h2>
           </div>
           <div className="relative max-w-3xl mx-auto">
             <div className="absolute left-0 top-2 bottom-2 w-px" style={{ backgroundColor: "rgba(185,150,87,0.25)" }} />
@@ -379,20 +409,24 @@ const PatrocinioEvento = () => {
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
               Onde a conversa chega
             </div>
-            <h2 className="font-display text-3xl md:text-5xl mb-8">Uma noite de gravação. Meses de circulação.</h2>
+            <h2 className="font-display text-3xl md:text-4xl mb-8">Uma noite de gravação. Meses de circulação.</h2>
             <p className="text-lg leading-relaxed opacity-90">
               O episódio é exibido pela rede RSPlay — ecossistema multiplataforma com público predominante das classes A e B: decisores, empresários e investidores.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mb-10">
-            {numeros.map(({ valor, legenda }) => (
-              <div key={legenda} className="text-center">
-                <div className="font-sans font-extrabold text-5xl md:text-6xl mb-2" style={{ color: "#B99657" }}>
-                  {valor}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-10">
+            {numeros.map(({ valor, legenda }) => {
+              const { num, suf } = formatMetrica(valor);
+              return (
+                <div key={legenda} className="text-center">
+                  <div className="font-display mb-3" style={{ color: "#B99657" }}>
+                    <span className="text-4xl md:text-5xl">{num}</span>
+                    {suf && <span className="text-xl md:text-2xl opacity-80">{suf}</span>}
+                  </div>
+                  <div className="text-[0.7rem] uppercase tracking-[0.15em] opacity-60 leading-relaxed">{legenda}</div>
                 </div>
-                <div className="text-sm opacity-70 leading-snug">{legenda}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <p className="text-center text-xs opacity-50 max-w-3xl mx-auto">
             Fonte: mídia kit RSPlay 2026 — métricas da rede em que o programa é exibido.
@@ -407,7 +441,7 @@ const PatrocinioEvento = () => {
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
               Adesão ao evento
             </div>
-            <h2 className="font-display text-3xl md:text-5xl mb-4">Garanta sua cadeira na sala.</h2>
+            <h2 className="font-display text-3xl md:text-4xl mb-4">Garanta sua cadeira na sala.</h2>
             <p className="opacity-90 max-w-2xl mx-auto leading-relaxed">
               Esta não é uma noite para todos — é para quem está pronto para fazer a diferença. Um encontro único e exclusivo, com vagas limitadas a um grupo seleto de empresários.
             </p>
@@ -494,6 +528,68 @@ const PatrocinioEvento = () => {
                       style={{ borderColor: "rgba(185,150,87,0.3)" }}
                     />
                   </div>
+                  <div>
+                    <Label htmlFor="email" className="text-sm mb-2 block" style={{ color: "#F5EFE1" }}>
+                      E-mail
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={setField("email")}
+                      maxLength={160}
+                      className="bg-transparent border text-[#F5EFE1]"
+                      style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="telefone" className="text-sm mb-2 block" style={{ color: "#F5EFE1" }}>
+                      Telefone
+                    </Label>
+                    <Input
+                      id="telefone"
+                      required
+                      inputMode="tel"
+                      placeholder="(51) 90000-0000"
+                      value={form.telefone}
+                      onChange={setField("telefone")}
+                      maxLength={20}
+                      className="bg-transparent border text-[#F5EFE1]"
+                      style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="instagram" className="text-sm mb-2 block" style={{ color: "#F5EFE1" }}>
+                      Instagram
+                    </Label>
+                    <Input
+                      id="instagram"
+                      required
+                      placeholder="@seuinstagram"
+                      value={form.instagram}
+                      onChange={setField("instagram")}
+                      maxLength={60}
+                      className="bg-transparent border text-[#F5EFE1]"
+                      style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                    />
+                  </div>
+                </div>
+
+                <div
+                  className="rounded-md border p-4 flex gap-3 items-start"
+                  style={{ borderColor: "rgba(185,150,87,0.25)", backgroundColor: "rgba(185,150,87,0.05)" }}
+                >
+                  <input
+                    type="checkbox"
+                    id="aceite-termos"
+                    checked={aceiteTermos}
+                    onChange={(e) => setAceiteTermos(e.target.checked)}
+                    className="mt-1 h-4 w-4 shrink-0 accent-[#B99657]"
+                  />
+                  <label htmlFor="aceite-termos" className="text-xs leading-relaxed opacity-80 cursor-pointer">
+                    Ao me inscrever, declaro estar ciente de que este evento envolve gravação e uso comercial de imagem, e autorizo o uso da minha imagem e voz captadas durante "Uma Noite de Conversas de Alto Valor", de forma gratuita e por prazo indeterminado, em quaisquer materiais e canais do Conversas de Alto Valor, comprometendo-me a firmar o Termo de Cessão de Uso de Imagem e Voz em relação a eventuais representantes que eu indicar para a sala ou para o pitch. Declaro ainda estar ciente de que meus dados pessoais serão utilizados exclusivamente para a organização e execução deste evento, conforme a Lei nº 13.709/2018 (LGPD), com adoção de medidas adequadas de segurança e confidencialidade.
+                  </label>
                 </div>
                 <div className="pt-2">
                   <Button
@@ -709,7 +805,7 @@ const PatrocinioEvento = () => {
 
                   <div className="text-center mb-6">
                     <div
-                      className={`font-sans font-extrabold text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
+                      className={`font-display text-3xl md:text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
                       style={{ color: "#B99657" }}
                     >
                       {cota.investimento}
