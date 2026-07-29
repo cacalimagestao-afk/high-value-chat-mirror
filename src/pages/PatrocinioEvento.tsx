@@ -77,7 +77,7 @@ const relance = [
 const roteiro = [
   { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas de Cacá Lima e a regra do jogo do networking" },
   { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
-  { hora: "19h05", titulo: "Pitch induzido", desc: "Convidados terão 30 segundos, Apoio 45, Parceira 60 e Master 90, para apresentar seus negócios com a mediação da apresentadora" },
+  { hora: "19h05", titulo: "Pitch induzido", desc: "30s a 90s conforme a cota, mediado pela apresentadora" },
   { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
   { hora: "20h05", titulo: "Networking & coffee", desc: "Foto oficial, conexões e captação de imagens" },
   { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
@@ -526,8 +526,183 @@ const PatrocinioEvento = () => {
         </div>
       </section>
 
-      {/* INSCRIÇÃO / ADESÃO */}
+      {/* PATROCÍNIO E APOIO */}
       <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-14">
+            <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
+              Patrocínio & Apoio
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl mb-4">E sua marca ainda pode ser destaque nesta noite.</h2>
+            <p className="opacity-80 max-w-2xl mx-auto">
+              Três cotas, com contrapartidas escalonadas e exclusividade de segmento — apenas uma marca por categoria.
+            </p>
+          </div>
+
+          {/* Cards de cotas — hierarquia visual e escassez */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {cotas.map((cota) => {
+              const isEsgotada = cota.status === "esgotada";
+              const isDestaque = cota.destaque;
+              return (
+                <div
+                  key={cota.nome}
+                  className={`relative rounded-lg border p-6 md:p-8 transition-all ${
+                    isEsgotada ? "opacity-70" : "hover:-translate-y-1"
+                  } ${isDestaque ? "md:-translate-y-2 md:scale-[1.02]" : ""}`}
+                  style={{
+                    backgroundColor: isDestaque ? "#12203324" : "#0F1B2A",
+                    borderColor: isDestaque ? "#B99657" : "rgba(185,150,87,0.25)",
+                    borderWidth: isDestaque ? 2 : 1,
+                    boxShadow: isDestaque ? "0 0 40px rgba(185,150,87,0.15)" : "none",
+                  }}
+                >
+                  {/* Badge de status */}
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span
+                      className="text-[0.65rem] tracking-[0.25em] uppercase px-3 py-1 rounded-full border whitespace-nowrap"
+                      style={{
+                        backgroundColor:
+                          cota.status === "esgotada"
+                            ? "#3a1414"
+                            : cota.status === "quase"
+                            ? "#B99657"
+                            : "#0A131E",
+                        color:
+                          cota.status === "esgotada"
+                            ? "#ff8a8a"
+                            : cota.status === "quase"
+                            ? "#0A131E"
+                            : "#B99657",
+                        borderColor:
+                          cota.status === "esgotada"
+                            ? "#8b3a3a"
+                            : cota.status === "quase"
+                            ? "#B99657"
+                            : "rgba(185,150,87,0.4)",
+                      }}
+                    >
+                      {cota.statusLabel}
+                    </span>
+                  </div>
+
+                  <div className="text-center mb-6 pt-2">
+                    <div className="text-[0.7rem] tracking-[0.25em] uppercase mb-2 opacity-70" style={{ color: "#B99657" }}>
+                      Cota
+                    </div>
+                    <div className="font-display text-3xl mb-1">{cota.nome}</div>
+                    <div className="text-xs opacity-60">{cota.disponibilidade}</div>
+                  </div>
+
+                  <div className="text-center mb-8">
+                    <div
+                      className={`font-display text-3xl md:text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
+                      style={{ color: "#B99657" }}
+                    >
+                      {cota.investimento}
+                    </div>
+                    <div className="text-xs opacity-60 mt-1">{cota.scarcity}</div>
+                  </div>
+
+                  <Button
+                    asChild={!isEsgotada}
+                    disabled={isEsgotada}
+                    className="w-full"
+                    style={
+                      isEsgotada
+                        ? {
+                            backgroundColor: "transparent",
+                            color: "rgba(245,239,225,0.4)",
+                            border: "1px solid rgba(185,150,87,0.2)",
+                            textDecoration: "line-through",
+                            cursor: "not-allowed",
+                          }
+                        : { backgroundColor: "#B99657", color: "#0A131E" }
+                    }
+                  >
+                    {isEsgotada ? <span>Esgotado</span> : <a href={MAILTO}>Reservar esta cota</a>}
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Tabela detalhada — mantida como referência completa */}
+          <div
+            className="rounded-lg border p-6 md:p-8"
+            style={{ backgroundColor: "#0F1B2A", borderColor: "rgba(185,150,87,0.2)" }}
+          >
+            <div className="text-xs tracking-[0.25em] uppercase mb-6 text-center opacity-70" style={{ color: "#B99657" }}>
+              Comparativo de contrapartidas
+            </div>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow style={{ borderColor: "rgba(185,150,87,0.2)" }}>
+                    <TableHead style={{ color: "#B99657" }}>Contrapartida</TableHead>
+                    <TableHead style={{ color: "#B99657" }}>
+                      Master
+                      <br />
+                      <span className="opacity-70">(Exclusiva por segmento)</span>
+                    </TableHead>
+                    <TableHead style={{ color: "#B99657" }}>
+                      Parceira
+                    </TableHead>
+                    <TableHead style={{ color: "#B99657" }}>
+                      Apoio
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {tabelaCotas.map((row, idx) => (
+                    <TableRow key={idx} style={{ borderColor: "rgba(185,150,87,0.1)" }}>
+                      {row.map((cell, cidx) => (
+                        <TableCell
+                          key={cidx}
+                          style={{ color: "#F5EFE1" }}
+                          className={cidx === 0 ? "font-medium min-w-[180px]" : "min-w-[140px]"}
+                        >
+                          {cell}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            <p className="text-sm opacity-70 mt-6 text-center">
+              Confirmação com pelo menos 10 dias de antecedência garante a aplicação da marca no cenário, nos cortes e no material de convite.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="default"
+                style={{ backgroundColor: "#B99657", color: "#0A131E" }}
+              >
+                <a href={MAILTO}>
+                  <Mail className="w-4 h-4 mr-2" />
+                  Falar sobre patrocínio
+                </a>
+              </Button>
+              <a
+                href={WHATSAPP_GILBERTO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
+                style={{ color: "#B99657" }}
+              >
+                <MessageCircle className="w-4 h-4" />
+                Gilberto Macieira, Diretor Comercial
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INSCRIÇÃO / ADESÃO */}
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -540,6 +715,41 @@ const PatrocinioEvento = () => {
             <p className="opacity-70 max-w-xl mx-auto mt-2 text-xs md:text-sm leading-6">
               Conexões reais, num ambiente curado a dedo. Preencha seus dados para reservar sua participação — a vaga é confirmada após o pagamento.
             </p>
+
+            {/* Lotes — visível já antes de preencher o formulário */}
+            <div className="max-w-md mx-auto mt-6 space-y-2">
+              {LOTES.map((l) => {
+                const encerrado = l !== loteAtual && new Date() > l.fim;
+                const ativo = l === loteAtual;
+                return (
+                  <div
+                    key={l.nome}
+                    className={`flex items-center justify-between text-sm rounded-md border px-4 py-2 ${
+                      encerrado ? "opacity-40" : ""
+                    }`}
+                    style={{
+                      borderColor: ativo ? "#B99657" : "rgba(185,150,87,0.2)",
+                      backgroundColor: ativo ? "rgba(185,150,87,0.08)" : "transparent",
+                    }}
+                  >
+                    <span className={encerrado ? "line-through" : ""}>
+                      {l.nome} · {l.ate}
+                      {ativo && (
+                        <span className="ml-2 text-[0.65rem] uppercase tracking-wider" style={{ color: "#B99657" }}>
+                          vigente
+                        </span>
+                      )}
+                    </span>
+                    <span className={`font-display ${encerrado ? "line-through" : ""}`} style={{ color: ativo ? "#B99657" : "inherit" }}>
+                      {l.valorTotal}
+                    </span>
+                  </div>
+                );
+              })}
+              <p className="text-[0.7rem] opacity-50 text-center pt-1">
+                Valores à vista com 25% de desconto no lote vigente ({loteAtual.valorAvista}, em 1x).
+              </p>
+            </div>
           </div>
 
           <div
@@ -887,185 +1097,6 @@ const PatrocinioEvento = () => {
                 )}
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* PATROCÍNIO E APOIO */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-14">
-            <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
-              Patrocínio & Apoio
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl mb-4">E sua marca ainda pode ser destaque nesta noite.</h2>
-            <p className="opacity-80 max-w-2xl mx-auto">
-              Três cotas, com contrapartidas escalonadas e exclusividade de segmento — apenas uma marca por categoria.
-            </p>
-          </div>
-
-          {/* Cards de cotas — hierarquia visual e escassez */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {cotas.map((cota) => {
-              const isEsgotada = cota.status === "esgotada";
-              const isDestaque = cota.destaque;
-              return (
-                <div
-                  key={cota.nome}
-                  className={`relative rounded-lg border p-6 md:p-8 transition-all ${
-                    isEsgotada ? "opacity-70" : "hover:-translate-y-1"
-                  } ${isDestaque ? "md:-translate-y-2 md:scale-[1.02]" : ""}`}
-                  style={{
-                    backgroundColor: isDestaque ? "#12203324" : "#0F1B2A",
-                    borderColor: isDestaque ? "#B99657" : "rgba(185,150,87,0.25)",
-                    borderWidth: isDestaque ? 2 : 1,
-                    boxShadow: isDestaque ? "0 0 40px rgba(185,150,87,0.15)" : "none",
-                  }}
-                >
-                  {/* Badge de status */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span
-                      className="text-[0.65rem] tracking-[0.25em] uppercase px-3 py-1 rounded-full border whitespace-nowrap"
-                      style={{
-                        backgroundColor:
-                          cota.status === "esgotada"
-                            ? "#3a1414"
-                            : cota.status === "quase"
-                            ? "#B99657"
-                            : "#0A131E",
-                        color:
-                          cota.status === "esgotada"
-                            ? "#ff8a8a"
-                            : cota.status === "quase"
-                            ? "#0A131E"
-                            : "#B99657",
-                        borderColor:
-                          cota.status === "esgotada"
-                            ? "#8b3a3a"
-                            : cota.status === "quase"
-                            ? "#B99657"
-                            : "rgba(185,150,87,0.4)",
-                      }}
-                    >
-                      {cota.statusLabel}
-                    </span>
-                  </div>
-
-                  <div className="text-center mb-6 pt-2">
-                    <div className="text-[0.7rem] tracking-[0.25em] uppercase mb-2 opacity-70" style={{ color: "#B99657" }}>
-                      Cota
-                    </div>
-                    <div className="font-display text-3xl mb-1">{cota.nome}</div>
-                    <div className="text-xs opacity-60">{cota.disponibilidade}</div>
-                  </div>
-
-                  <div className="text-center mb-8">
-                    <div
-                      className={`font-display text-3xl md:text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
-                      style={{ color: "#B99657" }}
-                    >
-                      {cota.investimento}
-                    </div>
-                    <div className="text-xs opacity-60 mt-1">{cota.scarcity}</div>
-                  </div>
-
-                  <Button
-                    asChild={!isEsgotada}
-                    disabled={isEsgotada}
-                    className="w-full"
-                    style={
-                      isEsgotada
-                        ? {
-                            backgroundColor: "transparent",
-                            color: "rgba(245,239,225,0.4)",
-                            border: "1px solid rgba(185,150,87,0.2)",
-                            textDecoration: "line-through",
-                            cursor: "not-allowed",
-                          }
-                        : { backgroundColor: "#B99657", color: "#0A131E" }
-                    }
-                  >
-                    {isEsgotada ? <span>Esgotado</span> : <a href={MAILTO}>Reservar esta cota</a>}
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Tabela detalhada — mantida como referência completa */}
-          <div
-            className="rounded-lg border p-6 md:p-8"
-            style={{ backgroundColor: "#0F1B2A", borderColor: "rgba(185,150,87,0.2)" }}
-          >
-            <div className="text-xs tracking-[0.25em] uppercase mb-6 text-center opacity-70" style={{ color: "#B99657" }}>
-              Comparativo de contrapartidas
-            </div>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow style={{ borderColor: "rgba(185,150,87,0.2)" }}>
-                    <TableHead style={{ color: "#B99657" }}>Contrapartida</TableHead>
-                    <TableHead style={{ color: "#B99657" }}>
-                      Master
-                      <br />
-                      <span className="opacity-70">(Exclusiva por segmento)</span>
-                    </TableHead>
-                    <TableHead style={{ color: "#B99657" }}>
-                      Parceira
-                      <br />
-                      <span className="opacity-70">(Até 2)</span>
-                    </TableHead>
-                    <TableHead style={{ color: "#B99657" }}>
-                      Apoio
-                      <br />
-                      <span className="opacity-70">(Até 3)</span>
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {tabelaCotas.map((row, idx) => (
-                    <TableRow key={idx} style={{ borderColor: "rgba(185,150,87,0.1)" }}>
-                      {row.map((cell, cidx) => (
-                        <TableCell
-                          key={cidx}
-                          style={{ color: "#F5EFE1" }}
-                          className={cidx === 0 ? "font-medium min-w-[180px]" : "min-w-[140px]"}
-                        >
-                          {cell}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-
-            <p className="text-sm opacity-70 mt-6 text-center">
-              Confirmação com pelo menos 10 dias de antecedência garante a aplicação da marca no cenário, nos cortes e no material de convite.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="default"
-                style={{ backgroundColor: "#B99657", color: "#0A131E" }}
-              >
-                <a href={MAILTO}>
-                  <Mail className="w-4 h-4 mr-2" />
-                  Falar sobre patrocínio
-                </a>
-              </Button>
-              <a
-                href={WHATSAPP_GILBERTO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
-                style={{ color: "#B99657" }}
-              >
-                <MessageCircle className="w-4 h-4" />
-                Gilberto Macieira, Diretor Comercial
-              </a>
-            </div>
           </div>
         </div>
       </section>
