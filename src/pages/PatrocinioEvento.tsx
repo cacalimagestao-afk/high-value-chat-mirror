@@ -11,11 +11,49 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
 
-// Links de pagamento e acesso
-const LINK_PAGAMENTO = "https://pay.infinitepay.io/cacalimaoficial/VC1D-MpPeFhZoUK-60,00";
-const LINK_PAGAMENTO_NOITE25 = "https://pay.infinitepay.io/cacalimaoficial/Ri0x-RmNnV0vdPJ-45,00";
+// Links de acesso
 const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
 const LINK_GRUPO_WHATSAPP = "https://chat.whatsapp.com/F9tnzIHdbn4HI3pwwoFtuF?s=cl&p=a&ilr=1";
+
+// Lotes de inscrição — o valor e o link mudam automaticamente conforme a data de hoje.
+// Quando um lote vira, ele fica marcado como "encerrado" e o próximo assume.
+const LOTES = [
+  {
+    nome: "Lote 1",
+    ate: "até 04/08",
+    inicio: new Date(2000, 0, 1), // sem limite pra baixo
+    fim: new Date(2026, 7, 4, 23, 59, 59), // 04/08/2026
+    valorTotal: "R$ 60,00",
+    link2x: "https://pay.infinitepay.io/cacalimaoficial/Ri0y-aGdaNoL8Lp-60,00",
+    valorAvista: "R$ 45,00",
+    linkAvista: "https://pay.infinitepay.io/cacalimaoficial/Ri0x-GPSjgYqBVn-45,00",
+  },
+  {
+    nome: "Lote 2",
+    ate: "05 a 10/08",
+    inicio: new Date(2026, 7, 5),
+    fim: new Date(2026, 7, 10, 23, 59, 59),
+    valorTotal: "R$ 90,00",
+    link2x: "https://pay.infinitepay.io/cacalimaoficial/Ri0y-BlRfD57Zd4-90,00",
+    valorAvista: "R$ 67,50",
+    linkAvista: "https://pay.infinitepay.io/cacalimaoficial/Ri0x-FKi3Oac53H-67,50",
+  },
+  {
+    nome: "Lote 3",
+    ate: "11 a 22/08",
+    inicio: new Date(2026, 7, 11),
+    fim: new Date(2100, 0, 1), // sem limite pra cima (cobre até o dia do evento)
+    valorTotal: "R$ 120,00",
+    link2x: "https://pay.infinitepay.io/cacalimaoficial/Ri0y-9eBPAVnbwm-120,00",
+    valorAvista: "R$ 90,00",
+    linkAvista: "https://pay.infinitepay.io/cacalimaoficial/Ri0x-fgBhBHb7wK-90,00",
+  },
+];
+
+const getLoteAtual = () => {
+  const hoje = new Date();
+  return LOTES.find((l) => hoje >= l.inicio && hoje <= l.fim) ?? LOTES[LOTES.length - 1];
+};
 
 const WHATSAPP_GILBERTO = "https://wa.me/5551992149336";
 
@@ -127,6 +165,8 @@ type Inscricao = {
 };
 
 const PatrocinioEvento = () => {
+  const loteAtual = getLoteAtual();
+
   const formatMetrica = (valor: string) => {
     const match = valor.match(/^([\d.,]+)\s*(.*)$/);
     if (!match) return { num: valor, suf: "" };
@@ -225,7 +265,7 @@ const PatrocinioEvento = () => {
       setInscricao({ ...inscricao, pagamento_confirmado: true });
       toast({ title: "Código aplicado: acesso gratuito" });
     } else {
-      toast({ title: "Código aplicado: 25% de desconto — valor R$ 45,00 em 1x" });
+      toast({ title: `Código aplicado: 25% de desconto — valor ${loteAtual.valorAvista} em 1x` });
     }
 
     setPromoAplicado(codigo);
@@ -726,25 +766,54 @@ const PatrocinioEvento = () => {
                       )}
                     </div>
 
-                    {/* 2. Valor — bem visível */}
+                    {/* 2. Lotes — mostra os 3, riscando os que já encerraram */}
+                    <div className="max-w-md mx-auto space-y-2">
+                      {LOTES.map((l) => {
+                        const encerrado = l !== loteAtual && new Date() > l.fim;
+                        const ativo = l === loteAtual;
+                        return (
+                          <div
+                            key={l.nome}
+                            className={`flex items-center justify-between text-sm rounded-md border px-4 py-2 ${
+                              encerrado ? "opacity-40" : ""
+                            }`}
+                            style={{
+                              borderColor: ativo ? "#B99657" : "rgba(185,150,87,0.2)",
+                              backgroundColor: ativo ? "rgba(185,150,87,0.08)" : "transparent",
+                            }}
+                          >
+                            <span className={encerrado ? "line-through" : ""}>
+                              {l.nome} · {l.ate}
+                            </span>
+                            <span className={`font-display ${encerrado ? "line-through" : ""}`} style={{ color: ativo ? "#B99657" : "inherit" }}>
+                              {l.valorTotal}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* 3. Valor do lote atual — bem visível */}
                     <div>
                       {promoAplicado === "NOITE25" ? (
                         <div className="flex items-baseline justify-center gap-3">
-                          <span className="font-display text-2xl line-through opacity-40">R$ 60,00</span>
-                          <span className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>R$ 45,00</span>
+                          <span className="font-display text-2xl line-through opacity-40">{loteAtual.valorTotal}</span>
+                          <span className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>{loteAtual.valorAvista}</span>
                         </div>
                       ) : (
-                        <div className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>R$ 60,00</div>
+                        <div className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>{loteAtual.valorTotal}</div>
                       )}
                       <div className="text-xs uppercase tracking-wider opacity-60 mt-2">
-                        {promoAplicado === "NOITE25" ? "à vista, em 1x" : "à vista ou em até 2x de R$ 30,00"}
+                        {promoAplicado === "NOITE25"
+                          ? "à vista, em 1x"
+                          : `à vista (${loteAtual.valorAvista}) ou em 2x`}
                       </div>
                     </div>
 
-                    {/* 3. Cartão e Pix — mesma proporção, lado a lado */}
+                    {/* 4. Cartão e Pix — mesma proporção, lado a lado */}
                     <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-4 items-center max-w-2xl mx-auto">
                       <a
-                        href={promoAplicado === "NOITE25" ? LINK_PAGAMENTO_NOITE25 : LINK_PAGAMENTO}
+                        href={promoAplicado === "NOITE25" ? loteAtual.linkAvista : loteAtual.link2x}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block h-full"
