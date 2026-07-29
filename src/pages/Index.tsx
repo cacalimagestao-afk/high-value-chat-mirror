@@ -130,7 +130,7 @@ const cotas = [
       "Vinheta institucional de até 15s no encerramento de todos os episódios",
       "Destaque como Patrocinador Master",
       "Logo em materiais institucionais e comerciais do programa",
-      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Exibição na RSPlay TV (Canal 524 Claro)",
       "Publicação oficial no YouTube",
       "Divulgação nas redes sociais do Conversas de Alto Valor",
       "Divulgação nas redes sociais da apresentadora Cacá Lima",
@@ -153,7 +153,7 @@ const cotas = [
       "Participação presencial da empresa nas gravações",
       "Produção de conteúdo estratégico",
       "Vídeo institucional de até 15s ao final do quadro",
-      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Exibição na RSPlay TV (Canal 524 Claro)",
       "Publicação no YouTube",
       "Divulgação nas redes sociais do programa",
       "Divulgação nas redes sociais da apresentadora Cacá Lima",
@@ -170,7 +170,7 @@ const cotas = [
       "Participação como entrevistado principal do episódio",
       "Entrevista conduzida por Cacá Lima",
       "Gravação profissional em estúdio",
-      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Exibição na RSPlay TV (Canal 524 Claro)",
       "Publicação no YouTube",
       "Divulgação nas redes sociais do programa",
       "Divulgação nas redes sociais da apresentadora Cacá Lima",
@@ -189,7 +189,7 @@ const cotasComplementares = [
       "Exposição do produto ou marca durante a gravação",
       "Presença visual no cenário do programa",
       "Participação em fotos, vídeos, cortes e materiais derivados",
-      "Exibição na TVRS Play (Canal 524 Claro)",
+      "Exibição na RSPlay TV (Canal 524 Claro)",
       "Publicação no YouTube",
       "Divulgação nas redes sociais do programa",
       "Associação à identidade visual do Conversas de Alto Valor",
@@ -214,7 +214,7 @@ const cotasComplementares = [
 
 const todosIncluem = [
   "Produção audiovisual profissional",
-  "Exibição na TVRS Play (Canal 524 Claro)",
+  "Exibição na RSPlay TV (Canal 524 Claro)",
   "Publicação no YouTube",
   "Divulgação nas redes sociais do programa",
   "Divulgação nas redes sociais da apresentadora Cacá Lima",
@@ -314,14 +314,14 @@ const Index = () => {
                   Uma Noite de <span className="italic text-gold">Conversas de Alto Valor</span>
                 </h2>
                 <p className="text-navy-dark/85 leading-relaxed mb-6">
-                  Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio TVRS Play. Uma experiência única de conexão, conteúdo e autoridade.
+                  Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio RSPlay TV. Uma experiência única de conexão, conteúdo e autoridade.
                 </p>
                 <div className="flex flex-wrap gap-6 text-lg md:text-xl mb-8">
                   <div className="flex items-center gap-2 text-navy-dark font-semibold">
                     <Calendar className="h-5 w-5 text-gold" /> 26 de agosto de 2026 · 18h30
                   </div>
                   <div className="flex items-center gap-2 text-navy-dark font-semibold">
-                    <MapPin className="h-5 w-5 text-gold" /> Estúdio TVRS Play
+                    <MapPin className="h-5 w-5 text-gold" /> Estúdio RSPlay TV
                   </div>
                   <div className="flex items-center gap-2 text-navy-dark font-semibold">
                     <Users className="h-5 w-5 text-gold" /> Networking + Gravação em formato auditório
@@ -385,25 +385,34 @@ const Index = () => {
               Cada episódio segue sete momentos, do primeiro aceno da apresentadora ao aperto de mão final —
               uma sequência pensada para transformar perspectivas e entregar valor rápido e aplicável.
             </p>
-            <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
-              {formato.map((f) => (
-                <div key={f.label} className="border border-border rounded-lg p-3 bg-card/40">
-                  <div className="text-[0.65rem] uppercase tracking-wider text-muted-foreground mb-1">{f.label}</div>
-                  <div className="font-display text-base text-gold">{f.value}</div>
+            <div className="flex flex-wrap justify-center items-center gap-x-2 max-w-3xl mx-auto">
+              {formato.map((f, i) => (
+                <div key={f.label} className="flex items-center">
+                  <div className="text-center px-6 py-2">
+                    <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mb-2">{f.label}</div>
+                    <div className="font-display text-lg text-gold italic">{f.value}</div>
+                  </div>
+                  {i < formato.length - 1 && (
+                    <div className="hidden sm:block w-px h-10" style={{ backgroundColor: "rgba(185,150,87,0.25)" }} />
+                  )}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto divide-y" style={{ borderColor: "rgba(185,150,87,0.15)" }}>
             {estrutura.map((e) => (
-              <Card key={e.bloco} className="bg-card/60 border-border/60 hover:border-gold/60 transition-smooth h-full">
-                <CardContent className="p-5">
-                  <div className="text-xs uppercase tracking-wider text-gold/70 mb-2">Bloco {e.bloco}</div>
-                  <h3 className="font-display text-base leading-snug mb-1.5">{e.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{e.desc}</p>
-                </CardContent>
-              </Card>
+              <div
+                key={e.bloco}
+                className="grid sm:grid-cols-[80px_1fr] gap-2 sm:gap-8 py-6 border-t first:border-t-0"
+                style={{ borderColor: "rgba(185,150,87,0.15)" }}
+              >
+                <div className="font-display text-2xl italic text-gold/70">{e.bloco}</div>
+                <div>
+                  <h3 className="font-display text-lg mb-1">{e.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">{e.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -530,7 +539,7 @@ const Index = () => {
               Escolha a melhor forma de <span className="italic text-gold">conectar sua marca</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Mais do que espaço publicitário, oferecemos posicionamento, autoridade e relacionamento através de conteúdo relevante e produção profissional. Todos os conteúdos são gravados em estúdio, exibidos na TVRS Play (Canal 524 Claro), publicados no YouTube e divulgados nas redes sociais do programa e da apresentadora Cacá Lima.
+              Mais do que espaço publicitário, oferecemos posicionamento, autoridade e relacionamento através de conteúdo relevante e produção profissional. Todos os conteúdos são gravados em estúdio, exibidos na RSPlay TV (Canal 524 Claro), publicados no YouTube e divulgados nas redes sociais do programa e da apresentadora Cacá Lima.
             </p>
           </div>
 
