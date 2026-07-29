@@ -245,6 +245,7 @@ const Index = () => {
             <a href="#cotas" className="hover:text-gold transition-smooth">Cotas</a>
             <a href="#bastidores" className="hover:text-gold transition-smooth">Bastidores</a>
             <a href="#contato" className="hover:text-gold transition-smooth">Contato</a>
+            <Link to="/evento26-08" className="text-gold hover:text-gold/80 transition-smooth font-medium">Evento Especial</Link>
           </nav>
           <Button asChild size="sm" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
             <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta</a>
@@ -375,60 +376,35 @@ const Index = () => {
       {/* FORMATO */}
       <section id="formato" className="py-24 md:py-32 bg-navy/40 border-y border-border/40">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Formato do Programa</p>
-              <h2 className="font-display text-4xl md:text-5xl mb-6">
-                Uma jornada cuidadosamente <span className="italic text-gold">construída</span>
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Cada episódio é desenhado para transformar perspectivas. Da abertura ao encerramento,
-                tudo é pensado para entregar valor rápido e aplicável.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                {formato.map((f) => (
-                  <div key={f.label} className="border border-border rounded-lg p-4 bg-card/40">
-                    <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{f.label}</div>
-                    <div className="font-display text-lg text-gold">{f.value}</div>
-                  </div>
-                ))}
-              </div>
-              <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
-                {[
-                  "Câmeras: 2 ou 3 · Áudio: lapelas profissionais",
-                  "Edição: cortes premium + trilha suave",
-                  "VTs internos e externos de alta qualidade",
-                  "1 entrevistado por episódio com trajetória inspiradora",
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <Check className="h-4 w-4 text-gold mt-0.5 shrink-0" /> {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              {estrutura.map((e) => (
-                <Card key={e.bloco} className="bg-card/60 border-border/60 hover:border-gold/60 transition-smooth">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start gap-4">
-                      <div className="font-display text-3xl text-gold/60">{e.bloco}</div>
-                      <div className="flex-1">
-                        <CardTitle className="font-display text-xl mb-1">{e.title}</CardTitle>
-                        <CardDescription className="text-muted-foreground">{e.desc}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-0 pl-[3.5rem]">
-                    <ul className="space-y-1.5 text-sm text-muted-foreground">
-                      {e.items.map((it) => (
-                        <li key={it} className="flex gap-2"><span className="text-gold">·</span> {it}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+          <div className="max-w-2xl mx-auto text-center mb-14">
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Formato do Programa</p>
+            <h2 className="font-display text-4xl md:text-5xl mb-6">
+              Uma jornada cuidadosamente <span className="italic text-gold">construída</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Cada episódio segue sete momentos, do primeiro aceno da apresentadora ao aperto de mão final —
+              uma sequência pensada para transformar perspectivas e entregar valor rápido e aplicável.
+            </p>
+            <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
+              {formato.map((f) => (
+                <div key={f.label} className="border border-border rounded-lg p-3 bg-card/40">
+                  <div className="text-[0.65rem] uppercase tracking-wider text-muted-foreground mb-1">{f.label}</div>
+                  <div className="font-display text-base text-gold">{f.value}</div>
+                </div>
               ))}
             </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {estrutura.map((e) => (
+              <Card key={e.bloco} className="bg-card/60 border-border/60 hover:border-gold/60 transition-smooth h-full">
+                <CardContent className="p-5">
+                  <div className="text-xs uppercase tracking-wider text-gold/70 mb-2">Bloco {e.bloco}</div>
+                  <h3 className="font-display text-base leading-snug mb-1.5">{e.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{e.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
