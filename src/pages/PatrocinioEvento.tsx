@@ -21,9 +21,9 @@ const WHATSAPP_GILBERTO = "https://wa.me/5551992149336";
 const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%20Uma%20Noite%20de%20Conversas%20de%20Alto%20Valor";
 
 const heroInfo = [
-  { icon: Calendar, label: "Data", value: "26 · Ago · 2026 · 18h30 às 20h30" },
-  { icon: MapPin, label: "Local", value: "Estúdio C — TV RSPlay · Canal 524 Claro" },
-  { icon: Video, label: "Formato", value: "Gravação ao vivo + pitch induzido" },
+  { icon: Calendar, label: "Data", value: "26 · Ago · 2026", sub: "18h30 às 20h30" },
+  { icon: MapPin, label: "Local", value: "Estúdio C — TV RSPlay", sub: "Canal 524 Claro" },
+  { icon: Video, label: "Formato", value: "Gravação ao vivo", sub: "+ pitch induzido" },
 ];
 
 const relance = [
@@ -37,11 +37,11 @@ const relance = [
 
 const roteiro = [
   { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas de Cacá Lima e a regra do jogo do networking" },
-  { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Entrevista com o convidado: origem e travessia de uma trajetória de décadas" },
-  { hora: "19h05", titulo: "Pitch induzido — rodada 1", desc: "4 empresários, 90 segundos cada, provocados pelo host" },
-  { hora: "19h20", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
-  { hora: "19h50", titulo: "Pitch induzido — rodada 2", desc: "Nova rodada de negócios ao vivo" },
-  { hora: "20h10", titulo: "Encerramento & networking", desc: "Foto oficial, conexões e captação de imagens" },
+  { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
+  { hora: "19h05", titulo: "Pitch induzido", desc: "Patrocinadores terão 90 segundos e convidados 30, para apresentar seus negócios com a mediação da apresentadora" },
+  { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
+  { hora: "20h05", titulo: "Networking & coffee", desc: "Foto oficial, conexões e captação de imagens" },
+  { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
 ];
 
 const numeros = [
@@ -69,20 +69,20 @@ const tabelaCotas = [
 const cotas = [
   {
     nome: "Master",
-    disponibilidade: "Exclusiva · 1 marca",
+    disponibilidade: "Exclusiva por segmento",
     investimento: "R$ 5.000",
-    status: "esgotada" as const,
-    statusLabel: "Esgotado",
-    scarcity: "Cota exclusiva já reservada",
+    status: "disponivel" as const,
+    statusLabel: "3 vagas disponíveis",
+    scarcity: "3 vagas disponíveis",
     beneficios: tabelaCotas.slice(0, -1).map((row) => `${row[0]}: ${row[1]}`),
   },
   {
     nome: "Parceira",
     disponibilidade: "Até 2 marcas",
     investimento: "R$ 3.000",
-    status: "quase" as const,
-    statusLabel: "Últimas vagas",
-    scarcity: "Restam poucas cotas — quase esgotando",
+    status: "disponivel" as const,
+    statusLabel: "Disponível",
+    scarcity: "Vagas abertas",
     destaque: true,
     beneficios: tabelaCotas.slice(0, -1).map((row) => `${row[0]}: ${row[2]}`),
   },
@@ -90,9 +90,9 @@ const cotas = [
     nome: "Apoio",
     disponibilidade: "Até 3 marcas",
     investimento: "R$ 1.000",
-    status: "disponivel" as const,
-    statusLabel: "Disponível",
-    scarcity: "Vagas abertas",
+    status: "quase" as const,
+    statusLabel: "Últimas vagas",
+    scarcity: "Restam poucas cotas — quase esgotando",
     beneficios: tabelaCotas.slice(0, -1).map((row) => `${row[0]}: ${row[3]}`),
   },
 ];
@@ -258,7 +258,7 @@ const PatrocinioEvento = () => {
       </div>
 
       {/* HERO */}
-      <section className="container mx-auto px-6 pt-16 pb-24">
+      <section className="container mx-auto px-6 pt-16 pb-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="max-w-4xl mx-auto text-center">
           <Badge
             className="mb-8 px-4 py-1.5 text-xs tracking-[0.2em] uppercase border"
@@ -279,11 +279,12 @@ const PatrocinioEvento = () => {
           <div className="h-px w-24 mx-auto mb-12" style={{ background: "linear-gradient(90deg, transparent, #B99657, transparent)" }} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {heroInfo.map(({ icon: Icon, label, value }) => (
+            {heroInfo.map(({ icon: Icon, label, value, sub }) => (
               <div key={label} className="text-center">
                 <Icon className="w-6 h-6 mx-auto mb-3" style={{ color: "#B99657" }} />
                 <div className="text-[0.7rem] tracking-[0.25em] uppercase opacity-60 mb-2">{label}</div>
-                <div className="font-sans font-bold text-lg md:text-xl" style={{ color: "#F5EFE1" }}>{value}</div>
+                <div className="font-display text-lg md:text-xl" style={{ color: "#F5EFE1" }}>{value}</div>
+                <div className="font-display text-sm md:text-base opacity-70 mt-1">{sub}</div>
               </div>
             ))}
           </div>
@@ -293,24 +294,24 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* O QUE É ESTA NOITE */}
-      <section className="py-24" style={{ backgroundColor: "#070E16" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
             O Evento
           </div>
           <h2 className="font-display text-3xl md:text-4xl mb-10">
-            Não é audiência de volume. É audiência de contexto.
+            Não é audiência de volume. <span className="italic" style={{ color: "#B99657" }}>É audiência de contexto.</span>
           </h2>
           <div className="space-y-3 text-[0.9rem] md:text-base leading-6 opacity-90 max-w-2xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
-            <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e intercalada com rodadas de pitch de negócios induzido: empresários com 90 segundos para se apresentar à sala e ao entrevistado.</p>
+            <p>Ao longo de duas horas, a conversa com o entrevistado é gravada ao vivo — origem, travessia e gestão — e dá lugar a um bloco de pitch de negócios induzido: 90 segundos para cada patrocinador e 30 para cada convidado se apresentar à sala e ao entrevistado.</p>
             <p>O resultado é um episódio completo, uma biblioteca de cortes para as redes e uma noite de conexões reais. O que se conta uma vez vira lembrança. O que se registra vira referência.</p>
           </div>
         </div>
       </section>
 
       {/* A NOITE EM UM RELANCE */}
-      <section className="py-24">
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -319,18 +320,23 @@ const PatrocinioEvento = () => {
             <h2 className="font-display text-3xl md:text-4xl">Duas horas, desenhadas para render conversa.</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {relance.map(({ title, value, legenda }) => (
+            {relance.map(({ title, value, legenda }, i) => (
               <Card
                 key={title}
                 className="border text-center transition-all hover:-translate-y-1"
                 style={{ backgroundColor: "#0F1B2A", borderColor: "rgba(185,150,87,0.2)" }}
               >
                 <CardContent className="p-6">
-                  <div className="text-[0.7rem] tracking-[0.25em] uppercase mb-3" style={{ color: "#B99657" }}>
+                  <div className="text-[0.65rem] tracking-[0.3em] uppercase mb-3" style={{ color: "#B99657" }}>
                     {title}
                   </div>
-                  <div className="font-sans font-bold text-xl md:text-2xl mb-2" style={{ color: "#F5EFE1" }}>{value}</div>
-                  <div className="text-sm opacity-70">{legenda}</div>
+                  <div
+                    className="font-display text-xl md:text-2xl mb-2"
+                    style={{ color: i % 2 === 0 ? "#B99657" : "#F5EFE1" }}
+                  >
+                    {value}
+                  </div>
+                  <div className="text-xs opacity-60 leading-snug">{legenda}</div>
                 </CardContent>
               </Card>
             ))}
@@ -339,7 +345,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* ROTEIRO DA NOITE */}
-      <section className="py-24" style={{ backgroundColor: "#070E16" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -352,12 +358,8 @@ const PatrocinioEvento = () => {
             <div className="space-y-10 pl-8">
               {roteiro.map(({ hora, titulo, desc }) => (
                 <div key={hora} className="relative">
-                  <div
-                    className="absolute -left-[9px] top-1.5 w-2 h-2 rounded-full"
-                    style={{ backgroundColor: "#B99657" }}
-                  />
                   <div className="flex flex-col md:flex-row gap-2 md:gap-6">
-                    <div className="font-sans font-bold text-xl md:w-20" style={{ color: "#B99657" }}>
+                    <div className="font-display text-xl md:w-20" style={{ color: "#B99657" }}>
                       {hora}
                     </div>
                     <div>
@@ -373,7 +375,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* O QUE A SALA VIVE */}
-      <section className="py-24">
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card
@@ -392,9 +394,9 @@ const PatrocinioEvento = () => {
               style={{ backgroundColor: "#0F1B2A", borderColor: "rgba(185,150,87,0.2)" }}
             >
               <CardContent className="p-8">
-                <h3 className="font-display text-2xl mb-4">Duas rodadas de pitch</h3>
+                <h3 className="font-display text-2xl mb-4">Um bloco de pitch</h3>
                 <p className="opacity-80 leading-6 text-sm">
-                  Oito vagas ao todo, 90 segundos cada, provocadas pela apresentadora. Negócio acontecendo na frente da câmera.
+                  Patrocinadores terão 90 segundos e convidados 30, provocados pela apresentadora para apresentarem e fecharem negócios em frente às câmeras.
                 </p>
               </CardContent>
             </Card>
@@ -403,7 +405,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* ONDE A CONVERSA CHEGA */}
-      <section className="py-24" style={{ backgroundColor: "#070E16" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 max-w-4xl mx-auto">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -435,7 +437,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* INSCRIÇÃO / ADESÃO */}
-      <section className="py-24">
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -756,7 +758,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* PATROCÍNIO E APOIO */}
-      <section className="py-24" style={{ backgroundColor: "#070E16" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-14">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -823,7 +825,7 @@ const PatrocinioEvento = () => {
                     <div className="text-xs opacity-60">{cota.disponibilidade}</div>
                   </div>
 
-                  <div className="text-center mb-6">
+                  <div className="text-center mb-8">
                     <div
                       className={`font-display text-3xl md:text-4xl ${isEsgotada ? "line-through opacity-50" : ""}`}
                       style={{ color: "#B99657" }}
@@ -832,25 +834,6 @@ const PatrocinioEvento = () => {
                     </div>
                     <div className="text-xs opacity-60 mt-1">{cota.scarcity}</div>
                   </div>
-
-                  <ul className="space-y-2.5 mb-8 min-h-[280px]">
-                    {cota.beneficios.map((b, i) => {
-                      const [k, v] = b.split(/: (.+)/);
-                      const isNegative = v?.trim() === "—";
-                      return (
-                        <li key={i} className={`flex items-start gap-2 text-sm ${isNegative ? "opacity-40" : ""}`}>
-                          <Check
-                            className="w-3.5 h-3.5 mt-1 flex-shrink-0"
-                            style={{ color: isNegative ? "rgba(255,255,255,0.3)" : "#B99657" }}
-                          />
-                          <span>
-                            <span className="opacity-75">{k}: </span>
-                            <span className={isNegative ? "" : "font-medium"}>{v}</span>
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
 
                   <Button
                     asChild={!isEsgotada}
@@ -891,7 +874,7 @@ const PatrocinioEvento = () => {
                     <TableHead style={{ color: "#B99657" }}>
                       Master
                       <br />
-                      <span className="opacity-70">(Exclusiva · 1)</span>
+                      <span className="opacity-70">(Exclusiva por segmento)</span>
                     </TableHead>
                     <TableHead style={{ color: "#B99657" }}>
                       Parceira
