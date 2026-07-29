@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
 
 // Links de pagamento e acesso
 const LINK_PAGAMENTO = "https://pay.infinitepay.io/cacalimaoficial/VC1D-MpPeFhZoUK-60,00";
@@ -22,14 +23,14 @@ const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%2
 
 const heroInfo = [
   { icon: Calendar, label: "Data", value: "26 · Ago · 2026", sub: "18h30 às 20h30" },
-  { icon: MapPin, label: "Local", value: "Estúdio C — TV RSPlay", sub: "Canal 524 Claro" },
+  { icon: MapPin, label: "Local", value: "Estúdio C — RSPlay TV", sub: "Canal 524 Claro" },
   { icon: Video, label: "Formato", value: "Gravação ao vivo", sub: "+ pitch induzido" },
 ];
 
 const relance = [
   { title: "Data", value: "26 de agosto", legenda: "Quarta-feira, 2 horas" },
   { title: "Horário", value: "18h30 às 20h30", legenda: "Chegada sugerida às 18h" },
-  { title: "Local", value: "Estúdio C", legenda: "TV RSPlay" },
+  { title: "Local", value: "Estúdio C", legenda: "RSPlay TV" },
   { title: "Entrevistado", value: "Empresário de destaque no RS", legenda: "Nome anunciado em breve" },
   { title: "Público", value: "Grupo seleto", legenda: "Curadoria — não plateia" },
   { title: "Diferencial", value: "Pitch induzido", legenda: "Negócios provocados ao vivo" },
@@ -108,6 +109,17 @@ const maskCPF = (v: string) =>
 
 const isValidCPFFormat = (v: string) => /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(v);
 
+const maskCNPJ = (v: string) =>
+  v
+    .replace(/\D/g, "")
+    .slice(0, 14)
+    .replace(/(\d{2})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1/$2")
+    .replace(/(\d{4})(\d{1,2})$/, "$1-$2");
+
+const isValidCNPJFormat = (v: string) => /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(v);
+
 type Inscricao = {
   id: string;
   nome: string;
@@ -121,15 +133,46 @@ const PatrocinioEvento = () => {
     return { num: match[1], suf: match[2] };
   };
   useEffect(() => {
-    document.title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
-    const desc = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — TV RSPlay.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", desc);
+    const title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
+    const description = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — RSPlay TV.";
+
+    setSeo({ title, description, path: "/evento26-08" });
+
+    setJsonLd("ld-event", {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: "Uma Noite de Conversas de Alto Valor — Edição Especial",
+      description,
+      startDate: "2026-08-26T18:30:00-03:00",
+      endDate: "2026-08-26T20:30:00-03:00",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus: "https://schema.org/EventScheduled",
+      location: {
+        "@type": "Place",
+        name: "Estúdio C — RSPlay TV",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Porto Alegre",
+          addressRegion: "RS",
+          addressCountry: "BR",
+        },
+      },
+      image: ["https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1d7049bc-4428-48f6-80f0-720a02cb0094"],
+      organizer: {
+        "@type": "Organization",
+        name: "Conversas de Alto Valor",
+        url: "https://conversasdealtovalor.com.br/",
+      },
+      offers: {
+        "@type": "Offer",
+        url: "https://conversasdealtovalor.com.br/evento26-08",
+        priceCurrency: "BRL",
+        price: "60.00",
+        availability: "https://schema.org/InStock",
+      },
+    });
+
+    return () => removeJsonLd("ld-event");
   }, []);
 
   // Estado do formulário de inscrição
@@ -137,6 +180,7 @@ const PatrocinioEvento = () => {
     nome: "",
     cpf: "",
     empresa: "",
+    cnpj: "",
     ramo_atuacao: "",
     cidade_atuacao: "",
     email: "",
@@ -154,7 +198,7 @@ const PatrocinioEvento = () => {
   const [aplicandoPromo, setAplicandoPromo] = useState(false);
 
   const setField = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const v = k === "cpf" ? maskCPF(e.target.value) : e.target.value;
+    const v = k === "cpf" ? maskCPF(e.target.value) : k === "cnpj" ? maskCNPJ(e.target.value) : e.target.value;
     setForm((f) => ({ ...f, [k]: v }));
   };
 
@@ -205,6 +249,10 @@ const PatrocinioEvento = () => {
       toast({ title: "CPF inválido", description: "Use o formato 000.000.000-00", variant: "destructive" });
       return;
     }
+    if (form.cnpj.trim() && !isValidCNPJFormat(form.cnpj)) {
+      toast({ title: "CNPJ inválido", description: "Use o formato 00.000.000/0000-00, ou deixe em branco", variant: "destructive" });
+      return;
+    }
     if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
       toast({ title: "E-mail inválido", variant: "destructive" });
       return;
@@ -220,6 +268,7 @@ const PatrocinioEvento = () => {
         nome: form.nome.trim(),
         cpf: form.cpf,
         empresa: form.empresa.trim(),
+        cnpj: form.cnpj.trim() || null,
         ramo_atuacao: form.ramo_atuacao.trim(),
         cidade_atuacao: form.cidade_atuacao.trim(),
         email: form.email.trim(),
@@ -498,6 +547,21 @@ const PatrocinioEvento = () => {
                       value={form.empresa}
                       onChange={setField("empresa")}
                       maxLength={120}
+                      className="bg-transparent border text-[#F5EFE1]"
+                      style={{ borderColor: "rgba(185,150,87,0.3)" }}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="cnpj" className="text-sm mb-2 block" style={{ color: "#F5EFE1" }}>
+                      CNPJ <span className="opacity-50 font-normal">(opcional)</span>
+                    </Label>
+                    <Input
+                      id="cnpj"
+                      value={form.cnpj}
+                      onChange={setField("cnpj")}
+                      placeholder="00.000.000/0000-00"
+                      inputMode="numeric"
+                      maxLength={18}
                       className="bg-transparent border text-[#F5EFE1]"
                       style={{ borderColor: "rgba(185,150,87,0.3)" }}
                     />
@@ -946,7 +1010,7 @@ const PatrocinioEvento = () => {
             <a href={MAILTO} className="hover:opacity-100 transition-opacity">caca@cacalimaoficial.com.br</a>
           </div>
           <div className="text-xs opacity-50 pt-4">
-            Edição Especial de 26/08/2026 · Estúdio C — TV RSPlay · Condições de patrocínio válidas por 10 dias a partir do envio.
+            Edição Especial de 26/08/2026 · Estúdio C — RSPlay TV · Condições de patrocínio válidas por 10 dias a partir do envio.
           </div>
         </div>
       </footer>
