@@ -94,14 +94,13 @@ const numeros = [
 ];
 
 const tabelaCotas = [
-  ["Naming da edição", "apresenta [Marca]", "—", "—"],
+  ["Exclusividade de segmento", "✦ Exclusiva", "—", "—"],
   ["Logo nos cortes / episódio", "Abertura + selo em todos os cortes", "Rodapé dos cortes", "Card de agradecimento"],
-  ["Menção verbal do host", "Abertura + fechamento", "Única", "Coletiva"],
-  ["Presença na sala", "2 cadeiras + pitch institucional", "1 cadeira", "1 cadeira"],
-  ["Tempo de pitch ao vivo", "90 segundos", "60 segundos", "45 segundos"],
-  ["Ativação física no estúdio", "Banner + foto oficial", "1 story de bastidores", "—"],
+  ["Menção verbal da apresentadora", "Abertura + fechamento", "Única", "Coletiva"],
+  ["Pitch de negócios ao vivo", "90 segundos", "60 segundos", "45 segundos"],
+  ["Presença na sala", "2 cadeiras", "1 cadeira", "1 cadeira"],
+  ["Ativação física no estúdio", "Banner, foto oficial + 2 stories de bastidores", "1 story de bastidores", "—"],
   ["Redes @conversasdealtovalor", "3 posts marcados", "1 story", "Card coletivo"],
-  ["Relatório pós-evento", "Completo, com métricas", "Resumido", "—"],
   ["Investimento", "R$ 5.000", "R$ 3.000", "R$ 1.000"],
 ];
 
