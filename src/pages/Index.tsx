@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { setSeo } from "@/lib/seo";
 import {
   Sparkles,
   Calendar,
@@ -225,6 +226,14 @@ const todosIncluem = [
 const Index = () => {
   const [bastIdx, setBastIdx] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSeo({
+      title: "Conversas de Alto Valor — Histórias que revelam propósitos",
+      description: "Programa semanal de entrevistas com Cacá Lima. Profundidade, propósito e narrativa humana em conversas transformadoras.",
+      path: "/",
+    });
+  }, []);
 
   useEffect(() => {
     const id = setInterval(() => setBastIdx((i) => (i + 1) % bastidores.length), 4500);
@@ -660,14 +669,14 @@ const Index = () => {
           </div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-navy border border-border/60">
+            <div className="relative aspect-[4/5] sm:aspect-[16/10] rounded-2xl overflow-hidden shadow-navy border border-border/60">
               {bastidores.map((src, i) => (
                 <img
                   key={src}
                   src={src}
                   alt={`Bastidores do programa - foto ${i + 1}`}
                   loading="lazy"
-                  className={`absolute inset-0 w-full h-full object-cover object-[center_25%] transition-opacity duration-1000 ${
+                  className={`absolute inset-0 w-full h-full object-cover object-[center_12%] sm:object-[center_25%] transition-opacity duration-1000 ${
                     i === bastIdx ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -707,7 +716,7 @@ const Index = () => {
                     i === bastIdx ? "border-gold" : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
-                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover object-[center_25%]" />
+                  <img src={src} alt={`Miniatura dos bastidores — foto ${i + 1}`} loading="lazy" className="w-full h-full object-cover object-[center_15%]" />
                 </button>
               ))}
             </div>
