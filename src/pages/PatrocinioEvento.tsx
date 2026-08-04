@@ -61,7 +61,7 @@ const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%2
 
 const heroInfo = [
   { icon: Calendar, label: "Data", value: "26 · Ago · 2026", sub: "18h30 às 20h30" },
-  { icon: MapPin, label: "Local", value: "Estúdio C — RSPlay TV", sub: "Canal 524 Claro" },
+  { icon: MapPin, label: "Local", value: "Estúdio C — RSPlay TV", sub: "Rua da Conceição, 195 — Centro Histórico, Porto Alegre" },
   { icon: Video, label: "Formato", value: "Gravação ao vivo", sub: "+ pitch induzido" },
 ];
 
