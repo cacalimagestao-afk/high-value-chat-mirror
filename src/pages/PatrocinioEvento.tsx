@@ -1082,6 +1082,14 @@ const PatrocinioEvento = () => {
                         Entrar no grupo do evento
                       </Button>
                     </a>
+                    <div className="flex items-start gap-2 mt-4 pt-4 border-t" style={{ borderColor: "rgba(185,150,87,0.2)" }}>
+                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "#B99657" }} />
+                      <div className="text-sm opacity-75">
+                        <span className="font-medium opacity-100">Estúdio C — RSPlay TV</span>
+                        <br />
+                        Rua da Conceição, 195 — Centro Histórico, Porto Alegre
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <div
