@@ -725,10 +725,10 @@ const PatrocinioEvento = () => {
               .map((p) => (
                 <div key={p.nome} className="text-center">
                   <div
-                    className="rounded-xl p-6 md:p-8 flex items-center justify-center"
-                    style={{ backgroundColor: "#FFFFFF", width: "280px", height: "140px" }}
+                    className="rounded-xl p-3 flex items-center justify-center"
+                    style={{ backgroundColor: "#FFFFFF", width: "320px", height: "100px" }}
                   >
-                    <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
+                    <img src={p.logo} alt={`Logo ${p.nome}`} className="w-full h-full object-contain" />
                   </div>
                   <div className="text-[0.65rem] uppercase tracking-wider mt-2 opacity-60">Cota Master</div>
                 </div>
@@ -743,10 +743,10 @@ const PatrocinioEvento = () => {
                 .map((p) => (
                   <div key={p.nome} className="text-center">
                     <div
-                      className="rounded-lg p-4 flex items-center justify-center"
-                      style={{ backgroundColor: "#FFFFFF", width: "180px", height: "90px" }}
+                      className="rounded-lg p-2 flex items-center justify-center"
+                      style={{ backgroundColor: "#FFFFFF", width: "220px", height: "70px" }}
                     >
-                      <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
+                      <img src={p.logo} alt={`Logo ${p.nome}`} className="w-full h-full object-contain" />
                     </div>
                     <div className="text-[0.6rem] uppercase tracking-wider mt-2 opacity-50">Cota {p.cota}</div>
                   </div>
