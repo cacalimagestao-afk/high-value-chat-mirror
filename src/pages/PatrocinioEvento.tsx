@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
-import logoCardeal from "@/assets/parceiros/cardeal.jpg";
+import logoCardeal from "@/assets/parceiros/cardeal.png";
 
 // Links de acesso
 const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
