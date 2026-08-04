@@ -61,7 +61,7 @@ const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%2
 
 const heroInfo = [
   { icon: Calendar, label: "Data", value: "26 · Ago · 2026", sub: "18h30 às 20h30" },
-  { icon: MapPin, label: "Local", value: "Estúdio C — RSPlay TV", sub: "Rua da Conceição, 195 — Centro Histórico, Porto Alegre" },
+  { icon: MapPin, label: "Local", value: "Estúdio C — RSPlay TV", sub: "Rua da Conceição, 195/6º andar - Centro Histórico - Porto Alegre/RS" },
   { icon: Video, label: "Formato", value: "Gravação ao vivo", sub: "+ pitch induzido" },
 ];
 
@@ -192,6 +192,7 @@ const PatrocinioEvento = () => {
         name: "Estúdio C — RSPlay TV",
         address: {
           "@type": "PostalAddress",
+          streetAddress: "Rua da Conceição, 195 - 6º andar",
           addressLocality: "Porto Alegre",
           addressRegion: "RS",
           addressCountry: "BR",
@@ -1087,7 +1088,7 @@ const PatrocinioEvento = () => {
                       <div className="text-sm opacity-75">
                         <span className="font-medium opacity-100">Estúdio C — RSPlay TV</span>
                         <br />
-                        Rua da Conceição, 195 — Centro Histórico, Porto Alegre
+                        Rua da Conceição, 195/6º andar - Centro Histórico - Porto Alegre/RS
                       </div>
                     </div>
                   </div>
