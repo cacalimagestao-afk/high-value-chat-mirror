@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
+import logoCardeal from "@/assets/parceiros/cardeal.jpg";
 
 // Links de acesso
 const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
@@ -105,6 +106,12 @@ const tabelaCotas = [
 ];
 
 // Cards de cotas — derivados de tabelaCotas para preservar o conteúdo
+// Patrocinadores já confirmados — basta adicionar um novo objeto aqui
+// conforme fechar cada cota (nome, logo importado, e a cota correspondente).
+const patrocinadores = [
+  { nome: "Cardeal — Ecossistema Contábil Estratégico", logo: logoCardeal, cota: "Master" },
+];
+
 const cotas = [
   {
     nome: "Master",
@@ -701,8 +708,56 @@ const PatrocinioEvento = () => {
         </div>
       </section>
 
-      {/* INSCRIÇÃO / ADESÃO */}
+      {/* PATROCINADORES CONFIRMADOS */}
       <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
+        <div className="container mx-auto px-6 max-w-5xl text-center">
+          <p className="text-xs uppercase tracking-[0.3em] mb-4" style={{ color: "#B99657" }}>
+            Patrocinadores confirmados
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl mb-14">
+            Marcas que já garantiram <span className="italic" style={{ color: "#B99657" }}>seu lugar</span>.
+          </h2>
+
+          {/* Cota Master — destaque maior */}
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            {patrocinadores
+              .filter((p) => p.cota === "Master")
+              .map((p) => (
+                <div key={p.nome} className="text-center">
+                  <div
+                    className="rounded-xl p-6 md:p-8 flex items-center justify-center"
+                    style={{ backgroundColor: "#FFFFFF", width: "280px", height: "140px" }}
+                  >
+                    <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
+                  </div>
+                  <div className="text-[0.65rem] uppercase tracking-wider mt-2 opacity-60">Cota Master</div>
+                </div>
+              ))}
+          </div>
+
+          {/* Demais cotas — Parceira e Apoio, em tamanho menor */}
+          {patrocinadores.some((p) => p.cota !== "Master") && (
+            <div className="flex flex-wrap justify-center gap-4">
+              {patrocinadores
+                .filter((p) => p.cota !== "Master")
+                .map((p) => (
+                  <div key={p.nome} className="text-center">
+                    <div
+                      className="rounded-lg p-4 flex items-center justify-center"
+                      style={{ backgroundColor: "#FFFFFF", width: "180px", height: "90px" }}
+                    >
+                      <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div className="text-[0.6rem] uppercase tracking-wider mt-2 opacity-50">Cota {p.cota}</div>
+                  </div>
+                ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* INSCRIÇÃO / ADESÃO */}
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
