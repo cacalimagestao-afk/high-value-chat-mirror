@@ -716,7 +716,7 @@ const PatrocinioEvento = () => {
       <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-5xl text-center">
           <p className="text-xs uppercase tracking-[0.3em] mb-4" style={{ color: "#B99657" }}>
-            Patrocinadores confirmados
+            Patrocinadores e Apoiadores Confirmados
           </p>
           <h2 className="font-display text-3xl md:text-4xl mb-14">
             Marcas que já garantiram <span className="italic" style={{ color: "#B99657" }}>seu lugar</span>.
