@@ -112,7 +112,7 @@ const tabelaCotas = [
 // conforme fechar cada cota (nome, logo importado, e a cota correspondente).
 const patrocinadores = [
   { nome: "Cardeal — Ecossistema Contábil Estratégico", logo: logoCardeal, cota: "Master" },
-  { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio" },
+  { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", tamanho: 200 },
   { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio" },
 ];
 
@@ -748,7 +748,7 @@ const PatrocinioEvento = () => {
                   <div key={p.nome} className="text-center">
                     <div
                       className="rounded-lg p-3 flex items-center justify-center"
-                      style={{ backgroundColor: "#FFFFFF", width: "160px", height: "160px" }}
+                      style={{ backgroundColor: "#FFFFFF", width: `${p.tamanho ?? 160}px`, height: `${p.tamanho ?? 160}px` }}
                     >
                       <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
                     </div>
