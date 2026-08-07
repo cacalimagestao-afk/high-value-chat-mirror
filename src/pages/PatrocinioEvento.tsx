@@ -12,7 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
 import logoCardeal from "@/assets/parceiros/cardeal.png";
 import logoDWill from "@/assets/parceiros/dwill.jpg";
-import logoLambs from "@/assets/parceiros/lambs.png";
+import logoLambs from "@/assets/parceiros/lambs-original.jpg";
 
 // Links de acesso
 const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
@@ -747,10 +747,10 @@ const PatrocinioEvento = () => {
                 .map((p) => (
                   <div key={p.nome} className="text-center">
                     <div
-                      className="rounded-lg p-2 flex items-center justify-center"
-                      style={{ backgroundColor: "#FFFFFF", width: "220px", height: "70px" }}
+                      className="rounded-lg p-3 flex items-center justify-center"
+                      style={{ backgroundColor: "#FFFFFF", width: "160px", height: "160px" }}
                     >
-                      <img src={p.logo} alt={`Logo ${p.nome}`} className="w-full h-full object-contain" />
+                      <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
                     </div>
                     <div className="text-[0.6rem] uppercase tracking-wider mt-2 opacity-50">Cota {p.cota}</div>
                   </div>
