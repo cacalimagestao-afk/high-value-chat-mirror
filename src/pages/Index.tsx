@@ -456,7 +456,7 @@ const Index = () => {
                       {videoId && (
                         <div className="relative aspect-video md:aspect-auto overflow-hidden bg-navy-dark">
                           <img
-                            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                            src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}
                             alt={`Thumbnail do episódio ${t.title}`}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
@@ -505,7 +505,7 @@ const Index = () => {
                       {videoId && (
                         <div className="relative aspect-video overflow-hidden bg-navy-dark">
                           <img
-                            src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                            src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}
                             alt={`Thumbnail do episódio ${t.title}`}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
