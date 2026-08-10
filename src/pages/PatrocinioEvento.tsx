@@ -83,7 +83,7 @@ const roteiro = [
   { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
   { hora: "19h05", titulo: "Pitch induzido", desc: "30s a 90s conforme a cota, mediado pela apresentadora" },
   { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
-  { hora: "20h05", titulo: "Coquetel de encerramento", desc: "Experiência D'Will Grill Burguer, foto oficial e conexões" },
+  { hora: "20h05", titulo: "Momento Gastronômico", desc: "Experiência D'Will Grill Burguer, foto oficial e conexões" },
   { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
 ];
 
@@ -432,7 +432,7 @@ const PatrocinioEvento = () => {
                 <img
                   src={fotoRicardoRizzo}
                   alt="Ricardo Rizzo Campos, convidado do Conversas de Alto Valor"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[center_15%]"
                 />
               </div>
             </div>
@@ -964,10 +964,10 @@ const PatrocinioEvento = () => {
                       id="telefone"
                       required
                       inputMode="tel"
-                      placeholder="(51) 90000-0000"
+                      placeholder="+55 51 90000-0000"
                       value={form.telefone}
                       onChange={setField("telefone")}
-                      maxLength={20}
+                      maxLength={30}
                       className="bg-transparent border text-[#F5EFE1]"
                       style={{ borderColor: "rgba(185,150,87,0.3)" }}
                     />
@@ -1034,46 +1034,7 @@ const PatrocinioEvento = () => {
 
                 {!inscricao.pagamento_confirmado && (
                   <>
-                    {/* 1. Código promocional — primeira pergunta, sempre editável */}
-                    <div className="max-w-sm mx-auto">
-                      <div className="text-xs uppercase tracking-wider opacity-60 mb-2">Tem um código promocional?</div>
-                      <div className="flex items-center gap-2">
-                        <Input
-                          value={promocode}
-                          onChange={(e) => {
-                            setPromocode(e.target.value);
-                            if (promoAplicado) {
-                              setPromoAplicado(null);
-                              setPromoErro("");
-                            }
-                          }}
-                          placeholder="Código promocional"
-                          className="bg-transparent border text-[#F5EFE1]"
-                          style={{ borderColor: "rgba(185,150,87,0.3)" }}
-                        />
-                        <Button
-                          type="button"
-                          onClick={handleAplicarPromocode}
-                          disabled={!promocode.trim() || aplicandoPromo}
-                          variant="outline"
-                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
-                        >
-                          {promoAplicado ? "Trocar" : "Aplicar"}
-                        </Button>
-                      </div>
-                      {promoAplicado && (
-                        <div className="text-sm mt-2" style={{ color: "#B99657" }}>
-                          Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
-                        </div>
-                      )}
-                      {promoErro && (
-                        <div className="text-xs mt-2" style={{ color: "#ff8a8a" }}>
-                          {promoErro}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* 2. Lotes — mostra os 3, riscando os que já encerraram */}
+                    {/* 1. Lotes — mostra os 3, riscando os que já encerraram */}
                     <div className="max-w-md mx-auto space-y-2">
                       {LOTES.map((l) => {
                         const encerrado = l !== loteAtual && new Date() > l.fim;
@@ -1100,7 +1061,7 @@ const PatrocinioEvento = () => {
                       })}
                     </div>
 
-                    {/* 3. Valor do lote atual — bem visível */}
+                    {/* 2. Valor do lote atual — bem visível */}
                     <div>
                       {promoAplicado === "NOITE25" ? (
                         <div className="flex items-baseline justify-center gap-3">
@@ -1115,6 +1076,45 @@ const PatrocinioEvento = () => {
                           ? "à vista, em 1x"
                           : `à vista (${loteAtual.valorAvista}) ou em 2x`}
                       </div>
+                    </div>
+
+                    {/* 3. Código promocional — sempre editável, campo em destaque */}
+                    <div className="max-w-sm mx-auto">
+                      <div className="text-xs uppercase tracking-wider opacity-60 mb-2">Tem um código promocional?</div>
+                      <div className="flex items-center gap-2">
+                        <Input
+                          value={promocode}
+                          onChange={(e) => {
+                            setPromocode(e.target.value);
+                            if (promoAplicado) {
+                              setPromoAplicado(null);
+                              setPromoErro("");
+                            }
+                          }}
+                          placeholder="Código promocional"
+                          className="border"
+                          style={{ backgroundColor: "#F5EFE1", color: "#0A131E", borderColor: "#B99657" }}
+                        />
+                        <Button
+                          type="button"
+                          onClick={handleAplicarPromocode}
+                          disabled={!promocode.trim() || aplicandoPromo}
+                          variant="outline"
+                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                        >
+                          {promoAplicado ? "Trocar" : "Aplicar"}
+                        </Button>
+                      </div>
+                      {promoAplicado && (
+                        <div className="text-sm mt-2" style={{ color: "#B99657" }}>
+                          Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
+                        </div>
+                      )}
+                      {promoErro && (
+                        <div className="text-xs mt-2" style={{ color: "#ff8a8a" }}>
+                          {promoErro}
+                        </div>
+                      )}
                     </div>
 
                     {/* 4. Cartão e Pix — mesma proporção, lado a lado */}
