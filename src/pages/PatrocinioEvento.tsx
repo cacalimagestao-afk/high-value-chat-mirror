@@ -843,7 +843,7 @@ const PatrocinioEvento = () => {
                 );
               })}
               <p className="text-[0.7rem] opacity-50 text-center pt-1">
-                Valores à vista com 25% de desconto no lote vigente ({loteAtual.valorAvista}, em 1x).
+                Valor vigente: {loteAtual.valorTotal}
               </p>
             </div>
           </div>
