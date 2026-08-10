@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { setSeo } from "@/lib/seo";
+import capaCacaLima from "@/assets/capas/ep11-cacalima.png";
+import capaAlexandreSilva from "@/assets/capas/ep01-alexandresilva.png";
+import capaJoscianaBezerra from "@/assets/capas/ep03-joscianabezerra.png";
+import capaIvanDePaiva from "@/assets/capas/ep04-ivandepaiva.png";
+import capaLucasVital from "@/assets/capas/ep05-lucasvital.png";
+import capaGramadoSummit from "@/assets/capas/ep13-gramadosummit.png";
 import {
   Sparkles,
   Calendar,
@@ -107,13 +113,13 @@ const estrutura = [
 ];
 
 const temas = [
-  { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", featured: true },
-  { tag: "Episódio #1 · Temp. 2 · Alexandre Silva", title: "A comunicação consegue transformar pessoas?", url: "https://youtu.be/-HC3acXHu6U" },
-  { tag: "Episódio #3 · Temp. 2 · Josciana Bezerra", title: "Humor, maternidade e verdades que ninguém conta", url: "https://youtu.be/f8SyLIfaTUc" },
-  { tag: "Episódio #4 · Temp. 2 · Ivan de Paiva", title: "Fé, recomeços e o que nenhuma IA substitui", url: "https://youtu.be/SDT4O5UQ_qE" },
-  { tag: "Episódio #5 · Temp. 2 · Lucas Vital", title: "Entre quilômetros e propósitos", url: "https://youtu.be/J9nUd7p_FvE" },
+  { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", featured: true, capa: capaCacaLima },
+  { tag: "Episódio #1 · Temp. 2 · Alexandre Silva", title: "A comunicação consegue transformar pessoas?", url: "https://youtu.be/-HC3acXHu6U", capa: capaAlexandreSilva },
+  { tag: "Episódio #3 · Temp. 2 · Josciana Bezerra", title: "Humor, maternidade e verdades que ninguém conta", url: "https://youtu.be/f8SyLIfaTUc", capa: capaJoscianaBezerra },
+  { tag: "Episódio #4 · Temp. 2 · Ivan de Paiva", title: "Fé, recomeços e o que nenhuma IA substitui", url: "https://youtu.be/SDT4O5UQ_qE", capa: capaIvanDePaiva },
+  { tag: "Episódio #5 · Temp. 2 · Lucas Vital", title: "Entre quilômetros e propósitos", url: "https://youtu.be/J9nUd7p_FvE", capa: capaLucasVital },
   { tag: "Episódio #8 · Temp. 2 · Guilherme e Sueli Cardeal", title: "45 anos de empresa em família", url: "https://youtu.be/sBibh5W7B1M" },
-  { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY" },
+  { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY", capa: capaGramadoSummit },
 ];
 
 const setores = [
@@ -453,15 +459,19 @@ const Index = () => {
                 >
                   <Card className="group bg-card/60 border-gold shadow-gold overflow-hidden relative transition-smooth hover:shadow-lg">
                     <div className="grid md:grid-cols-2">
-                      {videoId && (
+                      {(t.capa || videoId) && (
                         <div className="relative aspect-video md:aspect-auto overflow-hidden bg-navy-dark">
                           <img
-                            src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                            onError={(e) => {
-                              e.currentTarget.onerror = null;
-                              e.currentTarget.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+                            src={t.capa ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                            onLoad={(e) => {
+                              if (!t.capa) {
+                                const img = e.currentTarget;
+                                if (img.naturalWidth <= 120) {
+                                  img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+                                }
+                              }
                             }}
-                            alt={`Thumbnail do episódio ${t.title}`}
+                            alt={`Capa do episódio ${t.title}`}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
                           />
@@ -506,15 +516,19 @@ const Index = () => {
                     title={`Assistir ${t.tag} — ${t.title} no YouTube`}
                   >
                     <Card className="group bg-card/60 border-border/60 hover:border-gold/60 transition-smooth overflow-hidden relative h-full">
-                      {videoId && (
+                      {(t.capa || videoId) && (
                         <div className="relative aspect-video overflow-hidden bg-navy-dark">
                           <img
-                            src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                            onError={(e) => {
-                              e.currentTarget.onerror = null;
-                              e.currentTarget.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+                            src={t.capa ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+                            onLoad={(e) => {
+                              if (!t.capa) {
+                                const img = e.currentTarget;
+                                if (img.naturalWidth <= 120) {
+                                  img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+                                }
+                              }
                             }}
-                            alt={`Thumbnail do episódio ${t.title}`}
+                            alt={`Capa do episódio ${t.title}`}
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
                           />
