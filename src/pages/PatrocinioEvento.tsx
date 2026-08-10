@@ -11,6 +11,7 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { setSeo, setJsonLd, removeJsonLd } from "@/lib/seo";
 import logoCardeal from "@/assets/parceiros/cardeal.png";
+import fotoRicardoRizzo from "@/assets/convidados/ricardo-rizzo-campos.jpg";
 import logoDWill from "@/assets/parceiros/dwill.jpg";
 import logoLambs from "@/assets/parceiros/lambs-original.jpg";
 
@@ -72,17 +73,17 @@ const relance = [
   { title: "Data", value: "26 de agosto", legenda: "Quarta-feira, 2 horas" },
   { title: "Horário", value: "18h30 às 20h30", legenda: "Chegada sugerida às 18h" },
   { title: "Local", value: "Estúdio C", legenda: "RSPlay TV" },
-  { title: "Entrevistado", value: "Empresário de destaque no RS", legenda: "Nome anunciado em breve" },
+  { title: "Entrevistado", value: "Ricardo Rizzo Campos", legenda: "Marketing, PNL e trajetória empresarial" },
   { title: "Público", value: "Grupo seleto", legenda: "Curadoria — não plateia" },
   { title: "Diferencial", value: "Pitch induzido", legenda: "Negócios provocados ao vivo" },
 ];
 
 const roteiro = [
-  { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas de Cacá Lima e a regra do jogo do networking" },
+  { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas + coffee de chegada by Confeitaria Lamb's" },
   { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
   { hora: "19h05", titulo: "Pitch induzido", desc: "30s a 90s conforme a cota, mediado pela apresentadora" },
   { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
-  { hora: "20h05", titulo: "Networking & coffee", desc: "Foto oficial, conexões e captação de imagens" },
+  { hora: "20h05", titulo: "Coquetel de encerramento", desc: "Experiência D'Will Grill Burguer, foto oficial e conexões" },
   { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
 ];
 
@@ -185,7 +186,7 @@ const PatrocinioEvento = () => {
   };
   useEffect(() => {
     const title = "Uma Noite de Conversas de Alto Valor — Edição Especial · 26 de agosto";
-    const description = "Edição especial do Conversas de Alto Valor: gravação ao vivo com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — RSPlay TV.";
+    const description = "Edição especial do Conversas de Alto Valor: gravação ao vivo com Ricardo Rizzo Campos, diante de um grupo seleto de empresários. 26 de agosto, Estúdio C — RSPlay TV.";
 
     setSeo({ title, description, path: "/evento26-08" });
 
@@ -374,7 +375,7 @@ const PatrocinioEvento = () => {
             </em>
           </h1>
           <p className="text-base md:text-lg leading-6 opacity-85 mb-10 max-w-2xl mx-auto">
-            Gravação ao vivo do Conversas de Alto Valor com um empresário de destaque no Rio Grande do Sul, diante de um grupo seleto de empresários — com rodadas de pitch de negócios provocadas ao vivo.
+            Gravação ao vivo do Conversas de Alto Valor com Ricardo Rizzo Campos, diante de um grupo seleto de empresários — com rodadas de pitch de negócios provocadas ao vivo.
           </p>
 
           <div className="h-px w-24 mx-auto mb-12" style={{ background: "linear-gradient(90deg, transparent, #B99657, transparent)" }} />
@@ -401,7 +402,7 @@ const PatrocinioEvento = () => {
             O Evento
           </div>
           <h2 className="font-display text-3xl md:text-4xl mb-10">
-            Não é audiência de volume. <span className="italic" style={{ color: "#B99657" }}>É audiência de contexto.</span>
+            Não será audiência de volume. <span className="italic" style={{ color: "#B99657" }}>Será audiência de contexto.</span>
           </h2>
           <div className="space-y-3 text-[0.9rem] md:text-base leading-6 opacity-90 max-w-2xl mx-auto">
             <p>Existe um tipo de encontro que não se compra por impressão: o que coloca uma sala de decisores diante de uma das trajetórias mais sólidas do empreendedorismo gaúcho.</p>
@@ -411,8 +412,39 @@ const PatrocinioEvento = () => {
         </div>
       </section>
 
-      {/* A NOITE EM UM RELANCE */}
+      {/* O CONVIDADO */}
       <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-10">
+            <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
+              O Convidado
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl">
+              Ricardo <span className="italic" style={{ color: "#B99657" }}>Rizzo Campos</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-[220px_1fr] gap-8 md:gap-10 items-center">
+            <div className="flex justify-center">
+              <div
+                className="rounded-full overflow-hidden border-2 flex-shrink-0"
+                style={{ borderColor: "#B99657", width: "200px", height: "200px" }}
+              >
+                <img
+                  src={fotoRicardoRizzo}
+                  alt="Ricardo Rizzo Campos, convidado do Conversas de Alto Valor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <p className="text-[0.9rem] md:text-base leading-6 opacity-90 text-left">
+              Formado em Marketing e Administração pela UFRGS e Master Trainer em PNL por instituições dos Estados Unidos e da América do Sul, Ricardo treinou diretamente com nomes como Richard Bandler, Daniel Goleman e Philip Kotler. Ao longo de mais de 25 anos dirigiu a Êxitus Publicidade, agência historicamente ligada à Companhia Zaffari, e hoje comanda quatro empresas — RICA Comunicação & Marketing, RICA Treinamento Empresarial de Excelência, Grandes Ideias Agência Digital e E+Vendas Marketing. Há 15 anos leva suas palestras e workshops a instituições como SEBRAE, ADVB-RS, SENAC e RBS, sendo reconhecido pelos alunos pela empatia, bom humor e ética.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* A NOITE EM UM RELANCE */}
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -446,7 +478,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* ROTEIRO DA NOITE */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -476,7 +508,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* O QUE A SALA VIVE */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card
@@ -506,7 +538,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* ONDE A CONVERSA CHEGA */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 max-w-4xl mx-auto">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -538,7 +570,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* PATROCÍNIO E APOIO */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-14">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
@@ -713,7 +745,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* PATROCINADORES CONFIRMADOS */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="container mx-auto px-6 max-w-5xl text-center">
           <p className="text-xs uppercase tracking-[0.3em] mb-4" style={{ color: "#B99657" }}>
             Patrocinadores e Apoiadores Confirmados
@@ -766,7 +798,7 @@ const PatrocinioEvento = () => {
       </section>
 
       {/* INSCRIÇÃO / ADESÃO */}
-      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
+      <section className="py-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.05), transparent), linear-gradient(180deg, #070E16 0%, #0A131E 100%)" }}>
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <div className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#B99657" }}>
