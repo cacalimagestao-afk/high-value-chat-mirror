@@ -426,13 +426,13 @@ const PatrocinioEvento = () => {
           <div className="grid md:grid-cols-[220px_1fr] gap-8 md:gap-10 items-center">
             <div className="flex justify-center">
               <div
-                className="rounded-full overflow-hidden border-2 flex-shrink-0"
-                style={{ borderColor: "#B99657", width: "200px", height: "200px" }}
+                className="rounded-lg overflow-hidden border-2 flex-shrink-0"
+                style={{ borderColor: "#B99657", width: "220px", height: "280px" }}
               >
                 <img
                   src={fotoRicardoRizzo}
                   alt="Ricardo Rizzo Campos, convidado do Conversas de Alto Valor"
-                  className="w-full h-full object-cover object-[center_15%]"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
