@@ -257,7 +257,7 @@ const Index = () => {
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#programa" className="hover:text-gold transition-smooth">O Programa</a>
-            <Link to="/apresentadora" className="hover:text-gold transition-smooth">Apresentadora</Link>
+            <a href="#apresentadora" className="hover:text-gold transition-smooth">Apresentadora</a>
             <a href="#formato" className="hover:text-gold transition-smooth">Formato</a>
             <a href="#cotas" className="hover:text-gold transition-smooth">Cotas</a>
             <a href="#bastidores" className="hover:text-gold transition-smooth">Bastidores</a>
@@ -422,9 +422,6 @@ const Index = () => {
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-                  <Link to="/apresentadora">Conhecer a apresentadora</Link>
-                </Button>
                 <Button asChild variant="outline" className="border-border/60">
                   <a
                     href="https://tvsplay.com.br/2026/08/10/caca-lima-e-o-sucesso-de-conversas-de-alto-valor-na-rsplay-tv/"
