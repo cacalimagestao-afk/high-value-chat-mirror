@@ -7,6 +7,7 @@ import capaJoscianaBezerra from "@/assets/capas/ep03-joscianabezerra.png";
 import capaIvanDePaiva from "@/assets/capas/ep04-ivandepaiva.png";
 import capaLucasVital from "@/assets/capas/ep05-lucasvital.png";
 import capaGramadoSummit from "@/assets/capas/ep13-gramadosummit.png";
+import fotoApresentadora from "@/assets/apresentadora/foto-caca.jpg";
 import {
   Sparkles,
   Calendar,
@@ -385,6 +386,56 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* APRESENTADORA */}
+      <section id="apresentadora" className="py-24 md:py-32 bg-navy/40 border-y border-border/40">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-[340px_1fr] gap-10 md:gap-16 items-center max-w-5xl mx-auto">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-navy border border-border/60 mx-auto md:mx-0 w-full max-w-sm">
+              <img
+                src={fotoApresentadora}
+                alt="Cacá Lima, apresentadora do Conversas de Alto Valor"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            <div>
+              <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Apresentadora</p>
+              <h2 className="font-display text-3xl md:text-4xl mb-6">
+                Cacá Lima
+              </h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Especialista em gestão de riscos e segurança em eventos, cerimonialista, mentora e
+                  ex-diretora da Associação Brasileira de Eventos, Cacá construiu uma trajetória
+                  marcada por planejamento, cuidado com pessoas e superação de grandes desafios
+                  pessoais.
+                </p>
+                <p>
+                  À frente das câmeras, ela conduz entrevistas que vão além dos títulos e conquistas
+                  dos convidados, buscando entender decisões, valores e legados — dando ao programa
+                  uma identidade própria dentro da programação da RSPlay TV.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
+                  <Link to="/apresentadora">Conhecer a apresentadora</Link>
+                </Button>
+                <Button asChild variant="outline" className="border-border/60">
+                  <a
+                    href="https://tvsplay.com.br/2026/08/10/caca-lima-e-o-sucesso-de-conversas-de-alto-valor-na-rsplay-tv/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Saiba mais
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
