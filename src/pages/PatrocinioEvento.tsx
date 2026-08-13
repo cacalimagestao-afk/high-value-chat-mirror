@@ -113,10 +113,10 @@ const tabelaCotas = [
 // Patrocinadores já confirmados — basta adicionar um novo objeto aqui
 // conforme fechar cada cota (nome, logo importado, e a cota correspondente).
 const patrocinadores = [
-  { nome: "Cardeal — Ecossistema Contábil Estratégico", logo: logoCardeal, cota: "Master" },
-  { nome: "MedKaya", logo: logoMedKaya, cota: "Master" },
-  { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", padding: 4 },
-  { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio" },
+  { nome: "Cardeal — Ecossistema Contábil Estratégico", logo: logoCardeal, cota: "Master", url: "https://www.instagram.com/cardealcontabilidade/" },
+  { nome: "MedKaya", logo: logoMedKaya, cota: "Master", url: "https://www.medkayafarma.com.br/" },
+  { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", padding: 4, url: "https://www.instagram.com/dwillburguer/" },
+  { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio", url: "https://www.instagram.com/confeitarialambs/" },
 ];
 
 const cotas = [
@@ -761,15 +761,23 @@ const PatrocinioEvento = () => {
             {patrocinadores
               .filter((p) => p.cota === "Master")
               .map((p) => (
-                <div key={p.nome} className="text-center">
+                <a
+                  key={p.nome}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center group"
+                  title={`Visite: ${p.nome}`}
+                  aria-label={`Visite: ${p.nome}`}
+                >
                   <div
-                    className="rounded-xl p-3 flex items-center justify-center"
+                    className="rounded-xl p-3 flex items-center justify-center transition-smooth group-hover:opacity-80"
                     style={{ backgroundColor: "#FFFFFF", width: "320px", height: "100px" }}
                   >
                     <img src={p.logo} alt={`Logo ${p.nome}`} className="w-full h-full object-contain" />
                   </div>
                   <div className="text-[0.65rem] uppercase tracking-wider mt-2 opacity-60">Cota Master</div>
-                </div>
+                </a>
               ))}
           </div>
 
@@ -779,9 +787,17 @@ const PatrocinioEvento = () => {
               {patrocinadores
                 .filter((p) => p.cota !== "Master")
                 .map((p) => (
-                  <div key={p.nome} className="text-center">
+                  <a
+                    key={p.nome}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center group"
+                    title={`Visite: ${p.nome}`}
+                    aria-label={`Visite: ${p.nome}`}
+                  >
                     <div
-                      className="rounded-lg flex items-center justify-center"
+                      className="rounded-lg flex items-center justify-center transition-smooth group-hover:opacity-80"
                       style={{
                         backgroundColor: "#FFFFFF",
                         width: "160px",
@@ -792,7 +808,7 @@ const PatrocinioEvento = () => {
                       <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
                     </div>
                     <div className="text-[0.6rem] uppercase tracking-wider mt-2 opacity-50">Cota {p.cota}</div>
-                  </div>
+                  </a>
                 ))}
             </div>
           )}
