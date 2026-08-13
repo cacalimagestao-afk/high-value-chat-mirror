@@ -6,7 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import PatrocinioEvento from "./pages/PatrocinioEvento.tsx";
-import Apresentadora from "./pages/Apresentadora.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,7 +27,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/apresentadora" element={<Apresentadora />} />
+          <Route path="/apresentadora" element={<Navigate to="/#apresentadora" replace />} />
           <Route path="/evento26-08" element={<PatrocinioEvento />} />
           {/* Legacy route aliases → /evento26-08 */}
           <Route path="/patrocinio-evento" element={<Navigate to="/evento26-08" replace />} />
