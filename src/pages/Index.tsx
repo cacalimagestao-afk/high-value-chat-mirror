@@ -50,6 +50,7 @@ import logoRsplay from "@/assets/parceiros/rsplay-tv.png";
 import logoOralsin from "@/assets/parceiros/oralsin.png";
 import logoArena from "@/assets/parceiros/arena.png";
 import logoDermogral from "@/assets/parceiros/dermogral.png";
+import logoMedKaya from "@/assets/parceiros/medkaya.png";
 
 const bastidores = [b1, b2, b3, b4, b5, b6, b7];
 
@@ -873,6 +874,7 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
               { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", scale: "scale-[1.2]" },
+              { logo: logoMedKaya, name: "MedKaya", title: "Visite o site da MedKaya", url: "https://www.medkayafarma.com.br/", scale: "scale-[1.3]" },
               { logo: logoOralsin, name: "OralSin Cachoeirinha", title: "Visite o Instagram da OralSin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==", scale: "scale-[1.15]" },
               { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
               { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==", scale: "scale-[1.6]" },
