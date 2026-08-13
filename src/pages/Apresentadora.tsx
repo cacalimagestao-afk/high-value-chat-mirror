@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { setSeo } from "@/lib/seo";
-
-// PLACEHOLDER: troque este arquivo por src/assets/apresentadora/caca-lima.jpg
-// e atualize o import abaixo para usar a foto real.
-const FOTO_APRESENTADORA_PLACEHOLDER =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1d7049bc-4428-48f6-80f0-720a02cb0094";
+import fotoApresentadora from "@/assets/apresentadora/foto-caca.jpg";
 
 const LINK_MATERIA =
   "https://tvsplay.com.br/2026/08/10/caca-lima-e-o-sucesso-de-conversas-de-alto-valor-na-rsplay-tv/";
@@ -45,7 +41,7 @@ const Apresentadora = () => {
             {/* FOTO */}
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-navy border border-border/60 mx-auto md:mx-0 w-full max-w-sm">
               <img
-                src={FOTO_APRESENTADORA_PLACEHOLDER}
+                src={fotoApresentadora}
                 alt="Cacá Lima, apresentadora do Conversas de Alto Valor"
                 className="w-full h-full object-cover"
               />
