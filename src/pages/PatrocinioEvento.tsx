@@ -14,6 +14,7 @@ import logoCardeal from "@/assets/parceiros/cardeal.png";
 import fotoRicardoRizzo from "@/assets/convidados/ricardo-rizzo-campos.jpg";
 import logoDWill from "@/assets/parceiros/dwill.jpg";
 import logoLambs from "@/assets/parceiros/lambs-original.jpg";
+import logoMedKaya from "@/assets/parceiros/medkaya.png";
 
 // Links de acesso
 const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
@@ -113,6 +114,7 @@ const tabelaCotas = [
 // conforme fechar cada cota (nome, logo importado, e a cota correspondente).
 const patrocinadores = [
   { nome: "Cardeal — Ecossistema Contábil Estratégico", logo: logoCardeal, cota: "Master" },
+  { nome: "MedKaya", logo: logoMedKaya, cota: "Master" },
   { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", padding: 4 },
   { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio" },
 ];
