@@ -885,7 +885,7 @@ const Index = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center overflow-hidden" style="padding: 13px 10px;"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center overflow-hidden" style={{ padding: "13px 10px" }}
                 title={p.title}
                 aria-label={p.title}
               >
