@@ -885,11 +885,11 @@ const Index = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center p-2 sm:p-3 h-20 sm:h-24 overflow-hidden"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center overflow-hidden" style="padding: 13px 10px;"
                 title={p.title}
                 aria-label={p.title}
               >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} style={p.isBlack ? { filter: "brightness(0)" } : p.contrast ? { filter: "contrast(1.6)" } : {}} />
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} style={p.isBlack ? { filter: "brightness(0)" } : p.contrast ? { filter: "contrast(2.0)" } : {}} />
               </a>
             ))}
           </div>
