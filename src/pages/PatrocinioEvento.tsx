@@ -370,6 +370,9 @@ const PatrocinioEvento = () => {
           >
             Edição Especial · 26 de Agosto
           </Badge>
+          <p className="font-display text-lg md:text-xl tracking-wide uppercase mb-4" style={{ color: "#B99657" }}>
+            Uma Noite de Conversas de Alto Valor
+          </p>
           <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
             A mesa onde história, estratégia e negócio{" "}
             <em className="italic" style={{ color: "#B99657" }}>
