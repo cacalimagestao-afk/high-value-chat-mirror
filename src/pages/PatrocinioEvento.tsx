@@ -364,15 +364,15 @@ const PatrocinioEvento = () => {
       {/* HERO */}
       <section className="container mx-auto px-6 pt-16 pb-24" style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(185,150,87,0.04), transparent), linear-gradient(180deg, #0A131E 0%, #0D1826 100%)" }}>
         <div className="max-w-4xl mx-auto text-center">
+          <p className="font-display text-lg md:text-xl tracking-wide uppercase mb-4" style={{ color: "#B99657" }}>
+            Uma Noite de Conversas de Alto Valor
+          </p>
           <Badge
             className="mb-8 px-4 py-1.5 text-xs tracking-[0.2em] uppercase border"
             style={{ backgroundColor: "transparent", color: "#B99657", borderColor: "#B99657" }}
           >
             Edição Especial · 26 de Agosto
           </Badge>
-          <p className="font-display text-lg md:text-xl tracking-wide uppercase mb-4" style={{ color: "#B99657" }}>
-            Uma Noite de Conversas de Alto Valor
-          </p>
           <h1 className="font-display text-4xl md:text-5xl leading-tight mb-8">
             A mesa onde história, estratégia e negócio{" "}
             <em className="italic" style={{ color: "#B99657" }}>
