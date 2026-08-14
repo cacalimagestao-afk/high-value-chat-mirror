@@ -266,7 +266,7 @@ const Index = () => {
             <Link to="/evento26-08" className="text-gold hover:text-gold/80 transition-smooth font-medium">Evento Especial</Link>
           </nav>
           <Button asChild size="sm" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta</a>
+            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Seja Patrocinador</a>
           </Button>
         </div>
       </header>
@@ -296,7 +296,7 @@ const Index = () => {
               Programa Semanal · Apresentado por Cacá Lima
             </Badge>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-8">
-              Conversas de Alto Valor —{" "}
+              Conversas de Alto Valor{" "}
               <span className="text-gradient-gold italic">Profundidade, propósito e narrativa humana</span>.
             </h1>
             <div className="gold-divider w-32 mx-auto mb-8" />
