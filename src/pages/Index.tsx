@@ -889,7 +889,10 @@ const Index = () => {
                 title={p.title}
                 aria-label={p.title}
               >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} />
+                <div className="relative w-full h-full flex flex-col items-center justify-center">
+                  <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-4/5 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} />
+                  <div className="w-full h-1/5 bg-white mt-1"></div>
+                </div>
               </a>
             ))}
           </div>
@@ -920,3 +923,4 @@ const Index = () => {
 };
 
 export default Index;
+
