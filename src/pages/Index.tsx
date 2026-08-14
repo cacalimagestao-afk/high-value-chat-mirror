@@ -874,7 +874,7 @@ const Index = () => {
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
             {[
-              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", scale: "scale-[1.2]" },
+              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", scale: "scale-[1.2]", filter: "brightness-0" },
               { logo: logoMedKaya, name: "MedKaya", title: "Visite o site da MedKaya", url: "https://www.medkayafarma.com.br/", scale: "scale-[1.3]" },
               { logo: logoOralsin, name: "OralSin Cachoeirinha", title: "Visite o Instagram da OralSin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==", scale: "scale-[1.15]" },
               { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==", scale: "scale-[1.6]" },
@@ -885,14 +885,11 @@ const Index = () => {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-card/40 hover:border-gold/60 hover:bg-card/80 transition-smooth flex items-center justify-center p-5 sm:p-6 h-28 sm:h-32 overflow-hidden"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center p-5 sm:p-6 h-28 sm:h-32 overflow-hidden"
                 title={p.title}
                 aria-label={p.title}
               >
-                <div className="relative w-full h-full flex flex-col items-center justify-center">
-                  <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-4/5 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} />
-                  <div className="w-full h-1/5 bg-white mt-1"></div>
-                </div>
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className={`w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out ${p.scale}`} style={p.filter ? { filter: p.filter } : {}} />
               </a>
             ))}
           </div>
@@ -923,4 +920,3 @@ const Index = () => {
 };
 
 export default Index;
-
