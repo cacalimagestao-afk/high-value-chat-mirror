@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { setSeo } from "@/lib/seo";
-import capaCacaLima from "@/assets/capas/ep11-cacalima.png";
-import capaAlexandreSilva from "@/assets/capas/ep01-alexandresilva.png";
-import capaJoscianaBezerra from "@/assets/capas/ep03-joscianabezerra.png";
-import capaIvanDePaiva from "@/assets/capas/ep04-ivandepaiva.png";
-import capaLucasVital from "@/assets/capas/ep05-lucasvital.png";
-import capaGramadoSummit from "@/assets/capas/ep13-gramadosummit.png";
+import capaCacaLima from "@/assets/capas/ep11-cacalima.jpg";
+import capaAlexandreSilva from "@/assets/capas/ep01-alexandresilva.jpg";
+import capaJoscianaBezerra from "@/assets/capas/ep03-joscianabezerra.jpg";
+import capaIvanDePaiva from "@/assets/capas/ep04-ivandepaiva.jpg";
+import capaLucasVital from "@/assets/capas/ep05-lucasvital.jpg";
+import capaGramadoSummit from "@/assets/capas/ep13-gramadosummit.jpg";
 import fotoApresentadora from "@/assets/apresentadora/foto-caca.jpg";
 import {
   Sparkles,
@@ -400,6 +400,7 @@ const Index = () => {
               <img
                 src={fotoApresentadora}
                 alt="Cacá Lima, apresentadora do Conversas de Alto Valor"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-transparent to-transparent pointer-events-none" />
@@ -889,7 +890,7 @@ const Index = () => {
                 title={p.title}
                 aria-label={p.title}
               >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" style={p.isBlack ? { filter: "brightness(0)" } : {}} />
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} loading="lazy" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" style={p.isBlack ? { filter: "brightness(0)" } : {}} />
               </a>
             ))}
           </div>
