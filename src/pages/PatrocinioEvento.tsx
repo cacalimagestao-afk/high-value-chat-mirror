@@ -14,10 +14,13 @@ import logoCardeal from "@/assets/parceiros/cardeal.png";
 import fotoRicardoRizzo from "@/assets/convidados/ricardo-rizzo-campos.jpg";
 import logoDWill from "@/assets/parceiros/dwill.jpg";
 import logoLambs from "@/assets/parceiros/lambs-original.jpg";
+import logoDuduDrinks from "@/assets/parceiros/dudu-drinks.jpeg";
 import logoMedKaya from "@/assets/parceiros/medkaya.png";
+import qrCodePix from "@/assets/qrcode-pix.png";
 
 // Links de acesso
-const LINK_CHAVE_PIX = "abaa2e60-4bd6-475b-9c90-f974eb52ecc4";
+const LINK_CHAVE_PIX =
+  "00020101021126810014BR.GOV.BCB.PIX2559pix-qr.mercadopago.com/instore/ol/v2/3Z932oOK0cSnoLReMMFqzr5204000053039865802BR5922CACA LIMA EVENTOS LTDA6009SAO PAULO62080504mpis63048E65";
 const LINK_GRUPO_WHATSAPP = "https://chat.whatsapp.com/F9tnzIHdbn4HI3pwwoFtuF?s=cl&p=a&ilr=1";
 
 // Lotes de inscrição — o valor e o link mudam automaticamente conforme a data de hoje.
@@ -60,6 +63,20 @@ const getLoteAtual = () => {
   return LOTES.find((l) => hoje >= l.inicio && hoje <= l.fim) ?? LOTES[LOTES.length - 1];
 };
 
+// Calcula o valor com desconto a partir do valor total do lote (ex: "R$ 120,00", 50 → "R$ 60,00")
+const calcularValorComDesconto = (valorTotal: string, percentualDesconto: number): string => {
+  const numero = parseFloat(valorTotal.replace("R$", "").trim().replace(".", "").replace(",", "."));
+  const valorFinal = numero * (1 - percentualDesconto / 100);
+  return `R$ ${valorFinal.toFixed(2).replace(".", ",")}`;
+};
+
+// Cupons promocionais — código: percentual de desconto (100 = gratuito)
+const CUPONS_DESCONTO: Record<string, number> = {
+  NOITE25: 25,
+  NOITE50: 50,
+  NOITEBNI: 50,
+};
+
 const WHATSAPP_GILBERTO = "https://wa.me/5551992149336";
 
 const MAILTO = "mailto:caca@cacalimaoficial.com.br?subject=Patroc%C3%ADnio%20-%20Uma%20Noite%20de%20Conversas%20de%20Alto%20Valor";
@@ -84,7 +101,7 @@ const roteiro = [
   { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
   { hora: "19h05", titulo: "Pitch induzido", desc: "30s a 90s conforme a cota, mediado pela apresentadora" },
   { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
-  { hora: "20h05", titulo: "Momento Gastronômico", desc: "Experiência D'Will Grill Burguer, foto oficial e conexões" },
+  { hora: "20h05", titulo: "Momento Gastronômico", desc: "Experiência D'Will Grill Burguer, drinks by Dudu Drinks, foto oficial e conexões" },
   { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
 ];
 
@@ -117,6 +134,7 @@ const patrocinadores = [
   { nome: "MedKaya", logo: logoMedKaya, cota: "Master", url: "https://www.medkayafarma.com.br/" },
   { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", padding: 4, url: "https://www.instagram.com/dwillburguer/" },
   { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio", url: "https://www.instagram.com/confeitarialambs/" },
+  { nome: "Dudu Drinks", logo: logoDuduDrinks, cota: "Apoio", url: "https://www.instagram.com/dududrinksecaipiras/" },
 ];
 
 const cotas = [
@@ -248,7 +266,7 @@ const PatrocinioEvento = () => {
 
   // Código promocional
   const [promocode, setPromocode] = useState("");
-  const [promoAplicado, setPromoAplicado] = useState<"NOITE25" | "NOITEFREE" | null>(null);
+  const [promoAplicado, setPromoAplicado] = useState<"NOITE25" | "NOITE50" | "NOITEBNI" | "NOITEFREE" | null>(null);
   const [promoErro, setPromoErro] = useState("");
   const [aplicandoPromo, setAplicandoPromo] = useState(false);
 
@@ -261,12 +279,19 @@ const PatrocinioEvento = () => {
     const codigo = promocode.trim().toUpperCase();
     setPromoErro("");
 
-    if (codigo !== "NOITE25" && codigo !== "NOITEFREE") {
+    const ehFree = codigo === "NOITEFREE";
+    const percentual = CUPONS_DESCONTO[codigo];
+
+    if (!ehFree && percentual === undefined) {
       setPromoErro("Código inválido");
       return;
     }
 
-    if (codigo === "NOITEFREE" && inscricao) {
+    if (ehFree) {
+      if (!inscricao) {
+        setPromoErro("Preencha seus dados antes de aplicar este código.");
+        return;
+      }
       setAplicandoPromo(true);
       const { error } = await supabase
         .from("inscricoes_evento")
@@ -279,11 +304,12 @@ const PatrocinioEvento = () => {
       }
       setInscricao({ ...inscricao, pagamento_confirmado: true });
       toast({ title: "Código aplicado: acesso gratuito" });
+      setPromoAplicado("NOITEFREE");
     } else {
-      toast({ title: `Código aplicado: 25% de desconto — valor ${loteAtual.valorAvista} em 1x` });
+      const valorComDesconto = calcularValorComDesconto(loteAtual.valorTotal, percentual);
+      toast({ title: `Código aplicado: ${percentual}% de desconto — valor ${valorComDesconto} via Pix` });
+      setPromoAplicado(codigo as "NOITE25" | "NOITE50" | "NOITEBNI");
     }
-
-    setPromoAplicado(codigo);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -777,7 +803,7 @@ const PatrocinioEvento = () => {
                     className="rounded-xl p-3 flex items-center justify-center transition-smooth group-hover:opacity-80"
                     style={{ backgroundColor: "#FFFFFF", width: "320px", height: "100px" }}
                   >
-                    <img src={p.logo} alt={`Logo ${p.nome}`} className="w-full h-full object-contain" />
+                    <img src={p.logo} alt={`Logo ${p.nome}`} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <div className="text-[0.65rem] uppercase tracking-wider mt-2 opacity-60">Cota Master</div>
                 </a>
@@ -808,7 +834,7 @@ const PatrocinioEvento = () => {
                         padding: `${p.padding ?? 12}px`,
                       }}
                     >
-                      <img src={p.logo} alt={`Logo ${p.nome}`} className="max-w-full max-h-full object-contain" />
+                      <img src={p.logo} alt={`Logo ${p.nome}`} loading="lazy" className="max-w-full max-h-full object-contain" />
                     </div>
                     <div className="text-[0.6rem] uppercase tracking-wider mt-2 opacity-50">Cota {p.cota}</div>
                   </a>
@@ -1084,18 +1110,26 @@ const PatrocinioEvento = () => {
 
                     {/* 2. Valor do lote atual — bem visível */}
                     <div>
-                      {promoAplicado === "NOITE25" ? (
+                      {promoAplicado && promoAplicado !== "NOITEFREE" ? (
                         <div className="flex items-baseline justify-center gap-3">
                           <span className="font-display text-2xl line-through opacity-40">{loteAtual.valorTotal}</span>
-                          <span className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>{loteAtual.valorAvista}</span>
+                          <span className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>
+                            {calcularValorComDesconto(loteAtual.valorTotal, CUPONS_DESCONTO[promoAplicado])}
+                          </span>
                         </div>
+                      ) : promoAplicado === "NOITEFREE" ? (
+                        <div className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>Grátis</div>
                       ) : (
                         <div className="font-display text-5xl md:text-6xl" style={{ color: "#B99657" }}>{loteAtual.valorTotal}</div>
                       )}
                       <div className="text-xs uppercase tracking-wider opacity-60 mt-2">
-                        {promoAplicado === "NOITE25"
-                          ? "à vista, em 1x"
-                          : `à vista (${loteAtual.valorAvista}) ou em 2x`}
+                        {promoAplicado === "NOITEFREE"
+                          ? "acesso liberado"
+                          : !promoAplicado
+                          ? `via Pix, ou no cartão à vista (${loteAtual.valorAvista}) ou em 2x`
+                          : promoAplicado === "NOITE25"
+                          ? "via Pix, ou no cartão à vista em 1x"
+                          : "via Pix"}
                       </div>
                     </div>
 
@@ -1128,7 +1162,7 @@ const PatrocinioEvento = () => {
                       </div>
                       {promoAplicado && (
                         <div className="text-sm mt-2" style={{ color: "#B99657" }}>
-                          Código aplicado: {promoAplicado === "NOITE25" ? "25% de desconto" : "acesso gratuito"}
+                          Código aplicado: {promoAplicado === "NOITEFREE" ? "acesso gratuito" : `${CUPONS_DESCONTO[promoAplicado]}% de desconto`}
                         </div>
                       )}
                       {promoErro && (
@@ -1138,47 +1172,73 @@ const PatrocinioEvento = () => {
                       )}
                     </div>
 
-                    {/* 4. Cartão e Pix — mesma proporção, lado a lado */}
-                    <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-4 items-center max-w-2xl mx-auto">
-                      <a
-                        href={promoAplicado === "NOITE25" ? loteAtual.linkAvista : loteAtual.link2x}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block h-full"
+                    {/* 4. Cartão e Pix — cartão disponível para valor cheio ou cupom NOITE25 */}
+                    {promoAplicado !== "NOITEFREE" && (
+                      <div
+                        className={
+                          !promoAplicado || promoAplicado === "NOITE25"
+                            ? "grid sm:grid-cols-[1fr_auto_1fr] gap-4 items-start max-w-2xl mx-auto"
+                            : "max-w-sm mx-auto"
+                        }
                       >
+                        {(!promoAplicado || promoAplicado === "NOITE25") && (
+                          <>
+                            <a
+                              href={promoAplicado === "NOITE25" ? loteAtual.linkAvista : loteAtual.link2x}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block h-full"
+                            >
+                              <div
+                                className="h-full flex flex-col items-center justify-center gap-3 rounded-lg border p-6"
+                                style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
+                              >
+                                <div className="text-xs uppercase tracking-wider opacity-60">Cartão de crédito</div>
+                                <Button size="lg" className="w-full" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
+                                  Fazer pagamento
+                                </Button>
+                              </div>
+                            </a>
+
+                            <div className="text-xs uppercase tracking-wider opacity-50 text-center py-1 sm:py-0">ou</div>
+                          </>
+                        )}
+
                         <div
-                          className="h-full flex flex-col items-center justify-center gap-3 rounded-lg border p-6"
+                          className="h-full flex flex-col items-center justify-center gap-4 rounded-lg border p-6"
                           style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
                         >
-                          <div className="text-xs uppercase tracking-wider opacity-60">Cartão de crédito</div>
-                          <Button size="lg" className="w-full" style={{ backgroundColor: "#B99657", color: "#0A131E" }}>
-                            Fazer pagamento
+                          <div className="text-xs uppercase tracking-wider opacity-60">Pague com Pix</div>
+                          <img
+                            src={qrCodePix}
+                            alt="QR Code para pagamento via Pix"
+                            className="w-40 h-40 rounded-md"
+                          />
+                          <p className="text-xs opacity-70 text-center leading-relaxed">
+                            Escaneie o QR Code ou copie o código abaixo. Ao pagar, digite o valor{" "}
+                            <strong style={{ color: "#B99657" }}>
+                              {promoAplicado
+                                ? calcularValorComDesconto(loteAtual.valorTotal, CUPONS_DESCONTO[promoAplicado])
+                                : loteAtual.valorTotal}
+                            </strong>
+                            .
+                          </p>
+                          <Button
+                            type="button"
+                            size="lg"
+                            onClick={handleCopiarPix}
+                            className="w-full"
+                            variant="outline"
+                            style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
+                          >
+                            Copiar código Pix
                           </Button>
+                          <code className="text-[0.6rem] opacity-50 break-all w-full text-center" style={{ color: "#F5EFE1" }}>
+                            {LINK_CHAVE_PIX}
+                          </code>
                         </div>
-                      </a>
-
-                      <div className="text-xs uppercase tracking-wider opacity-50 text-center py-1 sm:py-0">ou</div>
-
-                      <div
-                        className="h-full flex flex-col items-center justify-center gap-3 rounded-lg border p-6"
-                        style={{ borderColor: "rgba(185,150,87,0.3)", backgroundColor: "#0A131E" }}
-                      >
-                        <div className="text-xs uppercase tracking-wider opacity-60">Pix</div>
-                        <Button
-                          type="button"
-                          size="lg"
-                          onClick={handleCopiarPix}
-                          className="w-full"
-                          variant="outline"
-                          style={{ borderColor: "#B99657", color: "#B99657", backgroundColor: "transparent" }}
-                        >
-                          Copiar chave Pix
-                        </Button>
-                        <code className="text-[0.65rem] opacity-50 truncate w-full text-center" style={{ color: "#F5EFE1" }}>
-                          {LINK_CHAVE_PIX}
-                        </code>
                       </div>
-                    </div>
+                    )}
                   </>
                 )}
 
