@@ -15,6 +15,7 @@ import fotoRicardoRizzo from "@/assets/convidados/ricardo-rizzo-campos.jpg";
 import logoDWill from "@/assets/parceiros/dwill.jpg";
 import logoLambs from "@/assets/parceiros/lambs-original.jpg";
 import logoDuduDrinks from "@/assets/parceiros/dudu-drinks.jpeg";
+import logoDoPrado from "@/assets/parceiros/do-prado.jpeg";
 import logoMedKaya from "@/assets/parceiros/medkaya.png";
 import qrCodePix from "@/assets/qrcode-pix.png";
 
@@ -135,6 +136,7 @@ const patrocinadores = [
   { nome: "D'Will Especial Grill Burguer", logo: logoDWill, cota: "Apoio", padding: 4, url: "https://www.instagram.com/dwillburguer/" },
   { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio", url: "https://www.instagram.com/confeitarialambs/" },
   { nome: "Dudu Drinks", logo: logoDuduDrinks, cota: "Apoio", url: "https://www.instagram.com/dududrinksecaipiras/" },
+  { nome: "Do Prado — Embalagens e Brindes", logo: logoDoPrado, cota: "Apoio", url: "https://www.instagram.com/dopradoembalagens/" },
 ];
 
 const cotas = [
