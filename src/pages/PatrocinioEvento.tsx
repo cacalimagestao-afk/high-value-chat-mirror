@@ -17,6 +17,8 @@ import logoLambs from "@/assets/parceiros/lambs-original.jpg";
 import logoDuduDrinks from "@/assets/parceiros/dudu-drinks.jpeg";
 import logoDoPrado from "@/assets/parceiros/do-prado.jpeg";
 import logoMedKaya from "@/assets/parceiros/medkaya.png";
+import logoMacieira from "@/assets/parceiros/macieira.png";
+import logoAdrianaFrusciante from "@/assets/parceiros/adriana-frusciante.png";
 import qrCodePix from "@/assets/qrcode-pix.png";
 
 // Links de acesso
@@ -137,6 +139,8 @@ const patrocinadores = [
   { nome: "Confeitaria Lamb's — Desde 1988", logo: logoLambs, cota: "Apoio", url: "https://www.instagram.com/confeitarialambs/" },
   { nome: "Dudu Drinks", logo: logoDuduDrinks, cota: "Apoio", url: "https://www.instagram.com/dududrinksecaipiras/" },
   { nome: "Do Prado — Embalagens e Brindes", logo: logoDoPrado, cota: "Apoio", url: "https://www.instagram.com/dopradoembalagens/" },
+  { nome: "Macieira Consultoria e Projetos", logo: logoMacieira, cota: "Apoio", url: "https://www.instagram.com/gilberto.cons.tributario/" },
+  { nome: "Adriana Frusciante — Mestre de Cerimônias e Celebrante Social", logo: logoAdrianaFrusciante, cota: "Apoio", padding: 20, url: "https://www.instagram.com/adrianafrusciantecelebrante/" },
 ];
 
 const cotas = [
