@@ -100,12 +100,13 @@ const relance = [
 ];
 
 const roteiro = [
-  { hora: "18h30", titulo: "Abertura", desc: "Boas-vindas + coffee de chegada by Confeitaria Lamb's" },
-  { hora: "18h40", titulo: "Bloco 1 — Gravação", desc: "Origem e travessia: como uma ideia vira instituição" },
-  { hora: "19h05", titulo: "Pitch induzido", desc: "30s a 90s conforme a cota, mediado pela apresentadora" },
-  { hora: "19h40", titulo: "Bloco 2 — Gravação", desc: "Gestão, longevidade e legado" },
-  { hora: "20h05", titulo: "Momento Gastronômico", desc: "Experiência D'Will Grill Burguer, drinks by Dudu Drinks, foto oficial e conexões" },
-  { hora: "20h30", titulo: "Encerramento", desc: "Agradecimentos e despedida" },
+  { hora: "18h00", titulo: "Chegada e welcome drink", desc: "Recepção dos convidados, welcome drink e networking inicial com os Cartões de Conversa" },
+  { hora: "18h30", titulo: "Abertura oficial", desc: "Boas-vindas e apresentação da noite, conduzidas por Adriana Frusciante" },
+  { hora: "18h35", titulo: "Pitch de apresentação", desc: "5 patrocinadores (60 segundos cada) e 20 convidados (30 segundos cada) se apresentam à sala" },
+  { hora: "18h50", titulo: "Entrevista ao vivo", desc: "Bate-papo com Ricardo Rizzo Campos, com espaço para perguntas da plateia" },
+  { hora: "19h35", titulo: "Coquetel e networking", desc: "Mesa gourmet D'Will, café Confeitaria Lamb's e drinks Dudu Drinks, com fotos oficiais com Ricardo Rizzo Campos e patrocinadores" },
+  { hora: "20h15", titulo: "Agradecimentos e encerramento", desc: "Fechamento da noite e despedida" },
+  { hora: "20h30", titulo: "Encerramento oficial", desc: "Fim do evento e desmontagem do estúdio" },
 ];
 
 const numeros = [
