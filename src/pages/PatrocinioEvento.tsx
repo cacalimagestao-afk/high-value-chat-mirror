@@ -197,6 +197,9 @@ const maskCNPJ = (v: string) =>
 
 const isValidCNPJFormat = (v: string) => /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/.test(v);
 
+// Formulário de inscrição desativado — evento não é mais divulgado no site.
+const INSCRICOES_ABERTAS = false;
+
 type Inscricao = {
   id: string;
   nome: string;
@@ -906,7 +909,16 @@ const PatrocinioEvento = () => {
             className="rounded-lg border p-6 md:p-10"
             style={{ backgroundColor: "#0F1B2A", borderColor: "rgba(185,150,87,0.25)" }}
           >
-            {!inscricao ? (
+            {!INSCRICOES_ABERTAS ? (
+              <div className="text-center space-y-3 py-8">
+                <p className="font-display text-xl" style={{ color: "#B99657" }}>
+                  Inscrições encerradas
+                </p>
+                <p className="opacity-70 max-w-md mx-auto">
+                  As inscrições para este evento não estão mais disponíveis.
+                </p>
+              </div>
+            ) : !inscricao ? (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="md:col-span-2">
