@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { setSeo } from "@/lib/seo";
 import capaCacaLima from "@/assets/capas/ep11-cacalima.jpg";
 import capaAlexandreSilva from "@/assets/capas/ep01-alexandresilva.jpg";
@@ -19,13 +18,11 @@ import {
   Check,
   Instagram,
   Youtube,
-  ArrowRight,
   Tv,
   Quote,
   ChevronLeft,
   ChevronRight,
   Phone,
-  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -263,7 +260,6 @@ const Index = () => {
             <a href="#cotas" className="hover:text-gold transition-smooth">Cotas</a>
             <a href="#bastidores" className="hover:text-gold transition-smooth">Bastidores</a>
             <a href="#contato" className="hover:text-gold transition-smooth">Contato</a>
-            <Link to="/evento26-08" className="text-gold hover:text-gold/80 transition-smooth font-medium">Evento Especial</Link>
           </nav>
           <Button asChild size="sm" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
             <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Seja Patrocinador</a>
@@ -314,49 +310,6 @@ const Index = () => {
               <div className="flex items-center gap-2"><Tv className="h-4 w-4 text-gold" /> TV Aberta · Canal 524</div>
               <div className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> Estreias nas sextas-feiras, 20h30</div>
               <div className="flex items-center gap-2"><Video className="h-4 w-4 text-gold" /> Até 30 min</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EVENTO — UMA NOITE */}
-      <section className="py-16 md:py-20 bg-[#E8DCC8] border-y border-gold/40">
-        <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto relative rounded-2xl overflow-hidden border-2 border-gold/60 bg-[#F2EBDD] p-8 md:p-12 shadow-xl">
-            <div className="absolute top-0 left-0 w-full h-1 gradient-gold" />
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-              <div className="flex-1">
-                <Badge variant="outline" className="border-navy-dark/40 text-navy-dark mb-4 uppercase tracking-[0.2em] text-xs px-3 py-1 bg-[#F8F3EA]/80">
-                  Evento Exclusivo
-                </Badge>
-                <h2 className="font-display text-3xl md:text-4xl mb-4 text-navy-dark">
-                  Uma Noite de <span className="italic text-gold">Conversas de Alto Valor</span>
-                </h2>
-                <p className="text-navy-dark/85 leading-relaxed mb-6">
-                  Networking exclusivo com empresários e marcas de peso, com gravação ao vivo do programa no estúdio RSPlay TV. Uma experiência única de conexão, conteúdo e autoridade.
-                </p>
-                <div className="flex flex-wrap gap-6 text-lg md:text-xl mb-8">
-                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
-                    <Calendar className="h-5 w-5 text-gold" /> 26 de agosto de 2026 · 18h30
-                  </div>
-                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
-                    <MapPin className="h-5 w-5 text-gold" /> Estúdio RSPlay TV
-                  </div>
-                  <div className="flex items-center gap-2 text-navy-dark font-semibold">
-                    <Users className="h-5 w-5 text-gold" /> Networking + Gravação em formato auditório
-                  </div>
-                </div>
-                <Button asChild className="bg-navy-dark text-[#F5EFE1] hover:bg-navy-dark/90 font-semibold">
-                  <Link to="/evento26-08">
-                    Saiba mais <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="md:w-1/3 flex justify-center">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold/50 bg-gold/10 flex items-center justify-center shadow-gold">
-                  <Sparkles className="h-12 w-12 md:h-16 md:w-16 text-gold" />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -921,3 +874,4 @@ const Index = () => {
 };
 
 export default Index;
+
