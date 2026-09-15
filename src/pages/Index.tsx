@@ -25,6 +25,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ContactForm from "@/components/ContactForm";
 import {
   Card,
   CardContent,
@@ -764,18 +765,7 @@ const Index = () => {
               Conversas de Alto Valor está pronto para inspirar, educar e conectar. Fale com nosso time
               e receba uma proposta personalizada para sua marca.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold shadow-gold">
-                <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" title="Fale com a Produção via WhatsApp">
-                  Fale com a Produção <Phone className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-gold/40 hover:bg-gold/10 hover:text-gold">
-                <a href="https://youtube.com/@conversasdealtovalor" target="_blank" rel="noopener noreferrer">
-                  <Youtube className="mr-2 h-4 w-4" /> Assistir no YouTube
-                </a>
-              </Button>
-            </div>
+            <ContactForm />
 
             <div className="mt-16 grid sm:grid-cols-3 gap-4 text-sm">
               <a
