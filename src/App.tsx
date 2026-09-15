@@ -9,6 +9,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // quando o visitante realmente acessa aquela rota (reduz o JS inicial).
 const Index = lazy(() => import("./pages/Index.tsx"));
 const PatrocinioEvento = lazy(() => import("./pages/PatrocinioEvento.tsx"));
+const Obrigada = lazy(() => import("./pages/Obrigada.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/apresentadora" element={<Navigate to="/#apresentadora" replace />} />
             <Route path="/evento26-08" element={<PatrocinioEvento />} />
+            <Route path="/obrigada" element={<Obrigada />} />
             {/* Legacy route aliases → /evento26-08 */}
             <Route path="/patrocinio-evento" element={<Navigate to="/evento26-08" replace />} />
             <Route path="/evento-2608" element={<Navigate to="/evento26-08" replace />} />
