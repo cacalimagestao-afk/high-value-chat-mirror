@@ -110,7 +110,7 @@ const estrutura = [
 
 const temas = [
   { tag: "Episódio #1 · Andressa Irgang Roos", title: "O propósito não se fala. Se vive.", url: "https://youtu.be/8zkriugxTVY" },
-  { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", featured: false, capa: capaCacaLima },
+  { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", capa: capaCacaLima },
   { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY", capa: capaGramadoSummit },
   { tag: "Episódio #13 · Temp. 2 · Ricardo Xavier Nunes", title: "O banco cujo maior ativo é salvar vidas", url: "https://youtu.be/rKgTJCrFWF8" },
   { tag: "Episódio #2 · Temp. 3 · Gabriel e Luciano", title: "Mestre e discípulo: próxima fase UFC", url: "https://youtu.be/VsrpgBkRrx8" },
@@ -507,73 +507,16 @@ const Index = () => {
       <section className="py-24 md:py-32">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Exemplos de Temas</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Episódios em ordem de exibição</p>
             <h2 className="font-display text-4xl md:text-5xl">
               Conversas que <span className="italic text-gold">transformam perspectivas</span>
             </h2>
           </div>
 
           <div className="max-w-6xl mx-auto space-y-10">
-            {/* Episódio em destaque — card hero */}
-            {temas.filter((t) => t.featured).map((t) => {
-              const match = t.url.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
-              const videoId = match?.[1];
-              return (
-                <a
-                  key={t.title}
-                  href={t.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                  title={`Assistir ${t.tag} — ${t.title} no YouTube`}
-                >
-                  <Card className="group bg-card/60 border-gold shadow-gold overflow-hidden relative transition-smooth hover:shadow-lg">
-                    <div className="grid md:grid-cols-2">
-                      {(t.capa || videoId) && (
-                        <div className="relative aspect-video md:aspect-auto overflow-hidden bg-navy-dark">
-                          <img
-                            src={t.capa ?? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
-                            onLoad={(e) => {
-                              if (!t.capa) {
-                                const img = e.currentTarget;
-                                if (img.naturalWidth <= 120) {
-                                  img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
-                                }
-                              }
-                            }}
-                            alt={`Capa do episódio ${t.title}`}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-card/60 via-transparent to-transparent md:bg-gradient-to-r" />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-14 h-14 rounded-full bg-gold/90 flex items-center justify-center shadow-gold group-hover:scale-110 transition-smooth">
-                              <Youtube className="h-6 w-6 text-navy-dark" />
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      <CardContent className="p-8 md:p-10 flex flex-col justify-center">
-                        <Badge className="w-fit mb-4 bg-gold text-navy-dark border-none text-[10px] uppercase tracking-wider">
-                          Destaque
-                        </Badge>
-                        <Badge variant="outline" className="w-fit border-gold/40 text-gold text-[10px] uppercase tracking-wider mb-4">
-                          {t.tag}
-                        </Badge>
-                        <h3 className="font-display text-2xl md:text-3xl leading-snug mb-2">{t.title}</h3>
-                        <p className="text-xs uppercase tracking-wider text-gold/80 group-hover:text-gold transition-smooth">
-                          Assistir no YouTube →
-                        </p>
-                      </CardContent>
-                    </div>
-                  </Card>
-                </a>
-              );
-            })}
-
             {/* Demais episódios — grade */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {temas.filter((t) => !t.featured).map((t, i) => {
+              {temas.map((t, i) => {
                 const match = t.url.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
                 const videoId = match?.[1];
                 return (
