@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { setSeo } from "@/lib/seo";
 import capaCacaLima from "@/assets/capas/ep11-cacalima.jpg";
-import capaAlexandreSilva from "@/assets/capas/ep01-alexandresilva.jpg";
-import capaJoscianaBezerra from "@/assets/capas/ep03-joscianabezerra.jpg";
-import capaIvanDePaiva from "@/assets/capas/ep04-ivandepaiva.jpg";
-import capaLucasVital from "@/assets/capas/ep05-lucasvital.jpg";
 import capaGramadoSummit from "@/assets/capas/ep13-gramadosummit.jpg";
 import fotoApresentadora from "@/assets/apresentadora/foto-caca.jpg";
 import {
@@ -114,12 +110,9 @@ const estrutura = [
 
 const temas = [
   { tag: "Episódio #11 · Especial de Aniversário", title: "Existe uma parte minha que você não vê.", url: "https://youtu.be/7EVEG-gS-h4", featured: true, capa: capaCacaLima },
-  { tag: "Episódio #1 · Temp. 2 · Alexandre Silva", title: "A comunicação consegue transformar pessoas?", url: "https://youtu.be/-HC3acXHu6U", capa: capaAlexandreSilva },
-  { tag: "Episódio #3 · Temp. 2 · Josciana Bezerra", title: "Humor, maternidade e verdades que ninguém conta", url: "https://youtu.be/f8SyLIfaTUc", capa: capaJoscianaBezerra },
-  { tag: "Episódio #4 · Temp. 2 · Ivan de Paiva", title: "Fé, recomeços e o que nenhuma IA substitui", url: "https://youtu.be/SDT4O5UQ_qE", capa: capaIvanDePaiva },
-  { tag: "Episódio #5 · Temp. 2 · Lucas Vital", title: "Entre quilômetros e propósitos", url: "https://youtu.be/J9nUd7p_FvE", capa: capaLucasVital },
-  { tag: "Episódio #8 · Temp. 2 · Guilherme e Sueli Cardeal", title: "45 anos de empresa em família", url: "https://youtu.be/sBibh5W7B1M" },
+  { tag: "Episódio #13 · Temp. 2 · Ricardo Xavier Nunes", title: "O banco cujo maior ativo é salvar vidas", url: "https://youtu.be/rKgTJCrFWF8" },
   { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY", capa: capaGramadoSummit },
+  { tag: "Episódio #4 · Temp. 3 · Anselmo Martini", title: "Você teria coragem de recomeçar?", url: "https://youtu.be/Ob5bzUYCU8o" },
 ];
 
 const setores = [
