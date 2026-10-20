@@ -113,6 +113,7 @@ const temas = [
   { tag: "Episódio #13 · Temp. 2 · Ricardo Xavier Nunes", title: "O banco cujo maior ativo é salvar vidas", url: "https://youtu.be/rKgTJCrFWF8" },
   { tag: "Episódio #13 · Gramado Summit Especial", title: "Ideias que movimentam mercados", url: "https://youtu.be/z3DLzQ-t9sY", capa: capaGramadoSummit },
   { tag: "Episódio #3 · Temp. 3 · Júlio César Soares da Silva · Guarida", title: "Não deixe a vida para depois", url: "https://youtu.be/-PTR0ggrjLA" },
+  { tag: "Episódio #2 · Temp. 3 · Gabriel e Luciano", title: "Mestre e discípulo: próxima fase UFC", url: "https://youtu.be/VsrpgBkRrx8" },
   { tag: "Episódio #4 · Temp. 3 · Anselmo Martini", title: "Você teria coragem de recomeçar?", url: "https://youtu.be/Ob5bzUYCU8o" },
 ];
 
