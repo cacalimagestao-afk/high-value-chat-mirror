@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const WHATSAPP_NUMBER = "5551992149336";
 
-const ContactForm = () => {
+const ContactForm = ({ interest, onInterestChange }: { interest: string; onInterestChange: (value: string) => void }) => {
   const [celular, setCelular] = useState("");
 
   const formatPhone = (value: string) => {
@@ -28,16 +28,12 @@ const ContactForm = () => {
       `*Nome completo:* ${nome}`,
       `*Celular:* ${celular}`,
       `*E-mail:* ${email}`,
-      `*Empresa:* ${empresa}`,
+      `*Empresa:* ${empresa || "Não informada"}`,
+      `*Interesse:* ${data.get("interesse")}`,
+      `*Sobre minha proposta ou história:* ${String(data.get("mensagem") ?? "").trim()}`,
     ].join("\n");
 
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
-
-    window.location.assign("/obrigada");
+    window.location.assign(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`);
   };
 
   const inputClassName =
@@ -48,6 +44,15 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       className="mx-auto mt-10 max-w-2xl rounded-2xl border border-gold/30 bg-card/65 p-6 text-left shadow-navy sm:p-8"
     >
+      <label className="block text-sm font-medium mb-5">
+        Como você quer participar?
+        <select name="interesse" className={inputClassName} value={interest} onChange={(event) => onInterestChange(event.target.value)} required>
+          <option value="" disabled>Selecione seu interesse</option>
+          <option value="Patrocínio">Quero patrocinar o programa</option>
+          <option value="Parceria">Quero propor uma parceria</option>
+          <option value="Entrevista">Quero ser entrevistado</option>
+        </select>
+      </label>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="text-sm font-medium text-foreground">
           Nome completo
@@ -90,24 +95,27 @@ const ContactForm = () => {
         </label>
 
         <label className="text-sm font-medium text-foreground">
-          Empresa
+          Empresa (opcional)
           <input
             className={inputClassName}
             type="text"
             name="empresa"
             autoComplete="organization"
             placeholder="Nome da sua empresa"
-            required
           />
         </label>
       </div>
 
+      <label className="block text-sm font-medium mt-5">Conte um pouco sobre seu objetivo
+        <textarea name="mensagem" rows={3} maxLength={1500} className={`${inputClassName} h-auto py-3`} placeholder="Sua marca, ideia de parceria ou história para o programa..." />
+      </label>
+      <p className="text-xs text-muted-foreground mt-4">As possibilidades de entrevista e parceria serão avaliadas pela produção. Condições e entregas são alinhadas antes da confirmação.</p>
       <Button
         type="submit"
         size="lg"
-        className="mt-6 w-full bg-gold font-semibold text-navy-dark shadow-gold hover:bg-gold-light"
+        className="mt-6 w-full h-auto min-h-12 whitespace-normal bg-gold font-semibold text-navy-dark shadow-gold hover:bg-gold-light"
       >
-        Enviar pelo WhatsApp
+        Conversar com a equipe pelo WhatsApp
         <Send className="ml-2 h-4 w-4" />
       </Button>
 
