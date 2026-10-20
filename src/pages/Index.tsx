@@ -230,13 +230,14 @@ const todosIncluem = [
 ];
 
 const Index = () => {
+  const [interest, setInterest] = useState("");
   const [bastIdx, setBastIdx] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setSeo({
-      title: "Conversas de Alto Valor — Histórias que revelam propósitos",
-      description: "Programa semanal de entrevistas com Cacá Lima. Profundidade, propósito e narrativa humana em conversas transformadoras.",
+      title: "Conversas de Alto Valor — Sua marca, sua história, novas conexões",
+      description: "Conecte sua marca a histórias que inspiram. Conheça as oportunidades de patrocínio, parceria e entrevista com Cacá Lima na TV RS Play, YouTube e redes sociais.",
       path: "/",
     });
   }, []);
@@ -250,20 +251,20 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground antialiased">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/40">
-        <div className="container mx-auto flex items-center justify-between py-4">
-          <a href="#top" className="font-display text-lg md:text-xl tracking-wide" aria-label="Conversas de Alto Valor — Voltar ao topo">
+        <div className="container mx-auto flex items-center justify-between gap-3 py-4">
+          <a href="#top" className="font-display text-sm sm:text-lg md:text-xl tracking-wide" aria-label="Conversas de Alto Valor — Voltar ao topo">
             Conversas <span className="text-gold italic">de Alto Valor</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <nav className="hidden xl:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#programa" className="hover:text-gold transition-smooth">O Programa</a>
             <a href="#apresentadora" className="hover:text-gold transition-smooth">Apresentadora</a>
-            <a href="#formato" className="hover:text-gold transition-smooth">Formato</a>
-            <a href="#cotas" className="hover:text-gold transition-smooth">Cotas</a>
+            <a href="#participar" className="hover:text-gold transition-smooth">Como participar</a>
+            <a href="#cotas" className="hover:text-gold transition-smooth">Patrocínio</a>
             <a href="#bastidores" className="hover:text-gold transition-smooth">Bastidores</a>
             <a href="#contato" className="hover:text-gold transition-smooth">Contato</a>
           </nav>
           <Button asChild size="sm" className="bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Seja Patrocinador</a>
+            <a href="#participar">Quero participar</a>
           </Button>
         </div>
       </header>
@@ -292,27 +293,94 @@ const Index = () => {
             <Badge variant="outline" className="border-gold/40 text-gold mb-8 uppercase tracking-[0.2em] text-xs px-4 py-1.5">
               Programa Semanal · Apresentado por Cacá Lima
             </Badge>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-8">
-              Conversas de Alto Valor
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-8">
+              Sua marca merece presença.
               <br />
-              <span className="text-gradient-gold italic">Profundidade, propósito e narrativa humana</span>.
+              <span className="text-gradient-gold italic">Sua história merece ser ouvida.</span>
             </h1>
             <div className="gold-divider w-32 mx-auto mb-8" />
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              Onde histórias revelam propósitos. Um programa de até 30 minutos, no formato Sala de Entrevistas,
-              que une educação empreendedora e narrativa transformadora.
+              No Conversas de Alto Valor, Cacá Lima conecta pessoas, marcas e ideias em entrevistas com propósito. Leve sua marca para a TV, o YouTube e as redes sociais — ou apresente uma história que merece essa conversa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="outline" className="border-gold/40 text-foreground hover:bg-gold/10 hover:text-gold">
-                <a href="#programa">Conheça o Programa</a>
+                <a href="#participar">Conheça as formas de participar →</a>
               </Button>
             </div>
             <div className="mt-16 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2"><Tv className="h-4 w-4 text-gold" /> TV Aberta · Canal 524</div>
+              <div className="flex items-center gap-2"><Tv className="h-4 w-4 text-gold" /> TV RS Play · Canal 524 Claro</div>
               <div className="flex items-center gap-2"><Calendar className="h-4 w-4 text-gold" /> Estreias nas sextas-feiras, 20h30</div>
               <div className="flex items-center gap-2"><Video className="h-4 w-4 text-gold" /> Até 30 min</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="participar" className="py-16 md:py-24 border-y border-gold/20 bg-navy/40">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mb-10">
+            <p className="uppercase tracking-[0.2em] text-xs text-gold mb-4">O próximo capítulo pode ter você</p>
+            <h2 className="font-display text-3xl md:text-5xl mb-5">Como você quer <span className="text-gold italic">fazer parte?</span></h2>
+            <p className="text-muted-foreground text-lg">Escolha seu objetivo. Vamos conversar sobre o formato que faz sentido para você e sua marca.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: TrendingUp, title: "Quero patrocinar", text: "Associe sua marca a conteúdo relevante, com presença na TV e no digital. Conheça as cotas e as entregas de cada formato.", action: "Conhecer oportunidades", href: "#cotas" },
+              { icon: Users, title: "Quero ser parceiro", text: "Seu produto, serviço ou experiência pode fazer parte do programa, dos bastidores ou da imagem da apresentadora. Vamos construir uma proposta juntos.", action: "Propor uma parceria", href: "#contato", interest: "Parceria" },
+              { icon: Video, title: "Quero ser entrevistado", text: "Tem uma trajetória, conhecimento ou iniciativa que pode inspirar outras pessoas? Apresente sua história e conheça as possibilidades de participação.", action: "Apresentar minha história", href: "#contato", interest: "Entrevista" },
+            ].map((item) => (
+              <Card key={item.title} className="bg-card/70 border-gold/25 hover:border-gold transition-smooth flex flex-col">
+                <CardHeader><item.icon className="text-gold h-7 w-7 mb-4" /><CardTitle className="font-display text-2xl">{item.title}</CardTitle></CardHeader>
+                <CardContent className="flex flex-col flex-1"><p className="text-muted-foreground leading-relaxed mb-8">{item.text}</p><Button asChild className="mt-auto w-full whitespace-normal h-auto min-h-12 bg-gold text-navy-dark hover:bg-gold-light"><a href={item.href} onClick={() => { if (item.interest) setInterest(item.interest); }}>{item.action} →</a></Button></CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mt-12 border-t border-border pt-8 text-sm">
+            <p><strong className="block text-gold mb-2">01 · Conte seu objetivo</strong>Apresente sua marca, sua proposta ou sua história.</p>
+            <p><strong className="block text-gold mb-2">02 · Encontre o formato</strong>Conversamos sobre participação, entregas e condições.</p>
+            <p><strong className="block text-gold mb-2">03 · Construa sua presença</strong>Com o formato alinhado, organizamos os próximos passos.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* PARCEIROS & PATROCINADORES */}
+      <section className="py-20 md:py-28 border-t border-border/40">
+        <div className="container mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Quem acredita conosco</p>
+            <h2 className="font-display text-3xl md:text-4xl">
+              Parceiros & <span className="italic text-gold">Patrocinadores</span>
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
+            {[
+              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", isBlack: true },
+              { logo: logoMedKaya, name: "MedKaya", title: "Visite o site da MedKaya", url: "https://www.medkayafarma.com.br/" },
+              { logo: logoOralsin, name: "OralSin Cachoeirinha", title: "Visite o Instagram da OralSin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
+              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
+              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
+            ].map((p) => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center p-2.5 h-24 sm:h-28 overflow-hidden"
+                title={p.title}
+                aria-label={p.title}
+              >
+                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} loading="lazy" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" style={p.isBlack ? { filter: "brightness(0)" } : {}} />
+              </a>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground mt-10">
+            Quer ver sua marca aqui?{" "}
+            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-light underline underline-offset-4 transition-smooth">
+              Fale conosco
+            </a>
+          </p>
         </div>
       </section>
 
@@ -612,7 +680,7 @@ const Index = () => {
                     <p className="text-[11px] uppercase tracking-wider text-gold/80 mb-2">Ideal Para</p>
                     <p className="text-xs text-muted-foreground leading-relaxed mb-5">{c.ideal}</p>
                     <Button asChild className="w-full bg-gold text-navy-dark hover:bg-gold-light font-semibold">
-                      <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer">Solicitar Proposta</a>
+                      <a href="#contato" onClick={() => setInterest(c.title === "Entrevista Especial" ? "Entrevista" : "Patrocínio")}>Quero conhecer este formato →</a>
                     </Button>
                   </div>
                 </CardContent>
@@ -756,16 +824,15 @@ const Index = () => {
       <section id="contato" className="py-24 md:py-32 bg-navy/40 border-t border-border/40">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Proposta Comercial</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Vamos conversar</p>
             <h2 className="font-display text-4xl md:text-6xl mb-6 leading-tight">
               Pronto para fazer parte de uma{" "}
               <span className="italic text-gradient-gold">conversa transformadora?</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              Conversas de Alto Valor está pronto para inspirar, educar e conectar. Fale com nosso time
-              e receba uma proposta personalizada para sua marca.
+              Quer fortalecer sua marca, propor uma parceria ou contar sua história? Selecione seu interesse e converse com nossa equipe pelo WhatsApp.
             </p>
-            <ContactForm />
+            <ContactForm interest={interest} onInterestChange={setInterest} />
 
             <div className="mt-16 grid sm:grid-cols-3 gap-4 text-sm">
               <a
@@ -806,46 +873,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PARCEIROS & PATROCINADORES */}
-      <section className="py-20 md:py-28 border-t border-border/40">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="uppercase tracking-[0.3em] text-xs text-gold mb-4">Quem acredita conosco</p>
-            <h2 className="font-display text-3xl md:text-4xl">
-              Parceiros & <span className="italic text-gold">Patrocinadores</span>
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto">
-            {[
-              { logo: logoRsplay, name: "RSPLAY TV", title: "Visite o site da RSPLAY TV", url: "https://rsplay.com.br/", isBlack: true },
-              { logo: logoMedKaya, name: "MedKaya", title: "Visite o site da MedKaya", url: "https://www.medkayafarma.com.br/" },
-              { logo: logoOralsin, name: "OralSin Cachoeirinha", title: "Visite o Instagram da OralSin Cachoeirinha", url: "https://www.instagram.com/oralsincachoeirinha?igsh=MTI3c2J5MDdxYzRlaQ==" },
-              { logo: logoArena, name: "Arena Aquática", title: "Visite o Instagram da Arena Aquática", url: "https://www.instagram.com/arena.aquatica?igsh=MXNrb2l6NXlvbnFrOA==" },
-              { logo: logoDermogral, name: "Dermogral Farmácia de Manipulação", title: "Visite o Instagram da Dermogral Farmácia", url: "https://www.instagram.com/dermogralfarmacia?igsh=MWFtYnQ4NHlyZzk0Yw==" },
-            ].map((p) => (
-              <a
-                key={p.name}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(20%-1.2rem)] rounded-xl border border-border/60 bg-white hover:border-gold/60 hover:shadow-lg transition-smooth flex items-center justify-center p-2.5 h-24 sm:h-28 overflow-hidden"
-                title={p.title}
-                aria-label={p.title}
-              >
-                <img src={p.logo} alt={`Logo ${p.name} — parceiro do Conversas de Alto Valor`} loading="lazy" className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 ease-out" style={p.isBlack ? { filter: "brightness(0)" } : {}} />
-              </a>
-            ))}
-          </div>
-
-          <p className="text-center text-sm text-muted-foreground mt-10">
-            Quer ver sua marca aqui?{" "}
-            <a href="https://wa.me/5551992149336" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold-light underline underline-offset-4 transition-smooth">
-              Fale conosco
-            </a>
-          </p>
-        </div>
-      </section>
+      <a href="#participar" className="fixed bottom-5 right-5 z-40 rounded-full bg-gold text-navy-dark px-5 py-3 font-semibold shadow-gold text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" aria-label="Ver formas de participar do programa">Faça parte do programa →</a>
 
       {/* FOOTER */}
       <footer className="py-10 border-t border-border/40">
@@ -854,7 +882,7 @@ const Index = () => {
             Conversas <span className="text-gold italic">de Alto Valor</span>
           </div>
           <p className="text-xs text-muted-foreground text-center">
-            © 2024 Conversas de Alto Valor. Onde histórias revelam propósitos.
+            © 2026 Conversas de Alto Valor. Onde histórias revelam propósitos.
           </p>
           <div className="text-xs text-muted-foreground">Apresentado por Cacá Lima</div>
         </div>
